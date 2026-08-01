@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# run artifacts
+.rgm-ledger.json
+.rgm/
+acceptance-contract.json
+.rgm-mutation-ledger.json
+.rgm-mutation-backup/
+
+.rgm-ledger-*.json

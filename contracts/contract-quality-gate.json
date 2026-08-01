@@ -1,0 +1,102 @@
+{
+  "version": "1",
+  "task": "red-green contract quality gate — mutation testing as the fifth enforcement tooth, proving that every AC's verifier really bites the production code it claims to guard",
+  "prd_source": "docs/PRD.md",
+  "created_at": "2026-06-24T00:00:00Z",
+  "items": [
+    {
+      "id": "AC-01",
+      "scenario": "Run the mutation check against an always-green verifier (the tautological kind); it must judge the target dead and end with a failing exit code",
+      "scenario_ref": "PRD ch. 11 (e), acceptance scenario 1",
+      "check_type": "test",
+      "expect": "rgm_mutation check prints DEAD and the process exits non-zero",
+      "verifier": "python3 -m pytest tests/test_mutation.py::test_dead_target_is_caught -q",
+      "targets": [
+        "tools/rgm_mutation.py::_check_item"
+      ],
+      "depends_on": [],
+      "status": "green"
+    },
+    {
+      "id": "AC-02",
+      "scenario": "Run the mutation check against a verifier that genuinely asserts the return value of the function under test; at least one mutation flips it from green to red, so the target is judged alive and it exits successfully",
+      "scenario_ref": "PRD ch. 11 (e), acceptance scenario 2",
+      "check_type": "test",
+      "expect": "rgm_mutation check prints ALIVE and the process exits zero",
+      "verifier": "python3 -m pytest tests/test_mutation.py::test_real_verifier_passes -q",
+      "targets": [
+        "tools/rgm_mutation.py::_check_item"
+      ],
+      "depends_on": [
+        "AC-01"
+      ],
+      "status": "green"
+    },
+    {
+      "id": "AC-03",
+      "scenario": "After a mutation check finishes normally, the mutated production file must be byte-for-byte identical to what it was before the run, leaving zero residue in the working tree",
+      "scenario_ref": "PRD ch. 11 (e), acceptance scenario 3",
+      "check_type": "test",
+      "expect": "Hashing the target file before and after the run yields exactly the same digest",
+      "verifier": "python3 -m pytest tests/test_mutation.py::test_zero_residue_after_run -q",
+      "targets": [
+        "tools/rgm_mutation.py::_check_item"
+      ],
+      "depends_on": [
+        "AC-01"
+      ],
+      "status": "green"
+    },
+    {
+      "id": "AC-04",
+      "scenario": "When the verifier crashes or times out during mutation, the restore logic must still put the target file back, proving the finally-based restore works on the exception path",
+      "scenario_ref": "PRD ch. 11 (e), acceptance scenario 4",
+      "check_type": "test",
+      "expect": "After the verifier exits abnormally, the target file is still byte-for-byte identical to before the run",
+      "verifier": "python3 -m pytest tests/test_mutation.py::test_restore_even_when_verifier_times_out -q",
+      "targets": [
+        "tools/rgm_mutation.py::_check_item"
+      ],
+      "depends_on": [
+        "AC-03"
+      ],
+      "status": "green"
+    },
+    {
+      "id": "AC-05",
+      "scenario": "Run the mutation check against an acceptance item that declares no guarded targets; it must be judged not applicable and must not fail the gate",
+      "scenario_ref": "PRD ch. 11 (e), acceptance scenario 5",
+      "check_type": "test",
+      "expect": "rgm_mutation check prints N/A and the process exits zero",
+      "verifier": "python3 -m pytest tests/test_mutation.py::test_item_without_targets_is_na -q",
+      "targets": [
+        "tools/rgm_mutation.py::_check_item"
+      ],
+      "depends_on": [
+        "AC-01"
+      ],
+      "status": "green"
+    },
+    {
+      "id": "AC-06",
+      "scenario": "Feed a dead-target acceptance item into the aggregate gate with the mutation sub-check enabled; the whole gate must fail and the mutation sub-check must be marked failed",
+      "scenario_ref": "PRD ch. 11 (e), acceptance scenario 6",
+      "check_type": "test",
+      "expect": "With mutation enabled, rgm_gate's aggregate verdict is FAIL and the MUTATION sub-item is FAIL",
+      "verifier": "python3 -m pytest tests/test_mutation.py::test_gate_mutation_fails_on_dead_target -q",
+      "targets": [
+        "tools/rgm_gate.py::_check_mutation"
+      ],
+      "depends_on": [
+        "AC-01",
+        "AC-05"
+      ],
+      "status": "green"
+    }
+  ],
+  "anticheat_allows": [],
+  "attestation": {
+    "hash": "sha256:b8f9c5419ee4a0b2fd5c0983dc36aa1244f98d6758aaa2156eda25707b0583a1",
+    "attested_at": "2026-08-01T09:14:33.750156+00:00"
+  }
+}
