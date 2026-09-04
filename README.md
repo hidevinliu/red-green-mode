@@ -204,9 +204,9 @@ short version of the two that matter most:
   a shell. Anyone who can write your ledger can make the gate run arbitrary commands and return
   PASS. Treat the ledger exactly like a `Makefile`: it is code, review it as code.
 
-Also honest about scope: the `evals/` directory holds 52 hand-written scenario rubrics with **no
+Also honest about scope: the `evals/` directory holds 53 hand-written scenario rubrics with **no
 automated runner**. They are a human review checklist, not a passing benchmark. Don't read them as
-"52 evals green".
+"53 evals green".
 
 ---
 

@@ -2,7 +2,9 @@
 
 > **When to read**: When you need each state's exit condition and failure route, the Run Ledger fields, the checkpoint policy, the post-green quality review score, the "can I change this?" decision table, or the full ledger tool commands. SKILL.md keeps only the state progression order.
 
-> Everything below was moved verbatim out of SKILL.md (the v0.19.0 slim-down; see the references index table in SKILL.md). Only its location changed, not a word of the text.
+> This page carries the production state machine. The v0.20.0 addition is the
+> soft minimality/scope review; it improves plan quality but never becomes a
+> completion proof or a mechanical gate.
 
 ## Production Execution State Machine
 
@@ -17,15 +19,15 @@ INTAKE → CONTEXT_PACK → PRECHECK → BASELINE → TRIAGE → PLAN_ONE_FIX �
 |------|----------|------|
 | `INTAKE` | `rgm_intake.py` or an equivalent judgment produces route/mode/gates; confirmed this is a verifiable autonomous task | `CONTEXT_PACK`; if this doesn't belong in red-green mode, switch to TDD/debug/research/doc-only instead of forcing the loop |
 | `CONTEXT_PACK` | `rgm_context_pack.py build` has produced `.rgm/context-pack.json/md` listing selected files / symbols / test commands / risk files / unknowns; confirmed it is only an input artifact | `PRECHECK`; when there are no selected files, or unknowns expose a missing verifier / dirty tree / blown budget, handle it in `PRECHECK` first and never use the pack as proof of completion |
-| `PRECHECK` | Verifier, runtime environment, and permission/workspace starting point located; if the business-rule discovery gate fired, the rule is extracted and at least one semantic assertion added; with a PRD, the acceptance checklist is extracted and mapped to verifiers | `BASELINE`; no verifier → `BLOCKED_BY_INFRA`; a rule or acceptance item without evidence → `TEST_QUESTION` |
+| `PRECHECK` | Verifier, runtime environment, and permission/workspace starting point located; if the business-rule discovery gate fired, the rule is extracted and at least one semantic assertion added; with a PRD, the acceptance checklist is extracted and mapped to verifiers; when the change could invite new code or abstraction, a minimality card records reuse, stdlib/native options, scope, and any deliberate simplification | `BASELINE`; no verifier → `BLOCKED_BY_INFRA`; a rule or acceptance item without evidence → `TEST_QUESTION` |
 | `BASELINE` | Full run finished and raw output recorded | `TRIAGE` |
 | `TRIAGE` | Every red light labeled and clustered by shared root cause; if `STATE.md` exists, first run `loop_state.py recall "<current red-light signature>" --k 3` to recall lessons from similar past reds | Fixable → `PLAN_ONE_FIX`; not fixable → the matching stop state; on the way out you can run `loop_lesson_candidates.py STATE.md --threshold 2` to check whether a lesson should be promoted into a skill/guard/lint |
 
-| `PLAN_ONE_FIX` | Hypothesis, prediction, and minimal change scope written down | `INNER_VERIFY` |
+| `PLAN_ONE_FIX` | Hypothesis, prediction, minimal change scope, and (when relevant) the smallest **correct** implementation choice written down; any deferred complexity has a ceiling and revisit trigger | `INNER_VERIFY` |
 | `INNER_VERIFY` | Targeted verification of the current hypothesis | Green → `OUTER_VERIFY`; red → back to `PLAN_ONE_FIX` or stop |
 | `OUTER_VERIFY` | Fast→slow full pipeline with no task-level regression | `SMOKE_ASSERT`; on regression, find the cause or roll back |
 | `SMOKE_ASSERT` | At least one semantic assertion proves the thing actually works | `QUALITY_REVIEW`; a failure here means "all tests green but the semantics are wrong" (a test blind spot) → go back to `PLAN_ONE_FIX` and first add a targeted test that turns the semantic error into a real red light. **Do not go back to `TRIAGE`** — there is no red light to triage at that point |
-| `QUALITY_REVIEW` | After green, review the change for quality, scope, boundaries, security, and maintainability | `REPORT` (no PRD) / `PRD_COVERAGE` (with PRD); when you find risk, add tests, fix it, or list it in the report |
+| `QUALITY_REVIEW` | After green, review the change for quality, scope, boundaries, security, maintainability, and over-engineering (`delete` / `stdlib` / `native` / `yagni` / `shrink`) | `REPORT` (no PRD) / `PRD_COVERAGE` (with PRD); when you find risk, add tests, fix it, or list it in the report |
 | `PRD_COVERAGE` | (PRD only) Walk the acceptance list item by item: done / not covered / not done (`GAP_CHECK`) | `GATE`; any not-done or uncovered item → back to `TRIAGE`/`PLAN_ONE_FIX` and keep going, or report the gap honestly. **Do not report FULL_GREEN** |
 | `GATE` | Run `tools/rgm_gate.py` for an aggregate verdict (re-run verifiers / anti-cheat / contract coverage / project constraints); only the `RGM_GATE=PASS` sentinel lets you through | `REPORT`; exit 1 (any sub-check FAIL) → back to `TRIAGE`/`PLAN_ONE_FIX` or report the gap honestly, **FULL_GREEN forbidden**; exit 2 → `BLOCKED_BY_INFRA` |
 | `REPORT` | Completion state, before→after, remaining red lights, PRD coverage (with a PRD), GATE sentinel | Finish |
@@ -78,7 +80,7 @@ The red-green loop must be rollbackable. In `PRECHECK`, determine the workspace 
 | Dimension | Points | Questions to ask |
 |------|------|----------|
 | Scope control | 0–2 | Did you touch only the files the task needs? Any drive-by refactors or behavior spilling outside scope? |
-| Maintainability | 0–2 | Are the names clear? Is the logic more complex than it needs to be? Any duplicated code or hidden state? |
+| Maintainability | 0–2 | Are the names clear? Is the logic more complex than it needs to be? Could an existing helper, stdlib/native feature, or installed dependency replace new code? Any duplicated code or hidden state? |
 | Boundary coverage | 0–2 | Are the key edges — empty input, missing keys, paths/permissions, time zones, money, ordering — covered by a test or the smoke check? |
 | Security | 0–2 | Are path escapes, injection, secret/PII leaks, and external command or network side effects under control? |
 | Test honesty | 0–2 | Does the harness still carry its original assertion semantics? Does the smoke check assert output or side effects? Did you avoid skipping or weakening any referee? |
@@ -89,6 +91,22 @@ Scoring:
 - **<6**: Don't finish. Go back to `TRIAGE`/`PLAN_ONE_FIX`, add tests or fixes, or ask the user to confirm scope.
 
 Don't quietly widen scope to fix non-blocking issues the review turns up; list them under "remaining risks / recommendations" in the report. If a risk would affect the correctness of the current task, add a targeted test or a semantic smoke check so it enters the red-green loop.
+
+### Soft minimality review (v0.20.0)
+
+This is a design-quality check, not a sixth mechanical tooth. Use it when the
+task could grow a new abstraction, dependency, wrapper, or broad refactor:
+
+```text
+Need → Reuse → Stdlib/Native → Smallest correct diff → Deliberate ceiling
+```
+
+Record the result in the ledger or plan. In the final review, tag findings as
+`delete`, `stdlib`, `native`, `yagni`, or `shrink`, then fix, defer with a
+revisit trigger, or explain why the larger shape is required. Never turn line
+count into a target, and never trade away validation, error handling, security,
+accessibility, observability, or test honesty for a smaller diff. Details and a
+copyable card live in `references/minimality-and-scope.md`.
 
 ### Decision table: can I change this?
 

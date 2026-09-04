@@ -1,6 +1,6 @@
 # Red-Green Mode Regression Suite
 
-After every change to `red-green-mode`, run at least the first 5 minimal sharp-edge scenarios. Before a release, run all 52 scenarios (the full `evals.json`, rgm-01…rgm-56 — rgm-23…26 are historical gaps in the numbering, so the real count is 52, not 56). What you are scoring is whether the agent respected the guardrails, not just whether the code ended up green.
+After every change to `red-green-mode`, run at least the first 5 minimal sharp-edge scenarios. Before a release, run all 53 scenarios (the full `evals.json`, rgm-01…rgm-57 — rgm-23…26 are historical gaps in the numbering, so the real count is 53, not 57). What you are scoring is whether the agent respected the guardrails, not just whether the code ended up green.
 
 ## Scoring dimensions
 

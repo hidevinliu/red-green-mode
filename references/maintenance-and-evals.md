@@ -26,7 +26,7 @@ Regression isn't there to prove "every task can be fixed to green." It checks wh
 
 ## Self-test / regression stress suite
 
-When maintaining this skill, don't edit the docs on vibes. Run at least the 5 minimal sharp-edged tasks after every change; before a release, run all 51 regression scenarios in `evals/evals.json` (including the v0.10.0 mechanical enforcement layer rgm-35…43 mapping to AC-01…AC-09; the v0.10.2 contract quality gate rgm-44/45/46; the v0.12.0 Intake Router rgm-47; the v0.13.0 Context Pack Gate rgm-48; the v0.14.0 CodeMap rgm-49 and Repo MCP/Orchestration rgm-50; the v0.15.0 content-addressed CodeMap rgm-51, live MCP rgm-52, MCP build-vs-buy rgm-53, external MCP adapter registry rgm-54, and write-gated MCP patch rgm-55). Score on whether the agent respected the guardrails, not just on whether the code eventually turned green.
+When maintaining this skill, don't edit the docs on vibes. Run at least the 5 minimal sharp-edged tasks after every change; before a release, run all 53 regression scenarios in `evals/evals.json` (including the v0.10.0 mechanical enforcement layer rgm-35…43 mapping to AC-01…AC-09; the v0.10.2 contract quality gate rgm-44/45/46; the v0.12.0 Intake Router rgm-47; the v0.13.0 Context Pack Gate rgm-48; the v0.14.0 CodeMap rgm-49 and Repo MCP/Orchestration rgm-50; the v0.15.0 content-addressed CodeMap rgm-51, live MCP rgm-52, MCP build-vs-buy rgm-53, external MCP adapter registry rgm-54, and write-gated MCP patch rgm-55, red-signal construction gate rgm-56, and soft minimality/scope review rgm-57). Score on whether the agent respected the guardrails, not just on whether the code eventually turned green.
 
 The 5 minimal tasks:
 1. `happy_path`: a stable single-function bug — checks baseline → fix → wrap-up report.
@@ -87,10 +87,12 @@ Write-gated MCP patch scenario (added 2026-06-30 / 2026-07-01; `evals/evals.json
 
 ---
 
-> The section below is copied verbatim from SKILL.md (v0.19.0 slimming pass — see the references index table in SKILL.md). It only moved; not a word of the body changed.
+> The section below is the maintenance contract for v0.20.0. It keeps the
+> existing regression discipline and adds the soft minimality/scope scenario;
+> it is not a completion proof for any production task.
 
 ## Maintaining this skill: automated regression & self-test suite (details moved out)
 
-**Only used when maintaining red-green-mode itself** (you don't need it while running an actual red-green task). After changing `SKILL.md`, `tools/`, or `evals`, run `python -m pytest tests/ -q` plus `rgm_regression.py validate/checklist`; before a release, run all **52** scenarios in `evals/evals.json`. Regression judges **whether the guardrails held** (classification / no cheating / stopping / smoke / quality review / context pack and CodeMap-MCP orchestration staying input artifacts only), not just whether the code turned green.
+**Only used when maintaining red-green-mode itself** (you don't need it while running an actual red-green task). After changing `SKILL.md`, `tools/`, or `evals`, run `python -m pytest tests/ -q` plus `rgm_regression.py validate/checklist`; before a release, run all **53** scenarios in `evals/evals.json`. Regression judges **whether the guardrails held** (classification / no cheating / stopping / smoke / quality review / context pack and CodeMap-MCP orchestration staying input artifacts only), not just whether the code turned green.
 
-**Full commands, the 5 minimal sharp-edged tasks, and the 52-scenario list (mechanical enforcement rgm-35…43 / contract quality gate rgm-44…46 / Intake Router rgm-47 / Context Pack rgm-48 / CodeMap rgm-49 / MCP orchestration rgm-50 / content-addressed CodeMap rgm-51 / live MCP rgm-52 / MCP build-vs-buy rgm-53 / external MCP adapter registry rgm-54 / write-gated MCP patch rgm-55 / red-signal construction gate rgm-56 / long-run, parallel, and PRD gates) live in `references/maintenance-and-evals.md`.**
+**Full commands, the 5 minimal sharp-edged tasks, and the 53-scenario list (mechanical enforcement rgm-35…43 / contract quality gate rgm-44…46 / Intake Router rgm-47 / Context Pack rgm-48 / CodeMap rgm-49 / MCP orchestration rgm-50 / content-addressed CodeMap rgm-51 / live MCP rgm-52 / MCP build-vs-buy rgm-53 / external MCP adapter registry rgm-54 / write-gated MCP patch rgm-55 / red-signal construction gate rgm-56 / soft minimality/scope review rgm-57 / long-run, parallel, and PRD gates) live in `references/maintenance-and-evals.md`.**

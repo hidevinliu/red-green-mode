@@ -2,7 +2,8 @@
 
 > **When to read**: SKILL.md keeps only the titles and one-liners of the ironclad rules; this page carries the full text of all nine (cheating-excuse table, stop-condition commands, completion-status definitions), plus the danger-signal self-check, the mandatory items in the wrap-up report, and "stopping ≠ dumping a menu".
 
-> The whole block below is lifted verbatim from SKILL.md (v0.19.0 slim-down; see the references index table in SKILL.md). Only its location changed — not a word of the text.
+> The core ironclad rules remain unchanged. v0.20.0 adds a soft minimality
+> review to planning and wrap-up; it is not an ironclad rule or a gate.
 
 ## Ironclad Rules (what keeps an unattended loop from crashing)
 
@@ -130,6 +131,7 @@ When the loop ends — full green, or a stop condition fired — report:
 - **Run ledger summary**: state / command / label / hypothesis / change / result for each round
 - **Checkpoint summary**: starting point, touched files, whether a rollback was needed and performed
 - **Quality Score**: total across Scope / Maintainability / Boundary / Security / Test honesty, with reasoning
+- **Minimality review** (when relevant): kept / simplified / deferred; findings by tag and any ceiling + revisit trigger
 - **Change list**: which files you touched and why (with checkpoint/commit references for traceability)
 - **What you left alone**: unrelated pre-existing failures, suspected flaky tests (with the last full error + a repro command)
 - **Real hard gates (if any)**: see "Stopping ≠ dumping a menu" below — list only the hard gates marked `gate` in the contract, each with its single factual question. No "which should I do next" menus.

@@ -1,10 +1,12 @@
 ---
 name: red-green-mode
-version: 0.19.0
+version: 0.20.0
 description: >-
   Autonomous test-fix loop (red-green mode). Run a verifier (pytest / jest / go test / cargo /
   tsc / ruff / eslint / CI), fix whatever is red, re-run, and only finish on all-green — where
-  right and wrong are decided by the exit code, not by the agent's own judgement.
+  right and wrong are decided by the exit code, not by the agent's own judgement. Before each
+  fix, prefer the smallest correct change: reuse existing code, stdlib, or native capabilities
+  before adding abstractions or dependencies; never trade safety or test honesty for fewer lines.
   Triggers: red-green mode / keep fixing until the tests pass / self-verify / run until all green /
   fix CI until green / autonomous test-fix loop / long-run mode / parallel red-green;
   「红绿灯模式」「自己跑到绿」「绿了才算完」「跑到测试全过」「把 CI 修到全绿」「不用我盯着」「长跑模式」「并行红绿灯」。
@@ -35,7 +37,7 @@ whatever is red, then verify again.
 # ① First step of any run: create the ledger (mandatory, however small the task; it powers the
 #    wrap-up timing report. Only exemption: no write permission)
 python tools/rgm_ledger.py init --task "<task>" --workspace "$PWD" \
-  --skill-version "red-green-mode v0.19.0" --verify "python -m pytest -q" --out .rgm-ledger.json
+  --skill-version "red-green-mode v0.20.0" --verify "python -m pytest -q" --out .rgm-ledger.json
 # ② Every verify round (including INNER_VERIFY): record the remaining red count as a number, then
 #    let the script rule on stalling (patience defaults to 5 rounds)
 python tools/rgm_ledger.py add --out .rgm-ledger.json --state OUTER_VERIFY --result "4 failed" --red-count 4
@@ -77,6 +79,7 @@ INTAKE → CONTEXT_PACK → PRECHECK → BASELINE → TRIAGE → PLAN_ONE_FIX �
 
 - `PRECHECK` embeds sub-flows: the business-rule discovery gate `RULE_DISCOVERY → EVIDENCE_GATHERING → ASSERTION_DRAFT`; with a PRD, `PRD_PARSE → COVERAGE_MAP`, then `GAP_CHECK` before finishing.
 - Front-loaded tools: `rgm_intake.py` (should this even enter red-green?) → `rgm_context_pack.py build` (look at the right things first) → `rgm_codemap.py build/select`. All three are **input artifacts, not proof of completion**.
+- Before `PLAN_ONE_FIX`, run the soft **minimality/scope review** when the task could invite a new abstraction, dependency, wrapper, or broad refactor: check reuse → stdlib/native → smallest correct diff, and record any deliberate simplification's ceiling and revisit trigger. Read `references/minimality-and-scope.md`. This review can improve the plan or produce a finding; it is never a line-count target, a verifier, or a substitute for safety/tests.
 - Pick exactly one completion state — "basically done" is not one of them: `FULL_GREEN` / `TASK_GREEN_WITH_BASELINE_RED` / `BLOCKED_BY_INFRA` / `STOPPED_NO_PROGRESS`.
 - **Per-state exit conditions and failure routing → `references/state-machine-and-ledgers.md`.**
 
@@ -101,6 +104,7 @@ INTAKE → CONTEXT_PACK → PRECHECK → BASELINE → TRIAGE → PLAN_ONE_FIX �
 | The 5 red categories + 8 `ENV_RED` sub-types / triage / inner and outer loops / hypothesis gate | `red-triage-and-loops.md` |
 | Full ironclad rules / cheating-excuse crib sheet / warning signs / wrap-up report / stopping ≠ dumping a menu | `ironclad-rules-and-reporting.md` |
 | How to construct a red when there are no tests or the bug will not reproduce (10 escalating options) | `red-signal-construction.md` |
+| How to choose the smallest correct change and review over-engineering | `minimality-and-scope.md` |
 | Business-rule discovery gate / rules for gathering evidence online / Evidence Ledger | `business-rule-discovery-gate.md` |
 | Requirement-alignment bridge / expand→migrate→contract for wide refactors / PRD-coverage gate | `mattpocock-bridge.md` |
 | Should this enter red-green at all / isomorphic degradation across Claude Code and Codex | `intake-router-and-runtime.md` |

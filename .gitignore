@@ -10,3 +10,4 @@ acceptance-contract.json
 .rgm-mutation-backup/
 
 .rgm-ledger-*.json
+.publish.sh

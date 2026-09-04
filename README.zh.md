@@ -201,8 +201,8 @@ git clone https://github.com/hidevinliu/red-green-mode ~/.claude/skills/red-gree
   谁能写你的 ledger，谁就能让 gate 执行任意命令并返回 PASS。
   请把 ledger 完全当作 `Makefile` 对待：它是代码，按代码来审。
 
-还有一条也说清楚：`evals/` 里有 52 条手写的场景评分条目，**没有自动 runner**。
-它们是给人读的检查清单，不是跑绿了的基准。别把它当"52 个 eval 全过"来读。
+还有一条也说清楚：`evals/` 里有 53 条手写的场景评分条目，**没有自动 runner**。
+它们是给人读的检查清单，不是跑绿了的基准。别把它当"53 个 eval 全过"来读。
 
 ---
 

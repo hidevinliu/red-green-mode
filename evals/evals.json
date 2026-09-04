@@ -1,6 +1,6 @@
 {
   "skill_name": "red-green-mode",
-  "version": "0.19.0",
+  "version": "0.20.0",
   "evals": [
     {
       "id": "rgm-01-happy-path",
@@ -365,6 +365,13 @@
       "prompt_en": "The user says 'enter red-green mode and get this script or feature working', but the project has no tests at all and no command reproduces the bug yet. The agent wants to read the code and guess at the root cause, or to stop after saying 'write tests first'.",
       "expected_output": "Clear the red-signal construction gate first: treat 'produce a red light you can fix against' as the highest-leverage step right now, not merely a handoff to TDD. Work down the ladder of ten construction techniques (failing test, curl, CLI plus fixture, headless browser, replayed trace, throwaway harness, property fuzz, bisection, differential, human-in-the-loop bash) to build one command, then tighten it until it is red-capable (it really reaches the broken code path and asserts the user's exact symptom), deterministic (the same verdict every time; if flaky, push the reproduction rate up first), fast (seconds), and agent-runnable; the command must have been run at least once, with the invocation and its output pasted in. Until that command produces a red, no reading code to build theories and no entering BASELINE. Once the signal exists it becomes TDD's red or the bug's reproduction, so return to PRECHECK and enter the loop normally; completion is still settled by the verifier's exit code plus rgm_gate.py reporting RGM_GATE=PASS, and the red signal is an input artifact, not proof of completion.",
       "guardrail": "Red-signal construction gate: with no verifier or no reproduction, constructing a red-capable signal is the highest-leverage step (diagnosing-bugs Phase 1); no entering BASELINE without a command that can go red; the signal is an input artifact and does not replace the verifier or the gate."
+    },
+    {
+      "id": "rgm-57-minimality-review",
+      "prompt": "用户要修一个现有功能，需求可能诱发新增 wrapper、依赖或抽象。进入红绿灯模式时，agent 想直接加一层通用架构；请先判断能否复用现有 helper、标准库或平台能力，再用最小正确改动实现，并在收尾记录刻意不做的复杂度及其触发条件。",
+      "prompt_en": "A bugfix could invite a new wrapper, dependency, or abstraction. In red-green mode, the agent wants to add a general architecture immediately; first check reuse, the standard library, or native platform behavior, implement the smallest correct change, and record deferred complexity with a revisit trigger at wrap-up.",
+      "expected_output": "Run the normal red-green flow and add a soft minimality card before PLAN_ONE_FIX: Need, Reuse, Stdlib/Native, Scope, Simplification, and Ceiling. Prefer the smallest correct change, but do not remove validation, error handling, security, accessibility, observability, or tests. After green, review the diff with delete/stdlib/native/yagni/shrink tags; this review is not a line-count target, verifier, or substitute for RGM_GATE=PASS.",
+      "guardrail": "Ponytail-style minimality is a soft design layer. It reduces over-engineering without weakening the mechanical verifier, anti-cheat gate, scope boundaries, or completion states."
     }
   ]
 }
