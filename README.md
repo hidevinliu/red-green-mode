@@ -178,6 +178,16 @@ Stop hook (`tools/rgm_stop_hook.sh`) into `settings.json` — it exits `2` when 
 and it is fail-closed: if the gate itself can't run, you still don't get to finish.
 See [`tools/STOP-HOOK-INSTALL.md`](tools/STOP-HOOK-INSTALL.md).
 
+### Companion skill: `mutation-check`
+
+Want Gate 2 on its own, without the full loop? `skills/mutation-check/` is a separate skill that
+triggers on *"is this test testing anything?"* / *"find dead tests"* and drives `rgm_mutation.py`
+directly:
+
+```bash
+ln -s ~/.claude/skills/red-green-mode/skills/mutation-check ~/.claude/skills/mutation-check
+```
+
 ### In CI, with no agent involved
 
 `rgm_anticheat.py` is just a diff scanner. It works on human pull requests too:

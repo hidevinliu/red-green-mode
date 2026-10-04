@@ -176,6 +176,15 @@ git clone https://github.com/hidevinliu/red-green-mode ~/.claude/skills/red-gree
 而且是 fail-closed：gate 本身跑不起来，你照样收不了工。
 装法见 [`tools/STOP-HOOK-INSTALL.md`](tools/STOP-HOOK-INSTALL.md)。
 
+### 配套 skill：`mutation-check`
+
+只想单独用第二道门，不跑整个循环？`skills/mutation-check/` 是一个独立 skill，
+被「这个测试是不是白测了」/「找出死测试」这类说法触发，直接调用 `rgm_mutation.py`：
+
+```bash
+ln -s ~/.claude/skills/red-green-mode/skills/mutation-check ~/.claude/skills/mutation-check
+```
+
 ### 在 CI 里用，完全不涉及 agent
 
 `rgm_anticheat.py` 本质就是个 diff 扫描器，对人写的 PR 一样管用：
