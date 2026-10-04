@@ -4,8 +4,8 @@
 
 ## What rgm_anticheat (anti-cheat) cannot catch
 
-1. **Semantic weakening**: rewriting `assert total == 42` into `assert total is not None`, loosening a threshold, tweaking a mock's return value to accommodate the bug — the assertion is still there and still runs, it is just weaker. **Not caught.** (Review the load-bearing assertions yourself, or run them for real with `--run-contract-verifiers`.)
-2. **Aliases and dynamic forms**: `from pytest import skip; skip()`, skips constructed at runtime, decorator aliases, indirect mocks. The regexes match the common spellings; anything written around them slips through.
+1. **Semantic weakening outside the assertion line**: since v0.21.0 any edit to an assertion line itself (`assert total == 42` → `assert total is not None`, a loosened threshold) shows up as a *rewritten* assertion and FAILs under the default `agent` profile (it is only a WARN under `--profile review`). What is still **not caught** is weakening that leaves every assertion line untouched: changing fixture data, a helper the test calls, or a mock's return value so the bug no longer shows. (Review the load-bearing assertions yourself, or run them for real with `--run-contract-verifiers`.)
+2. **Aliases and dynamic forms**: since v0.21.0 marker aliases (`later = pytest.mark.skip`) and module-level `pytestmark` are caught, because any reference to the skip/xfail markers counts. Still slipping through: `from pytest import skip; skip()`, skips constructed at runtime, and indirect mocks. The regexes match the common spellings; anything written around them slips through.
 3. **Strings spanning lines**: `_in_string` is a **single-line** char walk. It does not track triple-quoted multi-line strings, so a pattern inside one can be judged the wrong way (rare).
 4. **`patch(` noise**: an HTTP `patch(url)` or a custom `patch` helper raises a category 7 **warn** (it does not fail the gate, it is just noise).
 5. **Narrowing with `--paths`**: use scope filtering only to narrow down to the full set of files this run touched. Do not use it to exclude the file you cheated in — that is shrinking the referee's field of view to nothing.
@@ -36,6 +36,22 @@
     - **Fixed (anti-cheat regex blind spots)**: B1 — category 4 now uses `IGNORECASE` (an uppercase `# NOQA` no longer slips past). B2 — category 5 now covers the parenthesized `assert(True)` plus `assert <non-zero constant>` (anchored at end of line or a comma, so a real comparison like `assert 200 == x` is not a false positive), which also cleared the pre-existing false positives on `assert 1 == x`.
     - **Not fixed (stated honestly) — A4**: you can bypass the SHA lock by running `attest` first, then deleting the whole `attestation` field and swapping in a weak verifier. **Why we are not fixing it**: attestation is **optional** hardening, and "no attestation = FAIL" would punish every legitimate contract that chose not to attest. A4's real defense belongs to the trust boundary in §13 — anyone who can write the contract file could already write the ledger; attestation only blocks "swap it out after it is locked," not "never lock it / delete the lock on purpose." Actually closing A4 means making attestation state external and sticky (once you have attested, you may not quietly revert to unlocked), which is a much larger stateful change.
     - **A heuristic is still a heuristic**: C1 blocks "just mark it green / skip the tests" at the intake door by keyword match. Reworded phrasing can still get through — it reduces, rather than eliminates, cheating intent buying a ticket in, and the gate/anti-cheat still have to backstop it.
+
+16. **v0.21.0 measured benchmark (bench/).** The scanner is now scored, not just described: 55 seeded cheats
+    (`bench/cheats.py`) for recall and 630 merged human PRs from 21 popular repos for noise. Before v0.21.0 it
+    blocked 32/55 cheats and 10.5% of honest PRs; after, `--profile agent` blocks 55/55 and `--profile review`
+    misses none (41 blocked, 14 warned) while blocking 3.3% of honest PRs. Numbers, method and a line-by-line
+    audit of every remaining block: `bench/README.md`. What the numbers do **not** say:
+    - **The cheat corpus is hand-written.** 55 techniques we know about; recall on techniques nobody has written
+      down yet is unknown. One seeded cheat (a bare `return` before the assertion) needs program semantics and is
+      listed as out of scope rather than silently dropped.
+    - **`--profile review` is for human PRs only.** It turns a rewritten assertion into a WARN, which means the
+      classic "edit the expected value to match the bug" passes the exit code. Never run an agent loop with it.
+    - **Moves are exempt.** An assertion removed and re-added verbatim elsewhere is not a finding; if it was moved
+      into a dead block, only the skip / `if False:` / `except AssertionError` rules catch that.
+    - **Review-profile pairing is diff-wide.** Removed assertions are paired one-for-one with added assertions
+      anywhere in the diff, so "delete five assertions here, add five unrelated ones there" is a WARN, not a FAIL.
+      It catches net loss, not equivalence.
 
 ---
 

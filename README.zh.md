@@ -11,6 +11,11 @@ coding agent 的成绩由它自己跑的测试判定，所以"通过"最省力�
 `red-green-mode` 是那个裁判。零依赖、纯 Python 标准库、不联网、不调模型——只有确定性的退出码，
 任何 agent、任何语言栈、任何 CI 都能直接消费。
 
+**有实测数字，不只是描述**（[`bench/`](bench/README.md)）：对 55 种覆盖 Python、JS/TS、Go、Rust 和 CI 配置的
+已知作弊手法，反作弊扫描器拦下 **55/55**；在 21 个热门项目（Flask、Pydantic、Vite、Zod、GitHub CLI、Tokio 等）
+的 630 个真实合并 PR 上，审 PR 模式只拦 **3.3%**，而且逐个人工复核后没有一个是误判。
+所有结果都能从仓库里的清单复现。
+
 ---
 
 ## 30 秒，在你自己机器上验
@@ -58,7 +63,7 @@ $ python3 -m pytest -q
 $ git diff > /tmp/d.diff
 $ python3 $RGM/tools/rgm_anticheat.py scan --diff-file /tmp/d.diff --format sentinel
 ANTICHEAT=FAIL
-FINDINGS=3
+FINDINGS=2
 WARNINGS=0
 ALLOWS=0
 $ echo $?
@@ -133,10 +138,13 @@ $ echo $?
 | `rgm_constraints.py` | 这次运行有没有写进仓库声明为只读的路径？ | `0` 守住了 · `1` 越界 |
 | `rgm_gate.py` | 以上全部，一次裁决，输出一行给 hook 去 grep 的哨兵。 | `0` PASS · `1` FAIL · `2` 出错 |
 
-**反作弊规则共 9 条**（7 条挂、2 条只提示）：Python / JS-TS / Go-Rust 三套测试跳过写法、
-静态检查压制（`# noqa`、`@ts-ignore`、`eslint-disable`、`#[allow(...)]`）、恒真断言、
-**被删掉**的断言和测试函数、linter 严格度下调，外加两条只警告的坏味道
-（mock 掉被测对象本身、注释里写着"写死骗过测试"）。
+**反作弊规则共 10 类**（8 类拦截、2 类只提示）：Python / JS-TS / Go-Rust 的测试跳过写法
+（含标记别名、`pytestmark`、`it.todo`、`#[ignore = "…"]`、`//go:build ignore`）、
+静态检查屏蔽（`# noqa`、`# pyright: ignore`、`@ts-ignore`、`@ts-expect-error`、`//nolint`、`eslint-disable`、`#[allow(...)]`）、
+恒真或被架空的断言（`assert x or True`、`if False:`、`except AssertionError`）、
+**被删掉**或被改写的断言和测试、缩小测试范围（`--deselect`、`-k "not …"`、`collect_ignore`、`testPathIgnorePatterns`）、
+linter 或 CI 严格度下调（`continue-on-error: true`、`pytest || true`），外加两条只警告的坏味道
+（mock 掉被测对象本身、注释里写着"写死骗过测试"）。只是挪了位置的断言不算。
 
 它只读 diff 的新增行和删除行——你代码库里本来就有的 `# type: ignore` 不算这次运行的账。
 
@@ -155,7 +163,7 @@ $ echo $?
 
 ```bash
 git clone https://github.com/hidevinliu/red-green-mode
-python3 -m pytest red-green-mode/tests/ -q      # 262 passed，约 20 秒
+python3 -m pytest red-green-mode/tests/ -q      # 380 passed，约 30 秒
 ```
 
 **需要什么：**Python 3.9+ 和 `git`。就这些——工具本身不 import 任何标准库以外的东西。
@@ -187,13 +195,15 @@ ln -s ~/.claude/skills/red-green-mode/skills/mutation-check ~/.claude/skills/mut
 
 ### 在 CI 里用，完全不涉及 agent
 
-`rgm_anticheat.py` 本质就是个 diff 扫描器，对人写的 PR 一样管用：
+`rgm_anticheat.py` 本质就是个 diff 扫描器，对人写的 PR 一样管用。审人写的 PR 时加 `--profile review`：
+人改写断言、加屏蔽注释很常见，这两类降为警告；跳过测试、断言或测试净减少、缩小测试范围照样拦
+（在[实测](bench/README.md)里只拦 3.3% 的合并 PR）：
 
 ```yaml
 - name: Block test-tampering in this PR
   run: |
     git diff origin/${{ github.base_ref }}...HEAD > /tmp/pr.diff
-    python3 tools/rgm_anticheat.py scan --diff-file /tmp/pr.diff --format sentinel
+    python3 tools/rgm_anticheat.py scan --diff-file /tmp/pr.diff --profile review --format sentinel
 ```
 
 ---

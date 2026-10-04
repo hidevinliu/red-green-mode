@@ -1,0 +1,5677 @@
+{
+ "description": "Merged, human-authored PRs used as the false-positive corpus. Diffs are not redistributed; rebuild with --from-manifest.",
+ "per_repo": 30,
+ "max_changed_lines": 3000,
+ "prs": [
+  {
+   "repo": "pallets/flask",
+   "number": 6133,
+   "merge_commit": "d8eaaba824655046958d1a97f11780de460c3271",
+   "merged_at": "2026-08-11T20:19:14Z",
+   "changed_lines": 16,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 6096,
+   "merge_commit": "05e9c6bd630ecf4ec0ec884b1fc7901663737bc7",
+   "merged_at": "2026-08-11T19:48:41Z",
+   "changed_lines": 28,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 6095,
+   "merge_commit": "548994ea0c61465574cbfdd636a894a692f54b94",
+   "merged_at": "2026-07-30T17:05:05Z",
+   "changed_lines": 51,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 6013,
+   "merge_commit": "dcbede0cb00df32e7f1895e19e37d5f40a75d1f6",
+   "merged_at": "2026-05-02T03:58:57Z",
+   "changed_lines": 7,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5962,
+   "merge_commit": "7ef2946fb5151b745df30201b8c27790cac53875",
+   "merged_at": "2026-03-24T13:55:57Z",
+   "changed_lines": 21,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5945,
+   "merge_commit": "4774385abdc04d3b0d02dcbed6543bc100f23f6e",
+   "merged_at": "2026-03-08T23:15:00Z",
+   "changed_lines": 60,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5928,
+   "merge_commit": "c34d6e81fd8e405e6d4178bf24b364918811ef17",
+   "merged_at": "2026-02-20T04:00:34Z",
+   "changed_lines": 274,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5924,
+   "merge_commit": "f00ad424ee3b050d382cc5b4aabb18afbb5e4ae7",
+   "merged_at": "2026-02-19T05:01:53Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5917,
+   "merge_commit": "12e95c93b488725f80753f34b2e0d24838ca4646",
+   "merged_at": "2026-02-12T21:07:51Z",
+   "changed_lines": 182,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5903,
+   "merge_commit": "4e652d3f68b90d50aa2301d3b7e68c3fafd9251d",
+   "merged_at": "2026-01-28T15:43:01Z",
+   "changed_lines": 10,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5900,
+   "merge_commit": "407eb76b27884848383a37c7274654f0271e4bc4",
+   "merged_at": "2026-01-25T18:35:12Z",
+   "changed_lines": 310,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5899,
+   "merge_commit": "4b8bde97d4fa3486e18dce21c3c5f75570d50164",
+   "merged_at": "2026-01-25T03:53:12Z",
+   "changed_lines": 36,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5898,
+   "merge_commit": "809d5a8869d4ffe8656680b2438b10f7c8845613",
+   "merged_at": "2026-01-25T01:18:35Z",
+   "changed_lines": 17,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5865,
+   "merge_commit": "4f79d5b59a56bc4356a97f2e81a35f98cb18d7b3",
+   "merged_at": "2026-01-25T03:04:07Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5844,
+   "merge_commit": "5559ef42b5334075cbde82b2870ca725ac606fa4",
+   "merged_at": "2026-01-25T03:00:24Z",
+   "changed_lines": 17,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5829,
+   "merge_commit": "88a65bb374e87a18816a780dbd4ae69d307aa85c",
+   "merged_at": "2025-10-14T20:26:26Z",
+   "changed_lines": 10,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5827,
+   "merge_commit": "30da640ffe23b6e461fa91d387ffea6b9d9fa847",
+   "merged_at": "2026-01-25T02:46:57Z",
+   "changed_lines": 8,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5818,
+   "merge_commit": "70d04b5a2620705011e65f79ccfd52caa86f5d6a",
+   "merged_at": "2025-11-17T16:49:53Z",
+   "changed_lines": 239,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5812,
+   "merge_commit": "adf363679da2d9a5ddc564bb2da563c7ca083916",
+   "merged_at": "2025-09-19T23:45:27Z",
+   "changed_lines": 1786,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5808,
+   "merge_commit": "25642fd1fd65985fc98f95e64bc2c7ff353d6c2b",
+   "merged_at": "2026-01-25T02:25:31Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5800,
+   "merge_commit": "85793d6c223dd845e8f218403a5ced83041d37e1",
+   "merged_at": "2025-08-19T21:03:43Z",
+   "changed_lines": 10,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5799,
+   "merge_commit": "38b4c1e19b50494cfcdc9332899e09b7fed34979",
+   "merged_at": "2025-08-19T15:23:51Z",
+   "changed_lines": 95,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5798,
+   "merge_commit": "49b7e7bc8fb69d605719991d1c0a99fcee689053",
+   "merged_at": "2025-08-18T18:44:57Z",
+   "changed_lines": 21,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5797,
+   "merge_commit": "24824ff666e096c4c07d0b75a889088571afe4a6",
+   "merged_at": "2025-08-18T16:56:39Z",
+   "changed_lines": 38,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5795,
+   "merge_commit": "1292419ddfc6a14fc7f85b5ed7efcc2d215f1ad3",
+   "merged_at": "2025-08-19T20:56:49Z",
+   "changed_lines": 19,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5777,
+   "merge_commit": "1dfd7cd5555d9e62a2e198a131c366242e724b35",
+   "merged_at": "2025-08-18T17:26:12Z",
+   "changed_lines": 3,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5757,
+   "merge_commit": "a7b67c99f922f26b1071a90994e14261dc0a6df2",
+   "merged_at": "2025-06-09T21:33:26Z",
+   "changed_lines": 12,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5754,
+   "merge_commit": "c07b201ce336c3e49ae3b6fa81aaf4fb871d90ba",
+   "merged_at": "2025-06-08T16:47:45Z",
+   "changed_lines": 29,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5742,
+   "merge_commit": "c56c5ec7c41e6ffd02516bf7cb80dd2ba9ba7aa3",
+   "merged_at": "2025-08-18T17:20:07Z",
+   "changed_lines": 14,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pallets/flask",
+   "number": 5737,
+   "merge_commit": "a42c4d54a3e5cd56c0700479ede75157a748acd6",
+   "merged_at": "2025-05-20T16:30:06Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7609,
+   "merge_commit": "5460f467b02e49471c0fd6cfc9ca0adab6351f98",
+   "merged_at": "2026-08-25T00:45:57Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7576,
+   "merge_commit": "d38495c90653496c3c81f31e8f9bef162b400b44",
+   "merged_at": "2026-07-09T15:10:39Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7539,
+   "merge_commit": "74c56d5ffb0ad718dbd011b983d056c994355d7d",
+   "merged_at": "2026-06-24T22:40:13Z",
+   "changed_lines": 7,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7505,
+   "merge_commit": "6f66281a1d6326b1b9c4ac09ca30de0fc4e6ef43",
+   "merged_at": "2026-06-09T15:45:59Z",
+   "changed_lines": 31,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7502,
+   "merge_commit": "6f205ff422bccd5e4c4fc0b64c5f3e7df5181db6",
+   "merged_at": "2026-06-08T20:52:51Z",
+   "changed_lines": 15,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7498,
+   "merge_commit": "1190afd14fca74292946d62c4c8169880a47ff67",
+   "merged_at": "2026-06-04T21:43:21Z",
+   "changed_lines": 1,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7497,
+   "merge_commit": "661970d171d9c3e12e4c789c4768db647d8c4da0",
+   "merged_at": "2026-06-08T17:33:26Z",
+   "changed_lines": 65,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7496,
+   "merge_commit": "e50e5945294f79ee9ab4ec69de24d14f9b26a7ae",
+   "merged_at": "2026-06-04T17:20:34Z",
+   "changed_lines": 33,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7490,
+   "merge_commit": "c4367f231b5dc54f23f2983828562ce3a7555a8a",
+   "merged_at": "2026-05-31T13:35:05Z",
+   "changed_lines": 95,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7460,
+   "merge_commit": "cd90742ed94d901759e26766197d0ce7c7bd9c8e",
+   "merged_at": "2026-05-18T15:02:36Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7445,
+   "merge_commit": "6e83187b8feb273ed4c6cdab5efd8d54901dfab3",
+   "merged_at": "2026-05-14T19:21:53Z",
+   "changed_lines": 12,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7441,
+   "merge_commit": "84d10f0be83e8f6aeca8a05230c52216431c4d0b",
+   "merged_at": "2026-05-14T16:16:26Z",
+   "changed_lines": 5,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7440,
+   "merge_commit": "b7b549b54571d03950b16afd2d01bc6ff0348224",
+   "merged_at": "2026-05-13T19:17:24Z",
+   "changed_lines": 18,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7437,
+   "merge_commit": "2144213c307691710c9d665700860fc4993c3035",
+   "merged_at": "2026-05-13T14:42:43Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7436,
+   "merge_commit": "5691f596134c2feb121e595c77a0178921fcce61",
+   "merged_at": "2026-05-13T14:43:17Z",
+   "changed_lines": 10,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7433,
+   "merge_commit": "6404f345e562d962abe6700a1c357ec1e7e18232",
+   "merged_at": "2026-05-12T17:51:02Z",
+   "changed_lines": 21,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7431,
+   "merge_commit": "e511bc72777a94c45d004e010c597925092e1efe",
+   "merged_at": "2026-05-13T19:16:50Z",
+   "changed_lines": 12,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7429,
+   "merge_commit": "86b378d3f60f828daa13ca50aa82e287ff7b66b4",
+   "merged_at": "2026-05-11T19:24:34Z",
+   "changed_lines": 11,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7428,
+   "merge_commit": "0b401c76b6e80a4eecf3c690085b2553f6e261ca",
+   "merged_at": "2026-05-11T19:24:57Z",
+   "changed_lines": 29,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7427,
+   "merge_commit": "a4f9a5999bdb9bf2d6e7c8aa973b28cacb17134f",
+   "merged_at": "2026-05-11T19:24:21Z",
+   "changed_lines": 29,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7426,
+   "merge_commit": "3816cfa1abd42dca21b9e837f26c59b246016aaf",
+   "merged_at": "2026-05-11T17:33:18Z",
+   "changed_lines": 16,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7425,
+   "merge_commit": "b684dcb9bbf3aa557d1238e72062c4a29737dd1c",
+   "merged_at": "2026-05-11T16:14:13Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7423,
+   "merge_commit": "25340ebad09a38e0748aeb26232102022a03ec94",
+   "merged_at": "2026-05-11T02:05:15Z",
+   "changed_lines": 9,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7422,
+   "merge_commit": "dc9dbdfb3434c6e58d48fd102f93e5342308817e",
+   "merged_at": "2026-05-11T02:05:35Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7421,
+   "merge_commit": "e8d2c015eecda8273612dd4562425e00cd164ba5",
+   "merged_at": "2026-05-09T18:51:50Z",
+   "changed_lines": 1,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7419,
+   "merge_commit": "eb173bc819c72580deed2d54190d340cc769e529",
+   "merged_at": "2026-05-08T20:18:00Z",
+   "changed_lines": 3,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7416,
+   "merge_commit": "d60f4773b1f5932e2715b2c64b333649edbb405b",
+   "merged_at": "2026-05-07T22:27:47Z",
+   "changed_lines": 16,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7408,
+   "merge_commit": "f7822f7c4185b45527f171095c4edf8777efe51b",
+   "merged_at": "2026-05-03T19:51:27Z",
+   "changed_lines": 19,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7401,
+   "merge_commit": "8f6cda9969f4a98c45ea2922f6bcbefc02256202",
+   "merged_at": "2026-04-30T17:05:38Z",
+   "changed_lines": 13,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "psf/requests",
+   "number": 7395,
+   "merge_commit": "27e0981962d355b9532256f4dcb3d42f64b04d9c",
+   "merged_at": "2026-04-30T14:35:13Z",
+   "changed_lines": 4,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13924,
+   "merge_commit": "e87e11b7a74068c2d8107e48ffed6102744abef8",
+   "merged_at": "2026-10-02T22:24:41Z",
+   "changed_lines": 10,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13921,
+   "merge_commit": "f39f19d48cce3fca34c6ebd945a985db580e7f64",
+   "merged_at": "2026-10-02T22:00:03Z",
+   "changed_lines": 6,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13912,
+   "merge_commit": "e5b02608847e59c4cdbeb6355d49374a800a9c91",
+   "merged_at": "2026-10-01T21:11:33Z",
+   "changed_lines": 131,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13911,
+   "merge_commit": "1a429e836a4449e331dffa766b7dc16af4264035",
+   "merged_at": "2026-10-01T21:12:59Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13904,
+   "merge_commit": "50ca66a5b2c07b64162402c1148a48e637a6e418",
+   "merged_at": "2026-09-30T22:18:30Z",
+   "changed_lines": 42,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13903,
+   "merge_commit": "c9ac504d2ab62f7135950ccd7a5c0684be30805f",
+   "merged_at": "2026-09-30T20:56:46Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13899,
+   "merge_commit": "26f7b8a1ad02951962c4073297fa9a2b1ce8d30c",
+   "merged_at": "2026-09-29T21:44:13Z",
+   "changed_lines": 64,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13898,
+   "merge_commit": "e3d96620f9384e82f9c659469d61a2ffc61c94cb",
+   "merged_at": "2026-09-29T21:26:05Z",
+   "changed_lines": 78,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13897,
+   "merge_commit": "199b6ff8c138566999feccc20717ed73ac1a15db",
+   "merged_at": "2026-09-29T21:19:02Z",
+   "changed_lines": 34,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13895,
+   "merge_commit": "5bc650bb3b41d8472db480ffcec4b67ee9158104",
+   "merged_at": "2026-09-30T21:47:15Z",
+   "changed_lines": 195,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13894,
+   "merge_commit": "12418a585cc0a62c1c9d7b9bfc821c56f9928d0a",
+   "merged_at": "2026-09-29T19:39:24Z",
+   "changed_lines": 3,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13893,
+   "merge_commit": "48785824a8071c9a33d4db9d2c0651b78b38cd3c",
+   "merged_at": "2026-09-29T20:17:27Z",
+   "changed_lines": 96,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13892,
+   "merge_commit": "ee4c062be800adb418b7f34ce3e06bc9aad93d74",
+   "merged_at": "2026-09-29T19:19:55Z",
+   "changed_lines": 124,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13891,
+   "merge_commit": "b0cd9d347dc4159043620fde554cbd63d08e3ad5",
+   "merged_at": "2026-09-29T19:09:21Z",
+   "changed_lines": 57,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13890,
+   "merge_commit": "8fb804027c9bde3c96ec8bb14b7b22affdcb6ae4",
+   "merged_at": "2026-09-29T18:10:36Z",
+   "changed_lines": 41,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13883,
+   "merge_commit": "124753c88554c8c137d68b80dff105d0d0c892e0",
+   "merged_at": "2026-09-27T16:01:58Z",
+   "changed_lines": 484,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13874,
+   "merge_commit": "bb6da4cfbb1f559885ea2fa207ec93853bfeac64",
+   "merged_at": "2026-09-25T19:41:22Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13873,
+   "merge_commit": "65d67541fee3aea55b0dbd9ad31629f005b22f2d",
+   "merged_at": "2026-09-25T19:12:37Z",
+   "changed_lines": 139,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13871,
+   "merge_commit": "df5af375b51168a7e289b7e2dc1b259635121eee",
+   "merged_at": "2026-09-25T19:40:51Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13866,
+   "merge_commit": "a9a0e1d1f7805a1b7cc5b5d42e862594a570cf74",
+   "merged_at": "2026-09-25T02:18:47Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13865,
+   "merge_commit": "4c140420c38e734b39bb57c7edb7a59c4a9d494c",
+   "merged_at": "2026-09-25T02:16:18Z",
+   "changed_lines": 182,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13864,
+   "merge_commit": "db9d77cfcff66214b93eba7336cc7523f812d984",
+   "merged_at": "2026-09-25T01:34:14Z",
+   "changed_lines": 3,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13863,
+   "merge_commit": "0077acf393f9ccef1ad06f9a189ca6d6764235b4",
+   "merged_at": "2026-09-25T01:20:40Z",
+   "changed_lines": 6,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13862,
+   "merge_commit": "1f35b5072ca6382e23efe92b92e11a065eda27fa",
+   "merged_at": "2026-09-25T01:39:46Z",
+   "changed_lines": 62,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13859,
+   "merge_commit": "afff1eb7040e568de521d05ebd8b8747f96ad9d9",
+   "merged_at": "2026-09-25T01:49:06Z",
+   "changed_lines": 62,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13858,
+   "merge_commit": "dae7e2065283db4d3d677ebae9d2dc8423131c62",
+   "merged_at": "2026-09-25T01:42:13Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13853,
+   "merge_commit": "5cca21767e47284a53d8c982af5424c70cbe4be3",
+   "merged_at": "2026-09-25T01:53:30Z",
+   "changed_lines": 18,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13850,
+   "merge_commit": "0384c970e37a59b344e75161eb106ea9996378ba",
+   "merged_at": "2026-09-23T02:29:52Z",
+   "changed_lines": 10,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13829,
+   "merge_commit": "ff9561d9dc5c7f5b2fe581b8352ec23b571a1323",
+   "merged_at": "2026-09-25T01:50:03Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "pydantic/pydantic",
+   "number": 13828,
+   "merge_commit": "c124df7fb7348a3d6779c41fb5f4e5a73531e678",
+   "merged_at": "2026-09-17T17:04:16Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16453,
+   "merge_commit": "e2182602ee313e7b6f086f7f8eae212d98e0740e",
+   "merged_at": "2026-10-02T10:23:28Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16449,
+   "merge_commit": "cced85bc2d4d6ef5f37cc3a9668a6abbdb18e0a7",
+   "merged_at": "2026-10-02T05:06:26Z",
+   "changed_lines": 11,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16420,
+   "merge_commit": "e73f34e3af85fe859863d5f55e92b7e55f6a9035",
+   "merged_at": "2026-09-30T14:28:04Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16418,
+   "merge_commit": "1d4953d2e528b58cfb09bbc28fb25dcda227c6ea",
+   "merged_at": "2026-09-30T09:37:29Z",
+   "changed_lines": 114,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16414,
+   "merge_commit": "ac88f563db5f4d3300d43355eca728c93ed9ffe2",
+   "merged_at": "2026-09-29T22:25:04Z",
+   "changed_lines": 180,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16408,
+   "merge_commit": "79d42b219b96f582e41e68ee19bf03cff58cd535",
+   "merged_at": "2026-09-29T08:26:15Z",
+   "changed_lines": 7,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16406,
+   "merge_commit": "39c9a473f9450fc0834ad4ce24d176f3f4a4bb4a",
+   "merged_at": "2026-09-28T18:16:39Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16252,
+   "merge_commit": "c56721805f9e920e9fec6d739a2a203ea7e34b5c",
+   "merged_at": "2026-08-26T17:53:54Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16249,
+   "merge_commit": "60bd125bfb3aacd5e0447f8503a3e1d8a2720c1d",
+   "merged_at": "2026-08-25T13:19:26Z",
+   "changed_lines": 114,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16224,
+   "merge_commit": "24ecb120f4b281cfa422853028e35e8522692f65",
+   "merged_at": "2026-08-18T19:42:28Z",
+   "changed_lines": 243,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16216,
+   "merge_commit": "b26a476a9cf4a21f080e544c5f42a7183e9bc1dd",
+   "merged_at": "2026-08-17T19:20:03Z",
+   "changed_lines": 57,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16196,
+   "merge_commit": "6988aa68743f05341a24fcf6ba6b9224930a5e6d",
+   "merged_at": "2026-08-14T13:05:46Z",
+   "changed_lines": 39,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16193,
+   "merge_commit": "ad24bc870f9c39b0041808b6731f5f79154ddd32",
+   "merged_at": "2026-08-14T12:26:39Z",
+   "changed_lines": 135,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16185,
+   "merge_commit": "cdbb660571552715517c6153053f219d00c80c13",
+   "merged_at": "2026-08-12T07:19:23Z",
+   "changed_lines": 73,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16180,
+   "merge_commit": "d4b62c7f62747d1148ad6bb3fa70d0b143496b74",
+   "merged_at": "2026-08-10T20:42:30Z",
+   "changed_lines": 17,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16178,
+   "merge_commit": "613089ea60d04188153e2bb68a7f4587399ad012",
+   "merged_at": "2026-08-11T21:03:33Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16174,
+   "merge_commit": "d353359c781137126233dc75a8bb9f65b01a7c8e",
+   "merged_at": "2026-08-09T08:08:45Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16172,
+   "merge_commit": "591a4f819ca264314f4c8044c15c1f935d93708d",
+   "merged_at": "2026-08-09T07:54:58Z",
+   "changed_lines": 38,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16170,
+   "merge_commit": "b35a7c39447d6953c8791172068146baad702590",
+   "merged_at": "2026-08-09T07:33:06Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16168,
+   "merge_commit": "b43dc5e10cb1a56b72a8a5f78e5b02e41cddbba0",
+   "merged_at": "2026-08-09T07:40:24Z",
+   "changed_lines": 87,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16167,
+   "merge_commit": "5cd0678fb60e9ee645c32578b439923a1aa17829",
+   "merged_at": "2026-08-08T22:47:22Z",
+   "changed_lines": 37,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16166,
+   "merge_commit": "da2f09432739cd46791920edd7a1cf89e915f8f4",
+   "merged_at": "2026-08-08T22:28:07Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16164,
+   "merge_commit": "f551e5b23c8cd8cf64ed0630db1ca1502c3e930e",
+   "merged_at": "2026-08-08T21:23:48Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16161,
+   "merge_commit": "b5e1562a1e81f0d74a6207f9de8de1c04f55d9a0",
+   "merged_at": "2026-08-08T16:07:33Z",
+   "changed_lines": 35,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16156,
+   "merge_commit": "c39c4566fd88fcb3bfdb9981ae74fd2272518ad5",
+   "merged_at": "2026-08-07T17:06:25Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16148,
+   "merge_commit": "1671234cb2dab74fb98bdba0ca5b23f4ad3d1cf2",
+   "merged_at": "2026-08-06T13:09:58Z",
+   "changed_lines": 46,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16132,
+   "merge_commit": "041f7bc738b3fd972ab318a91bafdea499f47a77",
+   "merged_at": "2026-08-03T20:16:47Z",
+   "changed_lines": 29,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16122,
+   "merge_commit": "d91230074d6d7fc97fd7fbb24f47901d5fa22eb3",
+   "merged_at": "2026-08-03T09:52:03Z",
+   "changed_lines": 374,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16119,
+   "merge_commit": "da99e2eb4aa243a5e4587834ce3afcdedfa3cf64",
+   "merged_at": "2026-08-03T09:47:19Z",
+   "changed_lines": 29,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "fastapi/fastapi",
+   "number": 16106,
+   "merge_commit": "95f8322ee1dcda7ceace7b1c4f6c9915b36d748f",
+   "merged_at": "2026-07-29T17:15:39Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3773,
+   "merge_commit": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+   "merged_at": "2026-02-23T10:40:42Z",
+   "changed_lines": 5,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3730,
+   "merge_commit": "fd474b4050dcc21a4ca315ef0544be6633d7b765",
+   "merged_at": "2025-12-17T13:05:08Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3703,
+   "merge_commit": "ca097c96f97d8d2a5da09b8ca736c7e78a2467f6",
+   "merged_at": "2025-12-10T14:47:31Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3699,
+   "merge_commit": "ae1b9f66238f75ced3ced5e4485408435de10768",
+   "merged_at": "2025-12-10T14:58:48Z",
+   "changed_lines": 7,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3692,
+   "merge_commit": "def4778d622e8bf49a9fea4dda78cca4cf666d8a",
+   "merged_at": "2025-10-16T09:04:38Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3690,
+   "merge_commit": "ae25e86f5ca5625d5bffd13865b458ba5fadf50d",
+   "merged_at": "2025-10-13T14:00:49Z",
+   "changed_lines": 57,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3673,
+   "merge_commit": "20380490fd0bd13c68704080754c1385bff96d69",
+   "merged_at": "2025-09-20T17:09:09Z",
+   "changed_lines": 89,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3672,
+   "merge_commit": "68989ae47d9fd10381a3859619a3880014d187f6",
+   "merged_at": "2025-09-19T11:03:13Z",
+   "changed_lines": 89,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3670,
+   "merge_commit": "4acf5c2c37714cc63b5cf71b3e284fca83c90311",
+   "merged_at": "2025-09-18T12:15:06Z",
+   "changed_lines": 100,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3668,
+   "merge_commit": "f9d5e1204978c0c66666fa169edada1bf719f8ba",
+   "merged_at": "2025-09-16T21:30:20Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3667,
+   "merge_commit": "7b03e3def040983fb29fe82d9fd3d4ce9b058284",
+   "merged_at": "2025-09-16T21:18:01Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3665,
+   "merge_commit": "4b23574cf83307ce27d3b14b4a425dc58c57d28d",
+   "merged_at": "2025-09-16T13:23:31Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3654,
+   "merge_commit": "b55d4635701d9dc22928ee647880c76b078ba3f2",
+   "merged_at": "2025-09-04T13:48:49Z",
+   "changed_lines": 18,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3651,
+   "merge_commit": "364697efcafe39290358745da8be451a40a3eab2",
+   "merged_at": "2025-09-03T11:17:26Z",
+   "changed_lines": 20,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3649,
+   "merge_commit": "bc00d2bd9f715b3b848925e0c259887409bceabc",
+   "merged_at": "2025-09-05T14:19:37Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3629,
+   "merge_commit": "15e9759e656654b44307fbee685e032c7bb4aede",
+   "merged_at": "2025-09-04T08:52:37Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3592,
+   "merge_commit": "4fb9528c2f5ac000441c3634d297e77da23067cd",
+   "merged_at": "2025-06-27T10:45:12Z",
+   "changed_lines": 22,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3589,
+   "merge_commit": "3fee27838e9fd0cb528861e41f3ff98164081a4b",
+   "merged_at": "2025-09-05T14:30:32Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3579,
+   "merge_commit": "652f051feaf1ab2828e1812eb0c48f9046a8b5ce",
+   "merged_at": "2025-09-11T10:59:20Z",
+   "changed_lines": 40,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3571,
+   "merge_commit": "336204f0121a9aefdebac5cacd81f912bafe8057",
+   "merged_at": "2025-06-02T19:29:52Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3552,
+   "merge_commit": "6c7af967734bafd011164f2a1653abc87905a62b",
+   "merged_at": "2025-05-02T11:24:26Z",
+   "changed_lines": 78,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3519,
+   "merge_commit": "4189b7f051c6c51ce74c3bee1a5f269f9c50c6b2",
+   "merged_at": "2025-02-27T16:38:39Z",
+   "changed_lines": 8,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3512,
+   "merge_commit": "9e8ab40369bd3ec2cc8bff37ab79bf5769c8b00f",
+   "merged_at": "2025-03-05T12:52:58Z",
+   "changed_lines": 15,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3478,
+   "merge_commit": "10b7295922741b91a15751029e6ad3e8e5efb9f3",
+   "merged_at": "2025-01-17T10:56:46Z",
+   "changed_lines": 29,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3460,
+   "merge_commit": "c7c13f18a5af4c64c649881b2fe8dbd72a519c32",
+   "merged_at": "2024-12-23T21:50:57Z",
+   "changed_lines": 3,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3448,
+   "merge_commit": "e70d0b08c929e5140e38aa92a419de0c6d494148",
+   "merged_at": "2025-02-14T14:52:54Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3445,
+   "merge_commit": "26d48e0634e6ee9cdc0533996db289ce4b430177",
+   "merged_at": "2024-12-06T15:35:42Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3442,
+   "merge_commit": "89599a9541af14bcf906fc4ed58ccbdf403802ba",
+   "merged_at": "2024-12-04T11:29:09Z",
+   "changed_lines": 11,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3440,
+   "merge_commit": "8ecb86f0d74ffc52d4663214fae9526bee89358d",
+   "merged_at": "2024-12-03T16:12:27Z",
+   "changed_lines": 14,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "encode/httpx",
+   "number": 3426,
+   "merge_commit": "15e21e9ea3cad4f06e22a7e704aabefdf43d2e29",
+   "merged_at": "2024-11-29T11:15:57Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11107,
+   "merge_commit": "d4fd21e4711ae948f04e18a1736d9ee85b590e87",
+   "merged_at": "2026-09-27T15:22:26Z",
+   "changed_lines": 11,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11105,
+   "merge_commit": "130f053073b81e4d9f4f2ec64a23988792a44989",
+   "merged_at": "2026-09-27T05:36:35Z",
+   "changed_lines": 1,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11093,
+   "merge_commit": "b486b0f385b952b6bdd935ae7fd8a4d604dc9936",
+   "merged_at": "2026-09-27T10:03:41Z",
+   "changed_lines": 35,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11087,
+   "merge_commit": "135631bbb93ed05834ea53a1367d7966880e2db5",
+   "merged_at": "2026-09-27T05:53:08Z",
+   "changed_lines": 26,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11085,
+   "merge_commit": "4987d287330d8cb64043b26cf7869ba144e02541",
+   "merged_at": "2026-09-27T10:28:43Z",
+   "changed_lines": 2,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11078,
+   "merge_commit": "94b6e35b9091991887aa54feeb3771a86d3bd692",
+   "merged_at": "2026-09-20T07:13:02Z",
+   "changed_lines": 12,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11077,
+   "merge_commit": "f8408cab10a99ad81e4e16a0f2fda9593f5f089f",
+   "merged_at": "2026-09-20T06:54:06Z",
+   "changed_lines": 98,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11076,
+   "merge_commit": "165fb4b42e0138249abf58e3228d1f2d14cee826",
+   "merged_at": "2026-09-19T18:09:44Z",
+   "changed_lines": 85,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11075,
+   "merge_commit": "32356ae238b6ed2ca08aa87a74ad9b108ee2c6f0",
+   "merged_at": "2026-09-19T16:11:56Z",
+   "changed_lines": 188,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11074,
+   "merge_commit": "a416efd1be6b6787019e751e7c4f6fa1a0911050",
+   "merged_at": "2026-09-19T14:54:59Z",
+   "changed_lines": 46,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11073,
+   "merge_commit": "e078ebfa5a01412bdf68d851c494ef483595af98",
+   "merged_at": "2026-09-19T14:23:07Z",
+   "changed_lines": 31,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11072,
+   "merge_commit": "8711c8380c044992e84276783b9e27b18573017d",
+   "merged_at": "2026-09-19T13:46:19Z",
+   "changed_lines": 151,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11071,
+   "merge_commit": "7d7079e3186ce39f580f8b113a60760c53f0bd01",
+   "merged_at": "2026-09-19T09:57:56Z",
+   "changed_lines": 36,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11068,
+   "merge_commit": "d4e206e68dceb09efe03249bff71439318b0acc6",
+   "merged_at": "2026-09-27T12:24:40Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11064,
+   "merge_commit": "02fca5f5f3a07ebfba97da93022b751e39eb1ea8",
+   "merged_at": "2026-09-18T14:18:34Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11055,
+   "merge_commit": "f10c09e18fef05df69b823473b616b1beb055d6f",
+   "merged_at": "2026-09-11T12:43:03Z",
+   "changed_lines": 9,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11050,
+   "merge_commit": "42ce1d8fcd273ecc0d60aaa80ced255f2026802b",
+   "merged_at": "2026-09-08T07:59:42Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11049,
+   "merge_commit": "06f1cd9f2c35d6e7e6689c9e3a51426c024863ed",
+   "merged_at": "2026-09-09T15:50:58Z",
+   "changed_lines": 1,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11046,
+   "merge_commit": "c8790a3c56b552fcfe7075c8712da723572faaf6",
+   "merged_at": "2026-09-19T15:06:03Z",
+   "changed_lines": 4,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11045,
+   "merge_commit": "628f7fcb4297299fcd74794fea0bc46c84f03645",
+   "merged_at": "2026-09-06T16:21:30Z",
+   "changed_lines": 20,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11044,
+   "merge_commit": "4f85863966896a68e31c4af7dce6daea1947c788",
+   "merged_at": "2026-09-06T16:08:56Z",
+   "changed_lines": 231,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11043,
+   "merge_commit": "395ac68758a489e6c593841b946ac2aaaf8d4acf",
+   "merged_at": "2026-09-11T12:47:41Z",
+   "changed_lines": 12,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11042,
+   "merge_commit": "f323c547437f4d602dc20dac942b04ffe8d62045",
+   "merged_at": "2026-09-07T15:55:37Z",
+   "changed_lines": 175,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11041,
+   "merge_commit": "23535b72b269cd1c1a22bc066000ccab33abc0bd",
+   "merged_at": "2026-09-05T11:06:00Z",
+   "changed_lines": 1847,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11040,
+   "merge_commit": "52fb46f2b8b0046021d8c1858a244569010a3f85",
+   "merged_at": "2026-09-05T09:10:42Z",
+   "changed_lines": 10,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11039,
+   "merge_commit": "4d69b9b1f06fd067186f150a12913e8ac6c1ec02",
+   "merged_at": "2026-09-05T08:51:49Z",
+   "changed_lines": 13,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11038,
+   "merge_commit": "3d9f09650ad04e4d230b04df175157fac03f8067",
+   "merged_at": "2026-09-04T16:00:35Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11037,
+   "merge_commit": "98df56f83d9948b4d4367977ad8a9329e2c865d9",
+   "merged_at": "2026-09-05T08:31:14Z",
+   "changed_lines": 79,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11033,
+   "merge_commit": "2fbd57688e5b22cb28bbb32f7316c7f6292ffd26",
+   "merged_at": "2026-09-04T16:11:04Z",
+   "changed_lines": 35,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "python-poetry/poetry",
+   "number": 11032,
+   "merge_commit": "e33ce99067f6a28537aebd23caabc2c49aae5ed8",
+   "merged_at": "2026-08-29T19:52:27Z",
+   "changed_lines": 12,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 35066,
+   "merge_commit": "2cc5fc9856675eb112bbd6640404027195741710",
+   "merged_at": "2026-10-02T13:23:25Z",
+   "changed_lines": 1919,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 35065,
+   "merge_commit": "d34d55c3deb48136ea380a06c6c5cf054ae97e69",
+   "merged_at": "2026-10-03T14:22:00Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 35054,
+   "merge_commit": "c4c4f8ce77f2aa842102cae6b76d63c564a79902",
+   "merged_at": "2026-09-30T08:34:22Z",
+   "changed_lines": 1,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 35045,
+   "merge_commit": "6ad9bb9ed68bb562bc74f3c49231d95c86b1055c",
+   "merged_at": "2026-10-01T14:58:08Z",
+   "changed_lines": 33,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 35044,
+   "merge_commit": "a442e4bb39551feb7b0af4c00075e2cb91cf9b77",
+   "merged_at": "2026-10-03T14:29:24Z",
+   "changed_lines": 30,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 35043,
+   "merge_commit": "5a9cf4c0f0bb23215007a71ecc8c2501e463cd65",
+   "merged_at": "2026-09-30T08:37:52Z",
+   "changed_lines": 11,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 35021,
+   "merge_commit": "4c0c55701eded1f9e4fbbc51ec90a543288610b2",
+   "merged_at": "2026-09-23T17:44:26Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 35006,
+   "merge_commit": "777337db0b7119ecb110579af1dc52027c50d006",
+   "merged_at": "2026-09-21T11:38:10Z",
+   "changed_lines": 236,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 35005,
+   "merge_commit": "ca7439814ae9ca7fb4594f70f3511b0f45b0c971",
+   "merged_at": "2026-09-21T09:53:02Z",
+   "changed_lines": 50,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 35004,
+   "merge_commit": "6eb1a7c2d37de8e4c111a940bc488a637fa1cd0d",
+   "merged_at": "2026-09-21T09:52:32Z",
+   "changed_lines": 16,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 35003,
+   "merge_commit": "64ed0e49be53a320b96edcf06da48525a0ef73cf",
+   "merged_at": "2026-09-21T09:52:03Z",
+   "changed_lines": 12,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 34990,
+   "merge_commit": "2cada5b42b08c94aad32557eafc64ba70f22969e",
+   "merged_at": "2026-09-19T19:07:47Z",
+   "changed_lines": 536,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 34985,
+   "merge_commit": "ed8f34a8cb1afbd69e48c4634df92f7ae10174a3",
+   "merged_at": "2026-09-24T15:20:02Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 34982,
+   "merge_commit": "504c7f38f267ef018855b980ff6fc0f2afacdb4f",
+   "merged_at": "2026-09-17T16:29:07Z",
+   "changed_lines": 14,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 34965,
+   "merge_commit": "a97ae018a23ca4389356358142da40e5f2f83f2e",
+   "merged_at": "2026-10-03T12:08:14Z",
+   "changed_lines": 34,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 34961,
+   "merge_commit": "9bbd3371ddb5094cbfe435d0e71d7b213ac0ce42",
+   "merged_at": "2026-10-03T05:28:34Z",
+   "changed_lines": 7,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 34959,
+   "merge_commit": "0f1488a12daacc54893bcb43d1fc2738ca0ad222",
+   "merged_at": "2026-09-14T23:49:53Z",
+   "changed_lines": 14,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 34958,
+   "merge_commit": "d32282154da033e283a216c59271b32d2708ba4b",
+   "merged_at": "2026-09-17T15:37:07Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 34955,
+   "merge_commit": "767828f7b824f06136556db6245b6f330df2f664",
+   "merged_at": "2026-09-14T09:03:47Z",
+   "changed_lines": 432,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 34954,
+   "merge_commit": "ef9e1342e870ab444398c901f0c70bb7bfc5633e",
+   "merged_at": "2026-09-14T09:02:43Z",
+   "changed_lines": 61,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 34953,
+   "merge_commit": "24b0902eefa2ccf5d7b581bf032d8435d7b39dcf",
+   "merged_at": "2026-09-14T09:02:10Z",
+   "changed_lines": 14,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 34952,
+   "merge_commit": "a0cecfcc0c98d244c4aa8612b4a6af8b01b0f1d3",
+   "merged_at": "2026-09-14T09:01:43Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 34951,
+   "merge_commit": "d6f188097e255822d99633f13f4d6304cc76a7c8",
+   "merged_at": "2026-09-14T17:22:19Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 34948,
+   "merge_commit": "5a8b141a1c50df7b94b66b1b18360254acc11a3a",
+   "merged_at": "2026-09-17T04:13:16Z",
+   "changed_lines": 612,
+   "touches_tests": true,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 34944,
+   "merge_commit": "dd3ca57300e14d45b7a34fccd0165d143c7a364c",
+   "merged_at": "2026-09-12T17:11:44Z",
+   "changed_lines": 14,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 34936,
+   "merge_commit": "91c6d0ed4270fc540ebbdf3173f95a3d7423656a",
+   "merged_at": "2026-09-12T04:30:39Z",
+   "changed_lines": 48,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 34934,
+   "merge_commit": "c832691b42ea97208bb90fe4dba11679dbc5c081",
+   "merged_at": "2026-09-14T10:06:20Z",
+   "changed_lines": 11,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 34933,
+   "merge_commit": "d059607efd6de710a059563e33cea5df9b915d10",
+   "merged_at": "2026-09-21T14:21:33Z",
+   "changed_lines": 73,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 34931,
+   "merge_commit": "7eec52f9b21b88c02876853e10ab426db063245e",
+   "merged_at": "2026-09-11T11:57:31Z",
+   "changed_lines": 12,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "scikit-learn/scikit-learn",
+   "number": 34930,
+   "merge_commit": "e015b7a1cb9e3c053323c7e5cf6e847b3d672c93",
+   "merged_at": "2026-09-11T10:30:50Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "python"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7478,
+   "merge_commit": "3b7e39fe74371ddabc77fed736dd22aa71c14f5c",
+   "merged_at": "2026-09-29T01:34:59Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7474,
+   "merge_commit": "98bd4cd96b250d25e1672c36f49cfc743bc801e7",
+   "merged_at": "2026-09-28T13:25:04Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7466,
+   "merge_commit": "899b52494e74327905c16164decdc6e51f803af8",
+   "merged_at": "2026-09-14T06:41:37Z",
+   "changed_lines": 1158,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7465,
+   "merge_commit": "1fad2c30eff02268bb9751f9d0cb6644c14b0fbb",
+   "merged_at": "2026-09-13T11:55:18Z",
+   "changed_lines": 78,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7464,
+   "merge_commit": "3ce6d0eb86e9d93529ff3191c6bb5db8ce6e72c8",
+   "merged_at": "2026-09-13T11:55:13Z",
+   "changed_lines": 78,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7460,
+   "merge_commit": "c35284ee7afddb267da747b8c1d66de71982c026",
+   "merged_at": "2026-09-08T13:07:35Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7459,
+   "merge_commit": "9a34acf03cb818ff3f8bc40e44176e277a25cbb9",
+   "merged_at": "2026-09-15T17:52:27Z",
+   "changed_lines": 25,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7440,
+   "merge_commit": "41386506a9ca6874a79b304f1baafd50522e6078",
+   "merged_at": "2026-09-11T12:53:50Z",
+   "changed_lines": 3,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7426,
+   "merge_commit": "53d4a0d606c0388f764f192b306ce0e90200e7e8",
+   "merged_at": "2026-09-11T12:54:15Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7406,
+   "merge_commit": "91d333b4cfea158c9798d32e6665d36bd8e37c3d",
+   "merged_at": "2026-08-22T20:52:57Z",
+   "changed_lines": 5,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7390,
+   "merge_commit": "8ba0c07fdcb3d7931934942afd4ce6a73806af31",
+   "merged_at": "2026-08-22T20:37:48Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7377,
+   "merge_commit": "61ccf2ea8c1bd19cbca6acfb7cd276c5fcd410d3",
+   "merged_at": "2026-07-12T18:27:44Z",
+   "changed_lines": 48,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7366,
+   "merge_commit": "ae6dd37680e3a00618d6c8a3e522f0ee4eeba1a4",
+   "merged_at": "2026-07-12T18:22:01Z",
+   "changed_lines": 52,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7316,
+   "merge_commit": "66878d3e70437ba7b887ec519a3e33edc5bca0c7",
+   "merged_at": "2026-07-05T19:03:11Z",
+   "changed_lines": 12,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7305,
+   "merge_commit": "a08da78e64a7fdc610d453fb7771754091d8ed3b",
+   "merged_at": "2026-06-14T17:02:35Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7265,
+   "merge_commit": "9d8223d92ee81137a50a28eb6ad55a096791091d",
+   "merged_at": "2026-06-16T02:34:07Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7234,
+   "merge_commit": "cb19f04170fc815321d40dcd3bc620ae03c828cd",
+   "merged_at": "2026-06-15T19:49:54Z",
+   "changed_lines": 37,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7233,
+   "merge_commit": "59e205a57a04fced6bb7b8ec0b5dec29461a9996",
+   "merged_at": "2026-06-16T02:45:22Z",
+   "changed_lines": 94,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7225,
+   "merge_commit": "df0abc9333a3398b97b71f6ea7cd77d5ea3e9f97",
+   "merged_at": "2026-05-11T18:43:23Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7224,
+   "merge_commit": "836d36668ea750f78b4373b4de79bbd22634e6ec",
+   "merged_at": "2026-05-08T21:26:13Z",
+   "changed_lines": 12,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7218,
+   "merge_commit": "f5c159b112e8ac6e3b2b022eff03ad727d4ff98a",
+   "merged_at": "2026-05-17T14:43:12Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7191,
+   "merge_commit": "f873ac23124ffcff8c040b4bd257b32c29828d53",
+   "merged_at": "2026-05-04T08:53:42Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7181,
+   "merge_commit": "8d09bfe6d88983da5c3e12cfdd54782c4dc675db",
+   "merged_at": "2026-05-08T19:55:03Z",
+   "changed_lines": 17,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7159,
+   "merge_commit": "8e022edc9185f540a3fcecaf5e56b850d919cdac",
+   "merged_at": "2026-04-06T20:58:04Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7144,
+   "merge_commit": "2eae22b1e12df345e314a4db483052a780e0ba0b",
+   "merged_at": "2026-05-17T14:42:11Z",
+   "changed_lines": 3,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7136,
+   "merge_commit": "e5099198b292a565f8583d70caf12d7afed3607f",
+   "merged_at": "2026-03-31T04:39:23Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7135,
+   "merge_commit": "715101bd27ec9c14a7ccc8a37c476f330d98ad53",
+   "merged_at": "2026-06-16T03:14:29Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7064,
+   "merge_commit": "6c4249feec8ab40631817c8e7001baf2ed022224",
+   "merged_at": "2026-03-01T13:55:02Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7057,
+   "merge_commit": "925a1dff1e42f1b393c977b8b77757fcf633e09f",
+   "merged_at": "2026-02-22T03:11:09Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "expressjs/express",
+   "number": 7037,
+   "merge_commit": "b4ab7d65d7724d9309b6faaaf82ad492da2a6d35",
+   "merged_at": "2026-02-23T09:58:26Z",
+   "changed_lines": 69,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23621,
+   "merge_commit": "94d0080345e23d63d4cd02df2f7fa2afae775c26",
+   "merged_at": "2026-10-01T08:56:55Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23614,
+   "merge_commit": "24bd3316f3b2503d04a49361e365532bdb335e19",
+   "merged_at": "2026-10-01T09:34:12Z",
+   "changed_lines": 91,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23611,
+   "merge_commit": "64e0a215c24f0522b27b91f93cfd93e317b94481",
+   "merged_at": "2026-09-30T02:50:45Z",
+   "changed_lines": 51,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23609,
+   "merge_commit": "53f1ce7bfe38426861f6da572ef0e3359f6a80cd",
+   "merged_at": "2026-09-30T02:31:49Z",
+   "changed_lines": 14,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23606,
+   "merge_commit": "634745dcc5648912bc32cb4de72ed8dd2230efa0",
+   "merged_at": "2026-09-28T15:00:46Z",
+   "changed_lines": 12,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23600,
+   "merge_commit": "a2bd6fa897c35c8a691671a7d70061c1cdd5c688",
+   "merged_at": "2026-09-29T07:16:51Z",
+   "changed_lines": 89,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23594,
+   "merge_commit": "1929b4cc5f38ad53781e3b07b8bdaa32cf18da07",
+   "merged_at": "2026-10-01T04:15:24Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23590,
+   "merge_commit": "5e4b9ca3dcb24b51f58a765fd2d852614bbf3574",
+   "merged_at": "2026-09-30T04:14:01Z",
+   "changed_lines": 55,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23586,
+   "merge_commit": "744269e5b2a155074910ddd275aecf2b83938496",
+   "merged_at": "2026-09-29T10:19:13Z",
+   "changed_lines": 109,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23583,
+   "merge_commit": "db915e5c0edbe1359dcf0cea340c9571dc7f4ad9",
+   "merged_at": "2026-09-25T08:05:21Z",
+   "changed_lines": 147,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23582,
+   "merge_commit": "3d02335c5125d700a09138e2ef3001598c7fe306",
+   "merged_at": "2026-09-25T08:06:09Z",
+   "changed_lines": 5,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23581,
+   "merge_commit": "69283019441d93763f085806b374fc53eaea323b",
+   "merged_at": "2026-09-25T04:10:18Z",
+   "changed_lines": 3,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23580,
+   "merge_commit": "972b73a6fcebfb879aef262e7c75d4eff17899b2",
+   "merged_at": "2026-09-25T03:58:51Z",
+   "changed_lines": 68,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23579,
+   "merge_commit": "00cb9fd33a80c15db318e062e8bcca52497a725c",
+   "merged_at": "2026-09-25T03:46:00Z",
+   "changed_lines": 113,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23572,
+   "merge_commit": "6f831f9b58ebda77638b514042ad8d160edfb928",
+   "merged_at": "2026-09-24T11:19:40Z",
+   "changed_lines": 141,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23569,
+   "merge_commit": "931ad65735d73e7a765baec59a69501109d50f61",
+   "merged_at": "2026-09-24T12:17:42Z",
+   "changed_lines": 211,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23568,
+   "merge_commit": "bc598a6a8a6b7d6e157e9f19c16911cff8d2360c",
+   "merged_at": "2026-09-25T08:08:46Z",
+   "changed_lines": 137,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23567,
+   "merge_commit": "5f894339d27882fedc86bf6b1076fa6d92e404f3",
+   "merged_at": "2026-09-24T09:04:05Z",
+   "changed_lines": 81,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23566,
+   "merge_commit": "63567c73ac132e6384fef384e6b9f7e8d5a37fff",
+   "merged_at": "2026-09-24T08:17:31Z",
+   "changed_lines": 25,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23565,
+   "merge_commit": "e64a5877dd3e552843a545749ccc257568917d28",
+   "merged_at": "2026-09-25T02:25:41Z",
+   "changed_lines": 284,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23554,
+   "merge_commit": "af7cdf6964f124f58d66037e808fe687654948e2",
+   "merged_at": "2026-09-23T06:51:14Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23552,
+   "merge_commit": "6e09961181a1047ef78d37b1a23fb0e7488c8980",
+   "merged_at": "2026-09-24T08:54:44Z",
+   "changed_lines": 401,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23543,
+   "merge_commit": "f155b62ceabbaaf71abbf59933968787e3961c56",
+   "merged_at": "2026-09-23T06:52:57Z",
+   "changed_lines": 20,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23541,
+   "merge_commit": "e5d9af29a3571f388c4bc2a8d4c3387e46ff1da0",
+   "merged_at": "2026-09-24T11:00:06Z",
+   "changed_lines": 142,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23540,
+   "merge_commit": "39330f489a0ae08923557f0ce10a307d6662a3f5",
+   "merged_at": "2026-09-22T05:31:11Z",
+   "changed_lines": 48,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23536,
+   "merge_commit": "bba3bb8beedd185948956e02667d450672632d79",
+   "merged_at": "2026-09-30T06:20:41Z",
+   "changed_lines": 89,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23532,
+   "merge_commit": "9abd99bfdd3117149d6faf87fc37bc9899b1c998",
+   "merged_at": "2026-09-21T12:15:51Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23525,
+   "merge_commit": "15569ce343b51936cfa8fb6bbf948a57ba1ff4ad",
+   "merged_at": "2026-09-22T02:55:58Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23519,
+   "merge_commit": "04fc30a4b91870e65a436b3420620a2e02a94a41",
+   "merged_at": "2026-09-24T10:11:36Z",
+   "changed_lines": 76,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vitejs/vite",
+   "number": 23514,
+   "merge_commit": "4aba8d8720e82e4c5b694a4b7877755a3f84fc57",
+   "merged_at": "2026-09-18T02:33:51Z",
+   "changed_lines": 26,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20211,
+   "merge_commit": "d62653b04d2b7521870fdcb9c19c7044f0bace9e",
+   "merged_at": "2026-10-03T02:26:54Z",
+   "changed_lines": 58,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20209,
+   "merge_commit": "5a52a1019a4c64015c2210bdebf37003344641b5",
+   "merged_at": "2026-10-02T19:02:50Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20208,
+   "merge_commit": "eea6146027a946db170f2d902ebecbe6bc254eae",
+   "merged_at": "2026-10-02T17:46:59Z",
+   "changed_lines": 39,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20204,
+   "merge_commit": "8dafda772d095fa49fc735d90a0bba209771b7da",
+   "merged_at": "2026-10-01T21:46:26Z",
+   "changed_lines": 199,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20202,
+   "merge_commit": "43432349d41a61937ff1e719a025c17439b62d1f",
+   "merged_at": "2026-10-04T03:07:31Z",
+   "changed_lines": 10,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20154,
+   "merge_commit": "9b5fa62968cc8cacfb1943160f325059af181408",
+   "merged_at": "2026-10-01T20:48:47Z",
+   "changed_lines": 849,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20150,
+   "merge_commit": "ffb613364c676885f4ead2129b17a74f7d237395",
+   "merged_at": "2026-09-24T06:58:56Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20143,
+   "merge_commit": "5927216227411bc2cdaf30d50559e0a475ab4832",
+   "merged_at": "2026-10-04T03:20:29Z",
+   "changed_lines": 194,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20141,
+   "merge_commit": "2a1fcd2999b4ecd5b0d853144c951d50936f7cb2",
+   "merged_at": "2026-09-23T10:07:57Z",
+   "changed_lines": 13,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20140,
+   "merge_commit": "dc7b8968e678f51ea00e2be3fe8c717d114691a3",
+   "merged_at": "2026-09-23T06:24:43Z",
+   "changed_lines": 43,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20139,
+   "merge_commit": "ef3b24298c62e9b758428538340816817b6e7ff0",
+   "merged_at": "2026-09-23T05:17:13Z",
+   "changed_lines": 243,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20134,
+   "merge_commit": "de9ec361d3e2bb8fbc30da34ceaf402d351b5918",
+   "merged_at": "2026-09-23T10:08:55Z",
+   "changed_lines": 66,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20127,
+   "merge_commit": "1a36a7defdcccfc4967e99bbf9517a02ab2345b2",
+   "merged_at": "2026-09-21T16:42:48Z",
+   "changed_lines": 89,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20125,
+   "merge_commit": "6bc99db278c8acf5b0c12eb37527cb5e4a429c84",
+   "merged_at": "2026-09-21T15:20:48Z",
+   "changed_lines": 61,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20120,
+   "merge_commit": "f9a0bef6c16773bed6d6ae1156cae6e88023fdb5",
+   "merged_at": "2026-10-01T09:58:23Z",
+   "changed_lines": 291,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20117,
+   "merge_commit": "78f49dac02c94ff945c6d808adb52e86fb5162a4",
+   "merged_at": "2026-10-02T18:04:50Z",
+   "changed_lines": 131,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20115,
+   "merge_commit": "51ed2cbbf3b404267653fc2f3576f990030de33d",
+   "merged_at": "2026-09-20T13:52:10Z",
+   "changed_lines": 109,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20109,
+   "merge_commit": "a9a766f19f52f285d2c0453f9917fa106b02d7d5",
+   "merged_at": "2026-09-19T03:05:26Z",
+   "changed_lines": 27,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20100,
+   "merge_commit": "92ee7178a601d17137c27a0ce278423bc275cdc8",
+   "merged_at": "2026-09-19T04:04:02Z",
+   "changed_lines": 279,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20093,
+   "merge_commit": "2ee9998fc3423eb62b29267011a51eee8dca8773",
+   "merged_at": "2026-09-16T19:34:41Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20087,
+   "merge_commit": "5ec8db1745c2bdcca3706ab8cfbbe5c11fc457c1",
+   "merged_at": "2026-09-17T21:02:51Z",
+   "changed_lines": 212,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20084,
+   "merge_commit": "753f783086e74858d116708039aedb353c875847",
+   "merged_at": "2026-09-16T13:32:30Z",
+   "changed_lines": 198,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20069,
+   "merge_commit": "1eb97564235ef1fc00175e2c6f080be27a59318e",
+   "merged_at": "2026-09-15T09:42:22Z",
+   "changed_lines": 48,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20066,
+   "merge_commit": "0292df6bf356a577de0dc72e6114c8a801978552",
+   "merged_at": "2026-09-20T00:43:36Z",
+   "changed_lines": 242,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20065,
+   "merge_commit": "23787f7cab80208f287e568fb55cc4868800fc2d",
+   "merged_at": "2026-09-15T06:15:28Z",
+   "changed_lines": 32,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20064,
+   "merge_commit": "88e7c59ef1ddb16c60dad875f7e35c34b3f81001",
+   "merged_at": "2026-09-15T05:38:00Z",
+   "changed_lines": 90,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20061,
+   "merge_commit": "a7ad72a59f429decd871b148a86ac2b515fc5526",
+   "merged_at": "2026-09-14T21:27:01Z",
+   "changed_lines": 19,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20060,
+   "merge_commit": "54a4fe7719d978a09bbb47f04e98111fd3f9a6eb",
+   "merged_at": "2026-09-14T23:13:43Z",
+   "changed_lines": 105,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20055,
+   "merge_commit": "475893a105ac04967f702ce43561adde8d18f55b",
+   "merged_at": "2026-09-14T07:03:09Z",
+   "changed_lines": 62,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "prettier/prettier",
+   "number": 20051,
+   "merge_commit": "d00ebd11d6cbd5f526ab2639d1ae26c5b0d37388",
+   "merged_at": "2026-09-13T22:20:51Z",
+   "changed_lines": 58,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11273,
+   "merge_commit": "79286c66743f91a580bbae363a640905675151c8",
+   "merged_at": "2026-10-02T10:49:01Z",
+   "changed_lines": 27,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11272,
+   "merge_commit": "581cd01683e242738c1bf87d842865d644270df4",
+   "merged_at": "2026-10-02T10:48:19Z",
+   "changed_lines": 97,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11267,
+   "merge_commit": "bc0f5c966accee1f8491b3685a58bdef60d56812",
+   "merged_at": "2026-10-02T09:14:07Z",
+   "changed_lines": 1690,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11266,
+   "merge_commit": "8046ddc7b552e9a4f7321d511ed0479a9e8d0df1",
+   "merged_at": "2026-10-02T09:06:37Z",
+   "changed_lines": 9,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11252,
+   "merge_commit": "2426e03ba9020be31ed013873423cea6b7cd2e67",
+   "merged_at": "2026-09-27T12:45:09Z",
+   "changed_lines": 43,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11249,
+   "merge_commit": "961241f6c19798eff16b0869486c125430a17961",
+   "merged_at": "2026-09-24T07:24:29Z",
+   "changed_lines": 149,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11243,
+   "merge_commit": "66e6fcb4e4e45781a8f0eb33ebdb2d3c45c41af8",
+   "merged_at": "2026-09-23T10:46:14Z",
+   "changed_lines": 2553,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11238,
+   "merge_commit": "572142c68b5d1e9c8c9a3e524c3b8520e3d1659b",
+   "merged_at": "2026-09-27T11:43:06Z",
+   "changed_lines": 1,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11228,
+   "merge_commit": "dfa30a76dcaedaeec7f7e53153d46ee9a14987da",
+   "merged_at": "2026-09-13T17:32:37Z",
+   "changed_lines": 8,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11223,
+   "merge_commit": "3fa309539889c2bad961b54e6848335b3c5d4b32",
+   "merged_at": "2026-10-02T11:27:47Z",
+   "changed_lines": 68,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11222,
+   "merge_commit": "18e7dfedf30c96e58652887f930642ae82e0130c",
+   "merged_at": "2026-09-10T08:25:53Z",
+   "changed_lines": 66,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11209,
+   "merge_commit": "3d25f0e3f3b0a0b764cdcbc3871d5ba866711beb",
+   "merged_at": "2026-09-08T17:20:41Z",
+   "changed_lines": 1307,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11194,
+   "merge_commit": "f8df2e2429a2e6bf6e34161e57d04feb62ed1573",
+   "merged_at": "2026-09-13T17:03:37Z",
+   "changed_lines": 307,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11182,
+   "merge_commit": "5268576d814a46d573e1182281a570172cee4507",
+   "merged_at": "2026-09-05T17:47:35Z",
+   "changed_lines": 392,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11179,
+   "merge_commit": "56a5f1acdc41965f464eb59bec6cc828113ba546",
+   "merged_at": "2026-09-16T19:05:23Z",
+   "changed_lines": 442,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11172,
+   "merge_commit": "d29be181f85f6fe93397a07b1f69606d9622637b",
+   "merged_at": "2026-08-28T19:18:18Z",
+   "changed_lines": 885,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11164,
+   "merge_commit": "9767b28e5f3f763ecee651fd9d3b044a8c7ba66a",
+   "merged_at": "2026-08-22T17:16:58Z",
+   "changed_lines": 140,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11161,
+   "merge_commit": "9e51e031b453d7b766eaa9410b8b338f811e2cbf",
+   "merged_at": "2026-08-21T12:58:19Z",
+   "changed_lines": 1794,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11158,
+   "merge_commit": "4943cc2749393d55f0c8de28a5c57aca403aaeb7",
+   "merged_at": "2026-08-20T05:59:27Z",
+   "changed_lines": 739,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11141,
+   "merge_commit": "d19040bda7a8be2f82c3c6e1a5bc03917daee39a",
+   "merged_at": "2026-08-12T16:27:45Z",
+   "changed_lines": 1735,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11137,
+   "merge_commit": "ba98559a7f5a18e531b5762387e5957bd281af3d",
+   "merged_at": "2026-08-09T08:34:40Z",
+   "changed_lines": 42,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11132,
+   "merge_commit": "c4303eeb601d3d5914a0f425cc7539616fdc7ea7",
+   "merged_at": "2026-10-03T09:51:36Z",
+   "changed_lines": 91,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11128,
+   "merge_commit": "ac2813149c7ffaf7bcc6dfde3731eb61cdaa5a5d",
+   "merged_at": "2026-08-04T17:18:17Z",
+   "changed_lines": 452,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11125,
+   "merge_commit": "fbe2e8260c86961ff2319da8450f170ca4ae3866",
+   "merged_at": "2026-09-16T17:45:21Z",
+   "changed_lines": 104,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11124,
+   "merge_commit": "f02b722c082f55486d708fe6aea290a8d1ac3441",
+   "merged_at": "2026-08-04T15:16:54Z",
+   "changed_lines": 23,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11121,
+   "merge_commit": "d8a919fd81403d59058c0e9dbefc540407dee83f",
+   "merged_at": "2026-08-13T18:05:23Z",
+   "changed_lines": 417,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11119,
+   "merge_commit": "ceb4176f5440faebc76c9560798cda010b3f118b",
+   "merged_at": "2026-08-04T17:38:23Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11118,
+   "merge_commit": "2d2a21af8a433089474a2149781799c93acbcf3c",
+   "merged_at": "2026-08-13T17:55:35Z",
+   "changed_lines": 76,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11113,
+   "merge_commit": "529ce70296334a0397f9e45e7dfa5658f6b6fdba",
+   "merged_at": "2026-07-29T18:21:44Z",
+   "changed_lines": 1,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "axios/axios",
+   "number": 11109,
+   "merge_commit": "a75bf44647e5132e39b778730394b0a2b983265c",
+   "merged_at": "2026-07-29T17:58:28Z",
+   "changed_lines": 81,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6645,
+   "merge_commit": "0b216ef674e297ebe41d8bf902262e56f8755822",
+   "merged_at": "2026-10-02T18:08:54Z",
+   "changed_lines": 5,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6638,
+   "merge_commit": "004d800c9e3cd4c79930f55aa4ad080225b22efd",
+   "merged_at": "2026-09-30T23:19:43Z",
+   "changed_lines": 121,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6622,
+   "merge_commit": "2bf7b0630d5378033e90bcee82cb32b0fe04628e",
+   "merged_at": "2026-09-24T02:29:00Z",
+   "changed_lines": 154,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6620,
+   "merge_commit": "10dda3a3a4bc76ed0bf83e994de194587e489ef8",
+   "merged_at": "2026-09-21T21:33:18Z",
+   "changed_lines": 131,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6600,
+   "merge_commit": "56222cd1532c07bcb91b67df529cab4c0a215330",
+   "merged_at": "2026-09-13T18:30:47Z",
+   "changed_lines": 22,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6598,
+   "merge_commit": "de65a5cb39ed22a507fac935788f718fa88d104f",
+   "merged_at": "2026-09-13T18:30:41Z",
+   "changed_lines": 52,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6595,
+   "merge_commit": "d6bc1e30ac35fe8d2dfcb2c929dc76c87b274e94",
+   "merged_at": "2026-09-12T19:53:29Z",
+   "changed_lines": 260,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6594,
+   "merge_commit": "413cce9a8c893bab2dccbe4200c84a7635bbe22f",
+   "merged_at": "2026-09-12T17:59:30Z",
+   "changed_lines": 534,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6588,
+   "merge_commit": "ad32d7512ce4fe4d4b3cfc0d1f3ce93b2e553519",
+   "merged_at": "2026-09-12T19:49:17Z",
+   "changed_lines": 785,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6587,
+   "merge_commit": "9446b5cc14c5bf137790f1f66abf602044871223",
+   "merged_at": "2026-09-10T19:36:39Z",
+   "changed_lines": 126,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6583,
+   "merge_commit": "2efa8b803c8ad934f7c74772fa7df9d91abcf724",
+   "merged_at": "2026-09-09T19:44:53Z",
+   "changed_lines": 112,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6582,
+   "merge_commit": "b12aa523e7e2617c4296cccf9b24d6558ed23e95",
+   "merged_at": "2026-09-09T19:20:34Z",
+   "changed_lines": 184,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6581,
+   "merge_commit": "574d480fb443d3fd396efbcb8230f3dfee4a2cd2",
+   "merged_at": "2026-09-09T17:53:25Z",
+   "changed_lines": 222,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6580,
+   "merge_commit": "dd9c36fa2ddcee79f71d19f9635586c7b65ead86",
+   "merged_at": "2026-09-09T19:20:02Z",
+   "changed_lines": 65,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6579,
+   "merge_commit": "6de10dce1afaba7160d1c7ca810cc40bc4a7a733",
+   "merged_at": "2026-09-09T17:08:22Z",
+   "changed_lines": 75,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6576,
+   "merge_commit": "f9465d4e6497f92fe85ef7118ea64d7f86c28676",
+   "merged_at": "2026-09-09T16:00:26Z",
+   "changed_lines": 267,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6575,
+   "merge_commit": "213ee75d2ad6e41508587c3fab8246967f006993",
+   "merged_at": "2026-09-09T16:31:49Z",
+   "changed_lines": 196,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6573,
+   "merge_commit": "f7fd5548063f55a74847b2711630c9b3f8ea00d4",
+   "merged_at": "2026-09-09T15:59:30Z",
+   "changed_lines": 158,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6572,
+   "merge_commit": "36f17960d1defca5d0896d9424f4e1059fbbf081",
+   "merged_at": "2026-09-09T05:12:07Z",
+   "changed_lines": 53,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6571,
+   "merge_commit": "22bed613281143efa3815fe26ab666c6c56586af",
+   "merged_at": "2026-09-09T04:57:49Z",
+   "changed_lines": 281,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6570,
+   "merge_commit": "dcbcf0529ca1e5424541d5d4b58e0a7b79507f51",
+   "merged_at": "2026-09-09T02:18:14Z",
+   "changed_lines": 33,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6569,
+   "merge_commit": "eb1c1089f7f9469078839f6e443830f7e3fdc06b",
+   "merged_at": "2026-09-08T22:30:49Z",
+   "changed_lines": 74,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6567,
+   "merge_commit": "741981ffdbc8772cffc38cc4eaf84d5a45fa7384",
+   "merged_at": "2026-09-08T19:33:03Z",
+   "changed_lines": 784,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6564,
+   "merge_commit": "804e0f522747345d6b37581888899be420baa3e9",
+   "merged_at": "2026-09-07T19:32:40Z",
+   "changed_lines": 618,
+   "touches_tests": false,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6562,
+   "merge_commit": "e4d67f3ea42de031f1f644a1efd7bd0a306dde56",
+   "merged_at": "2026-09-07T15:46:40Z",
+   "changed_lines": 672,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6554,
+   "merge_commit": "6f0483671e622d5d01a1e17f69af0825137c7830",
+   "merged_at": "2026-09-07T17:29:46Z",
+   "changed_lines": 906,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6553,
+   "merge_commit": "7a00236683c79000dbab0d92f6faf0b7fba39f59",
+   "merged_at": "2026-09-02T20:45:59Z",
+   "changed_lines": 40,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6551,
+   "merge_commit": "5489a532e65ee3f5ab0959ff8a5da346ced96f2a",
+   "merged_at": "2026-09-02T20:36:44Z",
+   "changed_lines": 15,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6548,
+   "merge_commit": "07917f4cb396646dff7a1364f9032a668b0d7eb4",
+   "merged_at": "2026-09-01T21:05:54Z",
+   "changed_lines": 31,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "colinhacks/zod",
+   "number": 6547,
+   "merge_commit": "62e6624bc72c4882968ac4ea2c4281b1a99a7ad4",
+   "merged_at": "2026-09-01T20:18:21Z",
+   "changed_lines": 66,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15763,
+   "merge_commit": "44e5092c89a31f4a64b0ca683ec9795c92f12787",
+   "merged_at": "2026-10-03T12:34:11Z",
+   "changed_lines": 36,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15753,
+   "merge_commit": "7484f44afde101f5854ca4600ca97540ad9a5bdc",
+   "merged_at": "2026-10-03T05:29:29Z",
+   "changed_lines": 26,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15751,
+   "merge_commit": "92cedd90bd478af893cb973b57669b346d818cce",
+   "merged_at": "2026-10-02T12:26:55Z",
+   "changed_lines": 88,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15747,
+   "merge_commit": "4215e509bf8e848d5f3a68d32ffff471c7fd002d",
+   "merged_at": "2026-10-02T11:16:13Z",
+   "changed_lines": 136,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15745,
+   "merge_commit": "435ee84406624a5e96c88bc1c97e79ad4ab0803f",
+   "merged_at": "2026-10-02T11:07:32Z",
+   "changed_lines": 62,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15721,
+   "merge_commit": "f76516717f8e2be454cb277666bc152edf0d47f4",
+   "merged_at": "2026-09-30T06:44:02Z",
+   "changed_lines": 77,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15720,
+   "merge_commit": "ca8170b6856bcbaab52dc396dc2fefefa3f25b63",
+   "merged_at": "2026-09-30T05:43:12Z",
+   "changed_lines": 70,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15719,
+   "merge_commit": "9b18c7f1eb9ab02604f9adffeaad488262918282",
+   "merged_at": "2026-09-30T04:49:45Z",
+   "changed_lines": 28,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15714,
+   "merge_commit": "d73c2cbf6958a0ca0663eb8c8320f0ae0c648b11",
+   "merged_at": "2026-09-30T00:27:15Z",
+   "changed_lines": 46,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15713,
+   "merge_commit": "a59a1e7f1907bc630421fd3d2903f2011725acef",
+   "merged_at": "2026-09-30T00:57:23Z",
+   "changed_lines": 46,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15709,
+   "merge_commit": "861e63096e7df751467109e9de44885623aaca46",
+   "merged_at": "2026-09-29T12:10:02Z",
+   "changed_lines": 91,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15707,
+   "merge_commit": "cb5789b8c2427af07863c3898ced8f163c93c4a3",
+   "merged_at": "2026-09-29T08:09:37Z",
+   "changed_lines": 68,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15706,
+   "merge_commit": "e542cf7d3a59ab08a2ce315fd7742201a000215b",
+   "merged_at": "2026-09-29T12:09:30Z",
+   "changed_lines": 58,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15705,
+   "merge_commit": "6433cca5d061d70ed7fba72ab20adeaecbdcad9a",
+   "merged_at": "2026-09-29T09:43:23Z",
+   "changed_lines": 289,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15700,
+   "merge_commit": "976638b41e8dbc18cb9d5b1122c2b79836bebc79",
+   "merged_at": "2026-09-29T00:57:37Z",
+   "changed_lines": 311,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15698,
+   "merge_commit": "8304992414fc4e1a486e1fb305e06c01469bb497",
+   "merged_at": "2026-09-29T00:31:35Z",
+   "changed_lines": 26,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15697,
+   "merge_commit": "d2311bb34c320ec2f8a48872bd5a0b20285b5bc3",
+   "merged_at": "2026-09-28T07:49:50Z",
+   "changed_lines": 310,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15695,
+   "merge_commit": "86d44991d94773e60c093b468e72a96dd1a0d234",
+   "merged_at": "2026-09-28T06:48:02Z",
+   "changed_lines": 299,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15693,
+   "merge_commit": "65919d9e942a93415a37b2004aec1cba0582f051",
+   "merged_at": "2026-09-28T03:48:59Z",
+   "changed_lines": 74,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15689,
+   "merge_commit": "bd6b9caac2472db7f57577acc73de71c216b88bf",
+   "merged_at": "2026-09-28T02:43:52Z",
+   "changed_lines": 146,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15688,
+   "merge_commit": "51193cc743b223420e3a5d80c8d6ded578876009",
+   "merged_at": "2026-09-28T08:09:07Z",
+   "changed_lines": 1215,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15683,
+   "merge_commit": "bba7ea6e2aa57a24d5482a5a48b966ade885307a",
+   "merged_at": "2026-09-28T00:50:53Z",
+   "changed_lines": 33,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15682,
+   "merge_commit": "20f46c1155d6f3ca61a528a1563374ff8439be3f",
+   "merged_at": "2026-09-28T01:58:17Z",
+   "changed_lines": 185,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15681,
+   "merge_commit": "3a952ef54afaf1bff2142d1da795783eae4d9d79",
+   "merged_at": "2026-09-28T01:18:05Z",
+   "changed_lines": 110,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15676,
+   "merge_commit": "ef5ff106a78d9c8395c1fedcb7aa80493f44622b",
+   "merged_at": "2026-09-30T08:24:42Z",
+   "changed_lines": 73,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15672,
+   "merge_commit": "1e449418c674a314da0324dc574d5c34896db507",
+   "merged_at": "2026-09-30T07:59:00Z",
+   "changed_lines": 97,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15669,
+   "merge_commit": "54a17425bea9008c77c27bbddbec1a1e36bee2a6",
+   "merged_at": "2026-09-28T12:02:08Z",
+   "changed_lines": 219,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15667,
+   "merge_commit": "c65c716b4d87b71946beb080b0c4a9a2d459103a",
+   "merged_at": "2026-09-29T02:26:57Z",
+   "changed_lines": 83,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15666,
+   "merge_commit": "0cfb662d683fc82b35115d7604dcd642c100f8a1",
+   "merged_at": "2026-09-28T01:01:34Z",
+   "changed_lines": 41,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "vuejs/core",
+   "number": 15665,
+   "merge_commit": "7372680b43ebf4924fe9833fab58180911faec41",
+   "merged_at": "2026-09-29T01:38:25Z",
+   "changed_lines": 308,
+   "touches_tests": true,
+   "language": "js-ts"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2429,
+   "merge_commit": "adbc8813901bba65827259daa8e22ff94ec1f30e",
+   "merged_at": "2026-07-11T00:43:07Z",
+   "changed_lines": 24,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2397,
+   "merge_commit": "ad460ea8f249db69c943a365fb84f3a59042d54e",
+   "merged_at": "2026-04-25T23:07:42Z",
+   "changed_lines": 51,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2390,
+   "merge_commit": "f2878bab8c96afd6e36968af96343b35dbb82a82",
+   "merged_at": "2026-04-15T19:23:05Z",
+   "changed_lines": 1,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2389,
+   "merge_commit": "85c12c2201a7d2bb8d2a731d41cfd8557a025c90",
+   "merged_at": "2026-04-15T18:47:24Z",
+   "changed_lines": 1,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2356,
+   "merge_commit": "746ef07158728502482cea9f880a6f4b21ef29a9",
+   "merged_at": "2026-04-24T20:41:58Z",
+   "changed_lines": 60,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2337,
+   "merge_commit": "346d408fe7d4be00ff9481ea4d43c4abb5e5f77d",
+   "merged_at": "2025-12-03T23:46:03Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2336,
+   "merge_commit": "88b30ab89da2d0d0abb153818746c5a2d30eccec",
+   "merged_at": "2025-12-03T23:51:16Z",
+   "changed_lines": 8,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2333,
+   "merge_commit": "10d4b48a79be3d4e89e6c45cb59f4d32a3d2ae19",
+   "merged_at": "2025-12-06T14:14:39Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2328,
+   "merge_commit": "117698a604b65e80a1ad5b76df67b604bcd992e0",
+   "merged_at": "2025-11-17T14:48:10Z",
+   "changed_lines": 10,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2327,
+   "merge_commit": "062989255670f5e100abf70fa5e291a394915f89",
+   "merged_at": "2025-11-14T14:01:44Z",
+   "changed_lines": 7,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2325,
+   "merge_commit": "fc81d2003469e2a5c440306d04a6d82a54065979",
+   "merged_at": "2025-11-18T03:33:27Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2316,
+   "merge_commit": "e2dd29ddc39acacf3af13013b06e1fe58b5c3599",
+   "merged_at": "2025-11-17T14:47:19Z",
+   "changed_lines": 67,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2305,
+   "merge_commit": "7da941c3547e93b8c9f70bbd3befca79c6335388",
+   "merged_at": "2025-09-01T16:19:51Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2303,
+   "merge_commit": "51d675196729be769ce235b710ab7058b3aad03a",
+   "merged_at": "2025-08-31T23:15:08Z",
+   "changed_lines": 10,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2299,
+   "merge_commit": "dcaf42e2633496bf97d5476d7419071e5c48f40a",
+   "merged_at": "2025-08-04T05:14:01Z",
+   "changed_lines": 1,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2285,
+   "merge_commit": "61968e893eee2f27696c2fbc8e34fa5c4afaf7c4",
+   "merged_at": "2025-12-10T02:18:50Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2279,
+   "merge_commit": "c8289c10302063b9a2e26357e7e0f0bb599f29ce",
+   "merged_at": "2025-05-31T12:20:05Z",
+   "changed_lines": 71,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2267,
+   "merge_commit": "0ed70dcfd4d22bc39ba138fefb9f37ed3d2e87ec",
+   "merged_at": "2025-05-06T02:17:52Z",
+   "changed_lines": 13,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2256,
+   "merge_commit": "ceb39aba25c86233e4888210c4b57cdb0a78d1e1",
+   "merged_at": "2025-03-11T12:56:36Z",
+   "changed_lines": 33,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2253,
+   "merge_commit": "c25b598345317bed94d045873fc1d1a94c21495f",
+   "merged_at": "2025-03-10T22:46:30Z",
+   "changed_lines": 105,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2248,
+   "merge_commit": "4f9ef8cdbbc88c5302be95e0e67fd78ebbfa9dd2",
+   "merged_at": "2025-03-07T14:53:22Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2241,
+   "merge_commit": "1995054b003053cc1e404bccfbf6d168e8731509",
+   "merged_at": "2025-02-21T12:46:15Z",
+   "changed_lines": 36,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2238,
+   "merge_commit": "6dec1ae26659a130bdb4c985768d1853b0e1bc06",
+   "merged_at": "2025-05-31T12:36:04Z",
+   "changed_lines": 102,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2237,
+   "merge_commit": "f98cf4216d3cb5235e6e0cd00ee00959deb1dc65",
+   "merged_at": "2025-02-17T19:16:17Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2236,
+   "merge_commit": "0d417d8f77c3bfe2de281cce36ca9bea807aa00c",
+   "merged_at": "2025-02-17T18:59:07Z",
+   "changed_lines": 1,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2235,
+   "merge_commit": "40b5bc1437a564fc795d388b23835e84f54cd1d1",
+   "merged_at": "2025-02-16T23:42:04Z",
+   "changed_lines": 79,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2234,
+   "merge_commit": "a97f9fd47b290016526c8af2dac0531fea5cd773",
+   "merged_at": "2025-02-16T18:08:14Z",
+   "changed_lines": 90,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2233,
+   "merge_commit": "5f9c40898e795a9fb0fd5ca83b6e05c3720523d1",
+   "merged_at": "2025-02-15T18:17:49Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2231,
+   "merge_commit": "8cb30f9ca53a004a6fe88c5cfcc79ac7b24fc638",
+   "merged_at": "2025-02-09T16:06:07Z",
+   "changed_lines": 164,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "spf13/cobra",
+   "number": 2230,
+   "merge_commit": "17b6dca2ffaf6113cbd1cf433ec988fa7d63c6f3",
+   "merged_at": "2025-02-06T20:35:25Z",
+   "changed_lines": 1,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4854,
+   "merge_commit": "1bd0ecf2d3e08da37efa270bb7be20c1eddb0d68",
+   "merged_at": "2026-09-25T06:01:38Z",
+   "changed_lines": 27,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4832,
+   "merge_commit": "bc141b4dbf90d5bb5028fc68afe48782402bb2d4",
+   "merged_at": "2026-09-16T14:47:17Z",
+   "changed_lines": 30,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4830,
+   "merge_commit": "2a1a14ff37a26ca6a76763ecc33727c23d9284e9",
+   "merged_at": "2026-09-16T13:24:34Z",
+   "changed_lines": 26,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4823,
+   "merge_commit": "3329b63aa7c0b107dd6d72a74add233fe11485d8",
+   "merged_at": "2026-09-19T06:09:41Z",
+   "changed_lines": 7,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4822,
+   "merge_commit": "05b14df992a31fe8ff567338bb6c934f1aa3872f",
+   "merged_at": "2026-09-19T06:12:34Z",
+   "changed_lines": 25,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4819,
+   "merge_commit": "3b08cd7235bd5ad2f055aa9e38135f111f6c5926",
+   "merged_at": "2026-09-19T13:11:33Z",
+   "changed_lines": 105,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4814,
+   "merge_commit": "e318c6add8f947ba3c0db15f782517a9bb6bedc2",
+   "merged_at": "2026-09-19T06:10:49Z",
+   "changed_lines": 35,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4809,
+   "merge_commit": "8ad9f9cbeab45887327608f393bb614187e06099",
+   "merged_at": "2026-09-19T06:21:22Z",
+   "changed_lines": 3,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4807,
+   "merge_commit": "8dd20118ba9a9dfa18ebba99e33d6a59b0090436",
+   "merged_at": "2026-08-15T05:43:08Z",
+   "changed_lines": 24,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4806,
+   "merge_commit": "b1f77cf536154f67e3332fc5d0965b891be86606",
+   "merged_at": "2026-09-19T06:20:37Z",
+   "changed_lines": 156,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4805,
+   "merge_commit": "5c6a15f8f9566612076bd209e623861bf92a6283",
+   "merged_at": "2026-09-16T15:01:53Z",
+   "changed_lines": 97,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4800,
+   "merge_commit": "d8f2d588d7573b3438cfc95b7a47f9ec8966273c",
+   "merged_at": "2026-09-19T06:41:53Z",
+   "changed_lines": 59,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4797,
+   "merge_commit": "b52df1fe77734c691acc1fce21647fe0ca955201",
+   "merged_at": "2026-09-16T13:26:35Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4723,
+   "merge_commit": "dcaa4296d111981ffb31ac3eba90bb63e1eb5ab9",
+   "merged_at": "2026-08-15T05:44:20Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4717,
+   "merge_commit": "34dac209ffb6ef85cc78c5d217bbb7ad001d68fd",
+   "merged_at": "2026-06-26T16:48:16Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4713,
+   "merge_commit": "2e4d4f38962a6f15ae496d59b294f307eef95429",
+   "merged_at": "2026-06-22T11:00:07Z",
+   "changed_lines": 8,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4709,
+   "merge_commit": "da1e108614ecbbadfa5736b1b297b16121d23b9b",
+   "merged_at": "2026-06-22T14:43:44Z",
+   "changed_lines": 13,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4707,
+   "merge_commit": "03f3e420a3c370659359fb4deb99a474229b215a",
+   "merged_at": "2026-06-23T12:08:30Z",
+   "changed_lines": 12,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4702,
+   "merge_commit": "d9307dbcbbe796a64d9e0ef23452da888dd7f904",
+   "merged_at": "2026-06-22T15:34:42Z",
+   "changed_lines": 61,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4699,
+   "merge_commit": "074b669a95fd834701359acc55371e6b377618f6",
+   "merged_at": "2026-06-22T13:18:24Z",
+   "changed_lines": 31,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4698,
+   "merge_commit": "4a3eb31fb15b2a2d78b4bdbe0c31a2c564b1977a",
+   "merged_at": "2026-06-22T12:56:28Z",
+   "changed_lines": 51,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4695,
+   "merge_commit": "293ad7edebb3ae30369288bd6416ca0d78474727",
+   "merged_at": "2026-06-22T11:09:27Z",
+   "changed_lines": 54,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4685,
+   "merge_commit": "c79f5d466ee780c329663d5b599d40639b33cd93",
+   "merged_at": "2026-06-02T13:45:59Z",
+   "changed_lines": 5,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4678,
+   "merge_commit": "8d0468f72897652485933b845253386f9147a8bf",
+   "merged_at": "2026-06-02T13:50:57Z",
+   "changed_lines": 24,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4675,
+   "merge_commit": "88c42635384d52ccc28bbcc2750cc040e07e2e82",
+   "merged_at": "2026-06-02T13:49:37Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4655,
+   "merge_commit": "96ece6a14123923d00081320486042f568adef32",
+   "merged_at": "2026-06-02T13:48:54Z",
+   "changed_lines": 87,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4645,
+   "merge_commit": "d75fcd4c9ab260e5225de590f1f0f8c0e0e12d11",
+   "merged_at": "2026-06-02T14:02:15Z",
+   "changed_lines": 30,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4583,
+   "merge_commit": "ecd26c8835574b47acdc9cb6a5dddcc6fe922140",
+   "merged_at": "2026-03-15T09:16:42Z",
+   "changed_lines": 1015,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4582,
+   "merge_commit": "a749e4d33c2db35835581c60604720614e570cd6",
+   "merged_at": "2026-03-15T06:34:58Z",
+   "changed_lines": 408,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "gin-gonic/gin",
+   "number": 4581,
+   "merge_commit": "65d1c470ec1d2377623dff5f65241beeed2dfb79",
+   "merged_at": "2026-03-15T06:17:04Z",
+   "changed_lines": 1488,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14577,
+   "merge_commit": "6fc1c29d5477bfe71da7af290eb481c0df7811f1",
+   "merged_at": "2026-10-02T16:05:08Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14553,
+   "merge_commit": "1863cb7c0f1d27e9479a95edb30ba97fcc6c01b1",
+   "merged_at": "2026-09-29T17:42:56Z",
+   "changed_lines": 5,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14540,
+   "merge_commit": "0f6de7b4f0aef53a94505efc2d57e87c578196f7",
+   "merged_at": "2026-09-29T14:24:24Z",
+   "changed_lines": 18,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14519,
+   "merge_commit": "0706fa4d513426c0961720732198d6e0f7b54cdd",
+   "merged_at": "2026-09-29T16:23:49Z",
+   "changed_lines": 11,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14517,
+   "merge_commit": "babd691446b9c935574771ef31e85e88f1362e4a",
+   "merged_at": "2026-09-25T06:40:58Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14516,
+   "merge_commit": "9b031151a825bda919203c5202876a725d637368",
+   "merged_at": "2026-09-25T07:51:35Z",
+   "changed_lines": 22,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14509,
+   "merge_commit": "6f7893163bb67716e27ab38261d06dc1fc47057b",
+   "merged_at": "2026-09-23T16:38:29Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14507,
+   "merge_commit": "b6770c8bc54c72e74e785c307850446b8e10be9d",
+   "merged_at": "2026-09-23T21:21:35Z",
+   "changed_lines": 774,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14497,
+   "merge_commit": "a3d31e2764f110dd03c46136177360bc78dc3f63",
+   "merged_at": "2026-09-22T16:24:02Z",
+   "changed_lines": 24,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14462,
+   "merge_commit": "0cf1092493af067646fc5f3db9421c6a6ec9c938",
+   "merged_at": "2026-09-15T14:11:21Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14461,
+   "merge_commit": "9eb4db2ba89017ea9dbcaed4f712dc4881f7f37b",
+   "merged_at": "2026-09-15T13:30:23Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14460,
+   "merge_commit": "adeb51e2f094d848111100a543dd1941b4f4255d",
+   "merged_at": "2026-09-15T13:14:27Z",
+   "changed_lines": 26,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14441,
+   "merge_commit": "97de969621be4915a607fcbb6e8e63a72494e138",
+   "merged_at": "2026-09-14T13:03:21Z",
+   "changed_lines": 8,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14438,
+   "merge_commit": "4595165dfeeed3fed5670445af393037ed4359d5",
+   "merged_at": "2026-09-14T09:56:23Z",
+   "changed_lines": 14,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14437,
+   "merge_commit": "38316c1c4f275030e3df6666382922e75410d68b",
+   "merged_at": "2026-09-14T14:26:19Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14430,
+   "merge_commit": "ba51bb47799e308109a980fca846a90d164f5811",
+   "merged_at": "2026-09-11T18:06:18Z",
+   "changed_lines": 73,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14429,
+   "merge_commit": "8fcd6a643f993ee12b70ad0edeab741ed133c9f1",
+   "merged_at": "2026-09-11T15:55:40Z",
+   "changed_lines": 67,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14428,
+   "merge_commit": "7f0590c2b8050bb04c5af52291062e6825dda9df",
+   "merged_at": "2026-09-11T12:01:23Z",
+   "changed_lines": 51,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14416,
+   "merge_commit": "7b2de63c49c0d6717930415d2100a56103360509",
+   "merged_at": "2026-09-10T15:48:23Z",
+   "changed_lines": 676,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14415,
+   "merge_commit": "f073783a4224a952a66a365e2a7273fc3467e431",
+   "merged_at": "2026-09-10T13:52:04Z",
+   "changed_lines": 3,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14414,
+   "merge_commit": "0ba226a27ca148f1df40402e328e847efb14821a",
+   "merged_at": "2026-09-10T12:28:48Z",
+   "changed_lines": 2,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14412,
+   "merge_commit": "cebba8ca6c71e85a6bbac445de411690802298ac",
+   "merged_at": "2026-09-10T10:21:28Z",
+   "changed_lines": 16,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14397,
+   "merge_commit": "707514fdaea01d51886a99d2941bd8ad62d84234",
+   "merged_at": "2026-09-08T18:01:46Z",
+   "changed_lines": 3,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14390,
+   "merge_commit": "ae1ba32887ab1233824f159774cda4b36f249ac5",
+   "merged_at": "2026-09-09T18:04:48Z",
+   "changed_lines": 2283,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14388,
+   "merge_commit": "38a05c97bfabd199e5705d9983f9727a181a449d",
+   "merged_at": "2026-09-08T15:42:21Z",
+   "changed_lines": 698,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14363,
+   "merge_commit": "c9dd6db9e12fcc53ab7f5cc272a1724d8adc9444",
+   "merged_at": "2026-09-05T13:44:37Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14360,
+   "merge_commit": "ae1ba32887ab1233824f159774cda4b36f249ac5",
+   "merged_at": "2026-09-09T18:04:47Z",
+   "changed_lines": 689,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14356,
+   "merge_commit": "c265dd86f7b50eb788f7fc9432148a60ea7517f9",
+   "merged_at": "2026-09-10T11:55:09Z",
+   "changed_lines": 220,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14354,
+   "merge_commit": "e18cc33299fedb85c7f849bf338a63e34f7b7db7",
+   "merged_at": "2026-09-09T17:52:16Z",
+   "changed_lines": 463,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "cli/cli",
+   "number": 14347,
+   "merge_commit": "0d121e8c31204cdbe02b4a4b1be5e88bdc3c4662",
+   "merged_at": "2026-09-05T13:53:28Z",
+   "changed_lines": 90,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1196,
+   "merge_commit": "167e1e3bd039d060696b99c8da4e876ae04f42c1",
+   "merged_at": "2026-09-29T23:38:28Z",
+   "changed_lines": 86,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1185,
+   "merge_commit": "3d1777a1ef8881f7d1da0b02c76ca8f0a29cd2bc",
+   "merged_at": "2026-09-18T11:51:54Z",
+   "changed_lines": 100,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1174,
+   "merge_commit": "b1c9ab47626cc46b34393ad4d35779c4363c4e1e",
+   "merged_at": "2026-09-08T16:04:08Z",
+   "changed_lines": 75,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1168,
+   "merge_commit": "ae6be7469132cf471ca099d8c7bda4010c4ff7b2",
+   "merged_at": "2026-08-31T10:53:32Z",
+   "changed_lines": 5,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1167,
+   "merge_commit": "50ef4e4c311ff0c31e12e97e4e9f186b4cd0758d",
+   "merged_at": "2026-08-31T10:52:55Z",
+   "changed_lines": 28,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1166,
+   "merge_commit": "5ac7a8277d4d376d1766f0354060cbdbc87ef16f",
+   "merged_at": "2026-08-31T08:56:47Z",
+   "changed_lines": 12,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1165,
+   "merge_commit": "77074b34b9396eed9faf73c2a484c775356b33ba",
+   "merged_at": "2026-08-31T09:15:36Z",
+   "changed_lines": 14,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1164,
+   "merge_commit": "756fcb8d630fc10c53e2cc0f824c3b53112a6cba",
+   "merged_at": "2026-08-31T08:58:08Z",
+   "changed_lines": 19,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1159,
+   "merge_commit": "aba86186a27484f3cadc55b8d6448d2049af71bf",
+   "merged_at": "2026-08-27T13:49:07Z",
+   "changed_lines": 45,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1158,
+   "merge_commit": "87c34a24a64984d80c6f1d11eb19dc8584930433",
+   "merged_at": "2026-08-20T11:48:29Z",
+   "changed_lines": 44,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1157,
+   "merge_commit": "15767233591fd4267ae99d05299fa3807c375cdd",
+   "merged_at": "2026-08-20T11:12:10Z",
+   "changed_lines": 80,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1156,
+   "merge_commit": "38939062c5df4d3e8814aad1a488983112627ced",
+   "merged_at": "2026-08-20T09:37:52Z",
+   "changed_lines": 23,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1151,
+   "merge_commit": "60ecea54191a4cad3d5a96568708dad996509b17",
+   "merged_at": "2026-08-20T08:50:44Z",
+   "changed_lines": 27,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1148,
+   "merge_commit": "29164f023bf9319e74d5961a21a712653bb98c83",
+   "merged_at": "2026-08-20T08:55:43Z",
+   "changed_lines": 180,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1132,
+   "merge_commit": "caf87e6e1bd9f29326f2ffdb93d8098139f08e4f",
+   "merged_at": "2026-07-05T18:13:25Z",
+   "changed_lines": 69,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1131,
+   "merge_commit": "7fcb8a20364d7b72e2d5a0e413ae80346e1c99c8",
+   "merged_at": "2026-07-05T15:55:43Z",
+   "changed_lines": 10,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1127,
+   "merge_commit": "d7b767bcbea51e486bdc9fd06d25136767ec14b5",
+   "merged_at": "2026-07-03T15:31:23Z",
+   "changed_lines": 4,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1116,
+   "merge_commit": "8b258c7bb28f97a5f2a856ff7ef962578fec9215",
+   "merged_at": "2026-07-05T18:51:45Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1113,
+   "merge_commit": "3b50c7cc35ff25f384202409733c3332c150e0ec",
+   "merged_at": "2026-06-22T15:45:48Z",
+   "changed_lines": 4,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1111,
+   "merge_commit": "bc02284e9db220c644912320fe1db6bc9b4a087c",
+   "merged_at": "2026-08-20T08:53:43Z",
+   "changed_lines": 91,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1110,
+   "merge_commit": "2b9fca258f92830fc8232582e9e05a4d4a572a5d",
+   "merged_at": "2026-06-14T10:07:26Z",
+   "changed_lines": 46,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1097,
+   "merge_commit": "818fdcfc4786168651768377ba647cf9dd5b3953",
+   "merged_at": "2026-05-20T18:15:39Z",
+   "changed_lines": 22,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1085,
+   "merge_commit": "4ef87eaf2cfb27d3126d48194e1a84806acc1aed",
+   "merged_at": "2026-05-16T14:31:44Z",
+   "changed_lines": 29,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1073,
+   "merge_commit": "f975af0cb10cbefaccf0422385420fe62722d648",
+   "merged_at": "2026-05-16T14:34:19Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1054,
+   "merge_commit": "a36a925a6a195943ec104100d7d18757543e745f",
+   "merged_at": "2026-02-19T12:38:51Z",
+   "changed_lines": 13,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1053,
+   "merge_commit": "be60b2ec5755a9072cdf27af3ba3034e84781d12",
+   "merged_at": "2026-02-19T13:12:25Z",
+   "changed_lines": 5,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1052,
+   "merge_commit": "7d93ee3e86b4d477c20d809c9b1ce9a281dfd706",
+   "merged_at": "2026-02-18T22:09:18Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1051,
+   "merge_commit": "3328d4d3ab8a08547fa419ed657017355e6d3c4d",
+   "merged_at": "2026-02-19T13:12:48Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1050,
+   "merge_commit": "878fe71fc9e506a63ea6957ed09c9ce84f789e97",
+   "merged_at": "2026-07-05T15:38:14Z",
+   "changed_lines": 38,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "go-chi/chi",
+   "number": 1049,
+   "merge_commit": "903cff2596eac0f72538ac46d696058351f1c3fb",
+   "merged_at": "2026-02-12T11:31:52Z",
+   "changed_lines": 62,
+   "touches_tests": true,
+   "language": "go"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3502,
+   "merge_commit": "020687a77d13146923333f0beb274eeabd54a270",
+   "merged_at": "2026-08-04T13:46:54Z",
+   "changed_lines": 87,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3501,
+   "merge_commit": "7525479a9576f1ca4c2d04339d78e47ff5ae9b05",
+   "merged_at": "2026-08-03T11:38:57Z",
+   "changed_lines": 6,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3496,
+   "merge_commit": "435f59fc4b43af3ab32f34d53fa34978f393fe52",
+   "merged_at": "2026-07-29T15:00:03Z",
+   "changed_lines": 34,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3495,
+   "merge_commit": "dffd776a737dc19a48b758dd6a621de113794121",
+   "merged_at": "2026-07-28T22:57:18Z",
+   "changed_lines": 7,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3490,
+   "merge_commit": "f9c05a949d1a0dc8e16dee28ca9605d38611faeb",
+   "merged_at": "2026-07-24T12:03:08Z",
+   "changed_lines": 101,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3487,
+   "merge_commit": "8372866810a1f2a647d11d7780984d4402a5c1e9",
+   "merged_at": "2026-07-22T15:51:56Z",
+   "changed_lines": 563,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3483,
+   "merge_commit": "be739c7910288905d966f87607b28435d1576295",
+   "merged_at": "2026-07-20T13:16:03Z",
+   "changed_lines": 1196,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3482,
+   "merge_commit": "d958105d412b6a1ad014cb0e5832a9b029fa4977",
+   "merged_at": "2026-07-20T11:52:43Z",
+   "changed_lines": 382,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3476,
+   "merge_commit": "a9dc2228fbddd1d25146f38d0926830812c97419",
+   "merged_at": "2026-07-20T18:14:33Z",
+   "changed_lines": 35,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3475,
+   "merge_commit": "0d7054d8e466d6aa0a6bb6cf121e87225d26df44",
+   "merged_at": "2026-07-16T21:33:06Z",
+   "changed_lines": 79,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3474,
+   "merge_commit": "fc3dd04b7ca18ec8be97704dc098bbd062bad244",
+   "merged_at": "2026-07-17T11:36:47Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3472,
+   "merge_commit": "b621e65b4fc8a50b55576b07526f21c5d051ad71",
+   "merged_at": "2026-07-17T13:10:33Z",
+   "changed_lines": 1592,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3468,
+   "merge_commit": "241b87b3377136659ef0f57948b8e0739e9a691b",
+   "merged_at": "2026-07-09T17:49:32Z",
+   "changed_lines": 894,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3467,
+   "merge_commit": "b009b5b84b5bc92f18462f5c9fe1bad94551ceb0",
+   "merged_at": "2026-07-08T12:26:02Z",
+   "changed_lines": 30,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3466,
+   "merge_commit": "e0156728197b61b5edc8faca862690c1dca69fd0",
+   "merged_at": "2026-07-08T12:27:04Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3465,
+   "merge_commit": "e5f627fc16766194ced7bf498b03b78823f97716",
+   "merged_at": "2026-07-08T12:24:39Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3464,
+   "merge_commit": "f127579b006d9fb388050281d7d7146799a9cd4c",
+   "merged_at": "2026-07-07T19:51:45Z",
+   "changed_lines": 26,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3458,
+   "merge_commit": "c10f151e4436da7c37d34359cdfe10d6f5aa0bb4",
+   "merged_at": "2026-07-01T12:07:22Z",
+   "changed_lines": 5,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3452,
+   "merge_commit": "f2f3d00df7b51c9581a07b7373353cf7eef08dd8",
+   "merged_at": "2026-07-08T12:55:21Z",
+   "changed_lines": 445,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3446,
+   "merge_commit": "3a570990c4cf04404c4c320391e92749d434643b",
+   "merged_at": "2026-07-09T12:21:01Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3444,
+   "merge_commit": "dfe4a81d2591daca76d25ae4e052c34b26578155",
+   "merged_at": "2026-06-21T12:48:16Z",
+   "changed_lines": 1,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3433,
+   "merge_commit": "c28ce760dfbb16e284c1aa09d848cc016ae3fe88",
+   "merged_at": "2026-06-03T16:50:44Z",
+   "changed_lines": 21,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3431,
+   "merge_commit": "48a6ad93f152dc848f1883ceb3bf2c7baab6738c",
+   "merged_at": "2026-06-03T18:30:00Z",
+   "changed_lines": 10,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3420,
+   "merge_commit": "43e2f08edef8c00e5d7719212c3e6a869bca1151",
+   "merged_at": "2026-06-05T11:02:49Z",
+   "changed_lines": 344,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3418,
+   "merge_commit": "4857d6fa67db69a95cd4b6f2adda5d807d4d0119",
+   "merged_at": "2026-05-26T12:36:16Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3416,
+   "merge_commit": "f0cec341ab95c25c691ad3d5754d4bd9eedde21f",
+   "merged_at": "2026-05-26T04:02:45Z",
+   "changed_lines": 46,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3279,
+   "merge_commit": "4519153e5e461527f4bca45b042fff45c4ec6fb9",
+   "merged_at": "2026-02-27T16:25:19Z",
+   "changed_lines": 14,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3278,
+   "merge_commit": "cb66736f146f093497f4dc537b33d0826f9af33c",
+   "merged_at": "2026-02-20T21:18:06Z",
+   "changed_lines": 8,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3271,
+   "merge_commit": "9b84e154c8e404f4c40f6f4e4c674ea02e77324a",
+   "merged_at": "2026-02-13T01:39:46Z",
+   "changed_lines": 1,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "BurntSushi/ripgrep",
+   "number": 3248,
+   "merge_commit": "0a88cccd5188074de96f54a4b6b44a63971ac157",
+   "merged_at": "2025-12-17T16:38:12Z",
+   "changed_lines": 11,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6535,
+   "merge_commit": "6cde7384bc47913bdbf456cd2f0e3ebb94cb3557",
+   "merged_at": "2026-09-27T01:58:33Z",
+   "changed_lines": 36,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6528,
+   "merge_commit": "a812461690d1ec08a8c14e5df7661588a150800a",
+   "merged_at": "2026-09-14T18:26:21Z",
+   "changed_lines": 841,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6526,
+   "merge_commit": "34430008f695f43d37364ce47cce5156febb1c52",
+   "merged_at": "2026-09-15T16:30:19Z",
+   "changed_lines": 28,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6521,
+   "merge_commit": "7b2ad34cfd8742757ebd9f5b3e9211cbb66f7c2f",
+   "merged_at": "2026-09-14T18:37:04Z",
+   "changed_lines": 544,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6519,
+   "merge_commit": "48ed7869b91addcfb485decf2b445c74bef00535",
+   "merged_at": "2026-09-09T22:28:33Z",
+   "changed_lines": 3,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6492,
+   "merge_commit": "39f514069e9227398fc3ebff6e1190fb2e206a26",
+   "merged_at": "2026-08-20T18:02:02Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6482,
+   "merge_commit": "6689200988187587610dd66864c9df8e0823a560",
+   "merged_at": "2026-08-12T21:13:00Z",
+   "changed_lines": 37,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6477,
+   "merge_commit": "0b83f878fc82bc1e6d939067ea298e613216118e",
+   "merged_at": "2026-08-11T13:48:12Z",
+   "changed_lines": 6,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6469,
+   "merge_commit": "526c81906357cae595259d46cea2fd4675489331",
+   "merged_at": "2026-08-06T11:24:52Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6468,
+   "merge_commit": "3918cb4db643ffdfb3c8206d241d70acf6d5c5de",
+   "merged_at": "2026-08-06T13:27:28Z",
+   "changed_lines": 153,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6467,
+   "merge_commit": "a9660f4cc5eee28343842a99d98b9e459a8cef98",
+   "merged_at": "2026-08-06T14:00:17Z",
+   "changed_lines": 133,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6465,
+   "merge_commit": "e48aba7bb0df74ca8658d9dc32f57b479e3a21fd",
+   "merged_at": "2026-08-03T21:34:16Z",
+   "changed_lines": 22,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6459,
+   "merge_commit": "ad8a3f9776f362e0389dfbf1f6c45da7b3f1c2ff",
+   "merged_at": "2026-07-31T16:25:30Z",
+   "changed_lines": 127,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6457,
+   "merge_commit": "3bc36222053a49936ea67e8616d1584a75c811b0",
+   "merged_at": "2026-08-05T17:18:08Z",
+   "changed_lines": 448,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6456,
+   "merge_commit": "80e73bfa1d5fc352eca17029ab7b7805216bd939",
+   "merged_at": "2026-07-31T21:21:17Z",
+   "changed_lines": 123,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6455,
+   "merge_commit": "2246e8b0c7c8b5ccb2d24a461862b43150d08e0d",
+   "merged_at": "2026-07-27T14:31:10Z",
+   "changed_lines": 119,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6454,
+   "merge_commit": "d0a3980fa7d7235c1591f48acec47669426be0bf",
+   "merged_at": "2026-07-31T17:28:29Z",
+   "changed_lines": 79,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6453,
+   "merge_commit": "f8ac8c5f1b3554657b557ba2d21279930434b401",
+   "merged_at": "2026-07-27T16:18:25Z",
+   "changed_lines": 13,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6451,
+   "merge_commit": "dd40ed75eb72952915b5725c7982d785fa840c35",
+   "merged_at": "2026-07-21T21:58:35Z",
+   "changed_lines": 97,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6441,
+   "merge_commit": "1d302a9bb4d9f323bb96e93f6234a7338589504b",
+   "merged_at": "2026-07-15T19:08:08Z",
+   "changed_lines": 44,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6438,
+   "merge_commit": "fcc0e199fd8f1e21ef31113cac5786fcc1204daf",
+   "merged_at": "2026-07-09T21:47:38Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6422,
+   "merge_commit": "70752392a8ca7ea877c651622a2247b2ccc0fb5e",
+   "merged_at": "2026-06-30T12:35:41Z",
+   "changed_lines": 341,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6414,
+   "merge_commit": "04b9fbb83a88a3dac4c33b5589c8aa79f7c965f7",
+   "merged_at": "2026-06-30T18:40:20Z",
+   "changed_lines": 32,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6413,
+   "merge_commit": "99a401805ec244103fd50ffaeb6f60da1904641b",
+   "merged_at": "2026-07-20T13:52:35Z",
+   "changed_lines": 89,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6409,
+   "merge_commit": "fb6058cc38cf6f4b07b8db89c850fc80e059e222",
+   "merged_at": "2026-07-01T17:57:11Z",
+   "changed_lines": 74,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6400,
+   "merge_commit": "308f18b1cf37a6ed56fe089eb90724540c14af78",
+   "merged_at": "2026-07-17T17:38:58Z",
+   "changed_lines": 219,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6369,
+   "merge_commit": "b61f270930e60ee4968dfed7dc81eef51232f22b",
+   "merged_at": "2026-05-10T01:08:51Z",
+   "changed_lines": 16,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6368,
+   "merge_commit": "c96f222c35c4ef4bd3ab9927809b2724532a8f6e",
+   "merged_at": "2026-05-11T18:44:00Z",
+   "changed_lines": 113,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6360,
+   "merge_commit": "d142d8f96650c49302aeab87814d5bf352dbf4db",
+   "merged_at": "2026-05-01T19:41:12Z",
+   "changed_lines": 218,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "clap-rs/clap",
+   "number": 6359,
+   "merge_commit": "bea966e84a50dc375d75baecbd469362b4f66281",
+   "merged_at": "2026-05-01T16:33:58Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 3085,
+   "merge_commit": "6d6e9a11101354ce769a3438a088b6b9305c1863",
+   "merged_at": "2026-07-18T22:50:29Z",
+   "changed_lines": 26,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 3039,
+   "merge_commit": "789334771f879ce86383cd1cf4698458b3592551",
+   "merged_at": "2026-02-15T16:18:07Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 3038,
+   "merge_commit": "e65b3e742063c7353ff5b1feea61aef5030b92bc",
+   "merged_at": "2026-02-15T16:21:06Z",
+   "changed_lines": 185,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 3037,
+   "merge_commit": "9d17f29523a06fdb43b5795fd7a39661a08ef481",
+   "merged_at": "2026-02-15T16:19:12Z",
+   "changed_lines": 23,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 3035,
+   "merge_commit": "3587aed5d424cb2e9be0b632e3844e64654be709",
+   "merged_at": "2026-02-12T18:46:46Z",
+   "changed_lines": 64,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 3034,
+   "merge_commit": "888de679213921716e4528d5ec5ff8a0d3b9c3e6",
+   "merged_at": "2026-02-12T18:43:55Z",
+   "changed_lines": 150,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 3019,
+   "merge_commit": "d17902059e77e371d8a7f83ff403f9e760b70f45",
+   "merged_at": "2025-12-22T11:29:11Z",
+   "changed_lines": 4,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 3001,
+   "merge_commit": "b517ec9fd78446ab6282adc405bc1bf37246a4e2",
+   "merged_at": "2025-10-17T17:35:18Z",
+   "changed_lines": 8,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2995,
+   "merge_commit": "5adc9e816c155473ec66b6641fc81529a5ef3868",
+   "merged_at": "2025-09-27T16:50:33Z",
+   "changed_lines": 21,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2992,
+   "merge_commit": "9d3410e3f4e38f9ea1a798e7ae9fab71577ab31b",
+   "merged_at": "2025-09-25T23:40:54Z",
+   "changed_lines": 1,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2991,
+   "merge_commit": "7c58427e1259566b4835444951ff79406c75205f",
+   "merged_at": "2025-09-25T23:41:35Z",
+   "changed_lines": 489,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2990,
+   "merge_commit": "b7dbf7e3cb53bc9b9442047229e4f125bb07783e",
+   "merged_at": "2025-09-25T18:14:43Z",
+   "changed_lines": 1,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2989,
+   "merge_commit": "aa2d9b208a3677949b230d08b16ba8fdfead8069",
+   "merged_at": "2025-09-25T16:45:26Z",
+   "changed_lines": 126,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2986,
+   "merge_commit": "8a3c29ff19126ca021c29039bfcd1e829b1dfab3",
+   "merged_at": "2025-09-20T19:30:39Z",
+   "changed_lines": 4,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2983,
+   "merge_commit": "6f5eb7d207cb41c3b658948ba783a856e3697dfd",
+   "merged_at": "2025-09-16T16:24:04Z",
+   "changed_lines": 6,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2980,
+   "merge_commit": "5b37e8a5317108b944ddf036d53824e0ae4ac9b4",
+   "merged_at": "2025-09-15T20:20:54Z",
+   "changed_lines": 705,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2979,
+   "merge_commit": "840f6ec9b867af7b83a4afd789cff98195350ed0",
+   "merged_at": "2025-09-15T15:45:06Z",
+   "changed_lines": 103,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2978,
+   "merge_commit": "a4ac0c2bc6625ee83ddf4b35f11eca48f90ebae2",
+   "merged_at": "2025-09-14T20:19:52Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2976,
+   "merge_commit": "fd4decf2fe36a8e4408aefc493960141b8b0cd02",
+   "merged_at": "2025-09-14T15:39:46Z",
+   "changed_lines": 468,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2975,
+   "merge_commit": "10bcfc0047b38d72d12f3215649f570d6a4930aa",
+   "merged_at": "2025-09-14T00:25:14Z",
+   "changed_lines": 9,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2974,
+   "merge_commit": "9cf3f2ed7ddb11ad0fe6fabcde58e7ef7fd43825",
+   "merged_at": "2025-09-14T00:04:36Z",
+   "changed_lines": 1,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2973,
+   "merge_commit": "85bf29c44672dca61ccd17bf021c3ab2b9a8ac0e",
+   "merged_at": "2025-09-14T00:12:51Z",
+   "changed_lines": 38,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2971,
+   "merge_commit": "23dea60e1ac07e38fbf6197b0580326b8cabda4b",
+   "merged_at": "2025-09-13T21:40:13Z",
+   "changed_lines": 5,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2970,
+   "merge_commit": "69aa109fd36449054974770a271cf8b6931bdbcd",
+   "merged_at": "2025-09-13T21:36:00Z",
+   "changed_lines": 63,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2969,
+   "merge_commit": "0990d97a779c4e9cc6a7825e6d209bf0879c494c",
+   "merged_at": "2025-09-13T21:32:12Z",
+   "changed_lines": 120,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2968,
+   "merge_commit": "260511d14989b17fb66fb40d1bd375ae862f668b",
+   "merged_at": "2025-09-13T21:26:50Z",
+   "changed_lines": 1496,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2967,
+   "merge_commit": "93f43cedaa362076351bbddf341eb4ac5b99aca3",
+   "merged_at": "2025-09-13T21:22:25Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2966,
+   "merge_commit": "35c963101b3d80243fc61893a3bed3bd0371f764",
+   "merged_at": "2025-09-13T21:19:02Z",
+   "changed_lines": 35,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2965,
+   "merge_commit": "1b89ff50a9bd6a15f1e3bdc61ead75467d28ae4d",
+   "merged_at": "2025-09-13T21:15:39Z",
+   "changed_lines": 12,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "serde-rs/serde",
+   "number": 2964,
+   "merge_commit": "79f3484ab831a0ef733d90bf538403e3c9f6f3e7",
+   "merged_at": "2025-09-13T21:11:34Z",
+   "changed_lines": 196,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8590,
+   "merge_commit": "b2636752450484955e7ad334bac678424d51bc4a",
+   "merged_at": "2026-10-04T14:24:50Z",
+   "changed_lines": 4,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8580,
+   "merge_commit": "ff0c4068a4ba5f3af0fe3c5657ba42879b6ea599",
+   "merged_at": "2026-10-03T11:07:54Z",
+   "changed_lines": 34,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8579,
+   "merge_commit": "ec31a9f62c9426cec415c8c79e0608dd2866bbf7",
+   "merged_at": "2026-10-03T10:28:42Z",
+   "changed_lines": 45,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8578,
+   "merge_commit": "5d5cd8b5b896796445920b3b78c1ad5f9b853fc6",
+   "merged_at": "2026-10-03T12:18:38Z",
+   "changed_lines": 1865,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8577,
+   "merge_commit": "a762700e41bf027630ba4620cfd80d127b7c801d",
+   "merged_at": "2026-10-03T11:05:40Z",
+   "changed_lines": 1229,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8574,
+   "merge_commit": "2fc5972b8bd6f51d1ad6df3bcc1a1927d1702663",
+   "merged_at": "2026-10-02T22:53:32Z",
+   "changed_lines": 58,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8572,
+   "merge_commit": "1651b8f4ec399fa568abc3b57fc1ffc3239d4a5c",
+   "merged_at": "2026-10-02T22:43:10Z",
+   "changed_lines": 32,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8570,
+   "merge_commit": "6fa334aee7b106aadc5c98d550dc4dc0a163cff3",
+   "merged_at": "2026-10-02T22:49:53Z",
+   "changed_lines": 38,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8568,
+   "merge_commit": "86678437268b2a34cc72b3cff6ef2148c75e23af",
+   "merged_at": "2026-10-02T22:42:53Z",
+   "changed_lines": 50,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8566,
+   "merge_commit": "ba23117a458f942376baa65a5f916a1e1ce8d554",
+   "merged_at": "2026-10-02T22:41:54Z",
+   "changed_lines": 59,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8564,
+   "merge_commit": "9a479922501eb47102ab844fa40e4b28d1a3c250",
+   "merged_at": "2026-10-02T22:54:28Z",
+   "changed_lines": 89,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8562,
+   "merge_commit": "436faa2da3970817653fef98c9abc6c8b4367f51",
+   "merged_at": "2026-10-02T22:51:33Z",
+   "changed_lines": 30,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8560,
+   "merge_commit": "5b758f5b5bc5b05ee3a47004aadaeadc9e2f9cb2",
+   "merged_at": "2026-10-02T22:47:04Z",
+   "changed_lines": 36,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8558,
+   "merge_commit": "6303e1882c5ab6fdb0004c4d25408a34ca609a34",
+   "merged_at": "2026-10-02T22:49:25Z",
+   "changed_lines": 65,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8556,
+   "merge_commit": "11d1ca0948874a75a75c484522c132b0f0897dc4",
+   "merged_at": "2026-10-03T09:22:40Z",
+   "changed_lines": 82,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8554,
+   "merge_commit": "babd90dee5933869084f4c21f30a4bd47ef7733d",
+   "merged_at": "2026-10-02T22:51:01Z",
+   "changed_lines": 39,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8552,
+   "merge_commit": "24ca4458fdf37efa54078af227889f7b5be70c53",
+   "merged_at": "2026-10-02T22:48:51Z",
+   "changed_lines": 40,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8550,
+   "merge_commit": "471d65dec2185e47f060581a65e1919636066113",
+   "merged_at": "2026-10-02T22:48:05Z",
+   "changed_lines": 52,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8548,
+   "merge_commit": "5dd04eb07a96f2b891bec5bf39d53154f19a016d",
+   "merged_at": "2026-10-02T22:46:13Z",
+   "changed_lines": 60,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8546,
+   "merge_commit": "8513291fda51999116a200f178f59e843d858637",
+   "merged_at": "2026-10-02T22:44:42Z",
+   "changed_lines": 127,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8544,
+   "merge_commit": "b2cdc45ca28d16988870dd42495e4b7c7bbadbf8",
+   "merged_at": "2026-10-02T22:39:44Z",
+   "changed_lines": 46,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8542,
+   "merge_commit": "625c85108da5ad0d482702a21d7d58a56ea06a48",
+   "merged_at": "2026-10-03T09:37:43Z",
+   "changed_lines": 205,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8540,
+   "merge_commit": "85a6d13882e2ccf5c24131b282bab0214b0a493e",
+   "merged_at": "2026-10-02T22:52:22Z",
+   "changed_lines": 245,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8536,
+   "merge_commit": "c7eec3ab62fcc0d8194b002c2ecad9c0821dc622",
+   "merged_at": "2026-10-02T13:03:43Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8535,
+   "merge_commit": "2733e7e8e8eaef58dc957a02c0f23ccaf868abb2",
+   "merged_at": "2026-10-02T13:04:23Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8534,
+   "merge_commit": "368deb6e3bc6534c078232709dad0768a4daecf5",
+   "merged_at": "2026-10-02T11:24:03Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8533,
+   "merge_commit": "2746c3ae26f8ac0af6023843a7f23d419c334efe",
+   "merged_at": "2026-10-02T11:24:18Z",
+   "changed_lines": 12,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8526,
+   "merge_commit": "e6e84a4d4a5e11d5d0f419444a634ee07203b3e5",
+   "merged_at": "2026-09-30T05:25:20Z",
+   "changed_lines": 46,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8524,
+   "merge_commit": "38631ed3de29781f0e9d4daf74c4497ed126d3ae",
+   "merged_at": "2026-09-29T10:37:23Z",
+   "changed_lines": 6,
+   "touches_tests": true,
+   "language": "rust"
+  },
+  {
+   "repo": "tokio-rs/tokio",
+   "number": 8522,
+   "merge_commit": "40b87794823653f4f0615c089ab536a74e67c5e9",
+   "merged_at": "2026-09-29T09:07:29Z",
+   "changed_lines": 2,
+   "touches_tests": false,
+   "language": "rust"
+  }
+ ]
+}

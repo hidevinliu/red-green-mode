@@ -11,6 +11,11 @@ never had teeth in the first place. You get a green checkmark and a broken produ
 `red-green-mode` is a referee. Zero dependencies, pure Python stdlib, no network, no LLM calls —
 just deterministic exit codes that any agent, any language, any CI can consume.
 
+**Measured, not just described** ([`bench/`](bench/README.md)): against 55 seeded cheats across Python, JS/TS,
+Go, Rust and CI config, the anti-cheat scanner blocks **55/55**. On 630 real merged PRs from 21 popular repos
+(Flask, Pydantic, Vite, Zod, GitHub CLI, Tokio…), its PR-review profile blocks **3.3%**, and a hand audit of
+every one of those blocks found no false detection. Reproducible from a committed manifest.
+
 ---
 
 ## 30 seconds, on your machine
@@ -58,7 +63,7 @@ $ python3 -m pytest -q
 $ git diff > /tmp/d.diff
 $ python3 $RGM/tools/rgm_anticheat.py scan --diff-file /tmp/d.diff --format sentinel
 ANTICHEAT=FAIL
-FINDINGS=3
+FINDINGS=2
 WARNINGS=0
 ALLOWS=0
 $ echo $?
@@ -133,10 +138,14 @@ Seven tools that return an exit code. Nothing here asks a model for an opinion.
 | `rgm_constraints.py` | Did the run write to a path the repo declared off-limits? | `0` respected · `1` violated |
 | `rgm_gate.py` | All of the above, one verdict, one sentinel for a hook to grep. | `0` PASS · `1` FAIL · `2` error |
 
-**Anti-cheat rules** (9 total — 7 blocking, 2 advisory): test skips in Python / JS-TS / Go-Rust,
-static-analysis suppressions (`# noqa`, `@ts-ignore`, `eslint-disable`, `#[allow(...)]`),
-tautological assertions, *deleted* assertions and test functions, linter-strictness downgrades,
-plus two warn-only smells (mocking the thing under test, "hardcoded to pass the test" comments).
+**Anti-cheat rules** (10 categories — 8 blocking, 2 advisory): test skips in Python / JS-TS / Go-Rust
+(including marker aliases, `pytestmark`, `it.todo`, `#[ignore = "…"]`, `//go:build ignore`),
+static-analysis suppressions (`# noqa`, `# pyright: ignore`, `@ts-ignore`, `@ts-expect-error`, `//nolint`,
+`eslint-disable`, `#[allow(...)]`), trivially-true or neutralised assertions (`assert x or True`,
+`if False:`, `except AssertionError`), *deleted* or rewritten assertions and tests, narrowed test selection
+(`--deselect`, `-k "not …"`, `collect_ignore`, `testPathIgnorePatterns`), linter or CI strictness downgrades
+(`continue-on-error: true`, `pytest || true`), plus two warn-only smells (mocking the thing under test,
+"hardcoded to pass the test" comments). Assertions that were only moved are not findings.
 
 It only reads the added/removed lines of a diff — a `# type: ignore` that was already in your
 codebase is not this run's crime.
@@ -156,7 +165,7 @@ The difference between cheating and a judgment call is whether you left an audit
 
 ```bash
 git clone https://github.com/hidevinliu/red-green-mode
-python3 -m pytest red-green-mode/tests/ -q      # 262 passed in ~20s
+python3 -m pytest red-green-mode/tests/ -q      # 380 passed in ~30s
 ```
 
 **Requirements:** Python 3.9+ and `git`. That's it — the tools import nothing outside the standard
@@ -190,13 +199,16 @@ ln -s ~/.claude/skills/red-green-mode/skills/mutation-check ~/.claude/skills/mut
 
 ### In CI, with no agent involved
 
-`rgm_anticheat.py` is just a diff scanner. It works on human pull requests too:
+`rgm_anticheat.py` is just a diff scanner. It works on human pull requests too. Use `--profile review`
+there: humans legitimately rewrite assertions and add suppressions, so those become warnings, while skips,
+net loss of assertions or tests, and narrowed test selection still block (3.3% of merged PRs in
+[the benchmark](bench/README.md)):
 
 ```yaml
 - name: Block test-tampering in this PR
   run: |
     git diff origin/${{ github.base_ref }}...HEAD > /tmp/pr.diff
-    python3 tools/rgm_anticheat.py scan --diff-file /tmp/pr.diff --format sentinel
+    python3 tools/rgm_anticheat.py scan --diff-file /tmp/pr.diff --profile review --format sentinel
 ```
 
 ---

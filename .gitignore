@@ -11,3 +11,6 @@ acceptance-contract.json
 
 .rgm-ledger-*.json
 .publish.sh
+
+# benchmark cache (third-party diffs, not redistributed)
+bench/.cache/

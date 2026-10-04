@@ -1,0 +1,258 @@
+{
+ "what": "Audit of every merged human PR still blocked by rgm_anticheat.py --profile review (v0.21.0).",
+ "method": "Each blocking finding was read against the PR diff and PR title; for removals the assertion-like lines removed vs added across the whole diff are counted. Verdicts are a reviewer's judgment (made with an AI assistant), not ground truth; they are committed so anyone can disagree line by line.",
+ "summary": {
+  "blocked": 21,
+  "false_detection": 0,
+  "correct_detection_of_an_accepted_change": 21
+ },
+ "blocked": [
+  {
+   "pr": "axios/axios#11209",
+   "title": "fix(v0)!: address error handling, cancellation and header typing",
+   "categories": [
+    2
+   ],
+   "kind": "skip",
+   "evidence": "e.g. `this.skip();`",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "axios/axios#11243",
+   "title": "fix: align request handling across runtimes (v0.x)",
+   "categories": [
+    2
+   ],
+   "kind": "skip",
+   "evidence": "e.g. `(nativeProxySupported ? it : it.skip)(`",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "cli/cli#14354",
+   "title": "Filter acceptance tests for installation token capabilities",
+   "categories": [
+    3
+   ],
+   "kind": "skip",
+   "evidence": "e.g. `t.Skipf(\"testdata/%s: %s\", command, skipReason)`",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "cli/cli#14390",
+   "title": "Finalize telemetry at invocation completion",
+   "categories": [
+    6
+   ],
+   "kind": "net assertion/test removal",
+   "evidence": "assertion-like lines removed 94, added 77",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "cli/cli#14416",
+   "title": "Delete repo garden command",
+   "categories": [
+    6
+   ],
+   "kind": "net assertion/test removal",
+   "evidence": "assertion-like lines removed 8, added 0",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "cli/cli#14507",
+   "title": "Improve CLI recording rendering",
+   "categories": [
+    3
+   ],
+   "kind": "skip",
+   "evidence": "e.g. `t.Skip(\"Supply an explicit font for native rendering.\")`",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "colinhacks/zod#6594",
+   "title": "Make z.properties() a check again",
+   "categories": [
+    6
+   ],
+   "kind": "net assertion/test removal",
+   "evidence": "assertion-like lines removed 42, added 12",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "expressjs/express#7366",
+   "title": "feat: allow conditional revalidation for QUERY requests",
+   "categories": [
+    2
+   ],
+   "kind": "skip",
+   "evidence": "e.g. `this.skip()`",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "expressjs/express#7377",
+   "title": "feat: allow conditional revalidation for QUERY requests (v4)",
+   "categories": [
+    2
+   ],
+   "kind": "skip",
+   "evidence": "e.g. `this.skip()`",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "gin-gonic/gin#4709",
+   "title": "test(context): use t.TempDir() for SaveUploadedFile permission test on WSL",
+   "categories": [
+    6
+   ],
+   "kind": "net assertion/test removal",
+   "evidence": "assertion-like lines removed 2, added 1",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "pallets/flask#5797",
+   "title": "push preserved contexts in correct order",
+   "categories": [
+    6
+   ],
+   "kind": "net assertion/test removal",
+   "evidence": "assertion-like lines removed 7, added 3",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "pallets/flask#5917",
+   "title": "fix provide_automatic_options override",
+   "categories": [
+    6
+   ],
+   "kind": "net assertion/test removal",
+   "evidence": "assertion-like lines removed 19, added 15",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "pallets/flask#5962",
+   "title": "remove unicode host test",
+   "categories": [
+    6
+   ],
+   "kind": "net assertion/test removal",
+   "evidence": "assertion-like lines removed 2, added 0",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "pydantic/pydantic#13893",
+   "title": "Encode JSON Schema defaults with a consistent configuration",
+   "categories": [
+    1
+   ],
+   "kind": "skip",
+   "evidence": "e.g. `@pytest.mark.xfail(`",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "pydantic/pydantic#13897",
+   "title": "Reject newlines in `NameEmail` validation",
+   "categories": [
+    1
+   ],
+   "kind": "skip",
+   "evidence": "e.g. `@pytest.mark.skipif(not email_validator, reason='email_validator not installed')`",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "pydantic/pydantic#13924",
+   "title": "Fix third-party tests",
+   "categories": [
+    10
+   ],
+   "kind": "narrowed test selection",
+   "evidence": "e.g. `run: pytest tests/ -k 'not test_all_fields'`",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "scikit-learn/scikit-learn#34948",
+   "title": "Bump min deps for 1.10",
+   "categories": [
+    1
+   ],
+   "kind": "skip",
+   "evidence": "e.g. `pd = pytest.importorskip(\"pandas\")`",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "scikit-learn/scikit-learn#34990",
+   "title": "MNT Clean up after min dependency bump",
+   "categories": [
+    6
+   ],
+   "kind": "net assertion/test removal",
+   "evidence": "assertion-like lines removed 3, added 1",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "spf13/cobra#2235",
+   "title": "Revert \"Make detection for test-binary more universal (#2173)\"",
+   "categories": [
+    6
+   ],
+   "kind": "net assertion/test removal",
+   "evidence": "assertion-like lines removed 2, added 0",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "tokio-rs/tokio#8540",
+   "title": "io: revert \"always cleanup AsyncFd registration list on deregister\"",
+   "categories": [
+    6
+   ],
+   "kind": "net assertion/test removal",
+   "evidence": "assertion-like lines removed 2, added 1",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "vitejs/vite#23552",
+   "title": "test(bundled-dev): enable passing cases in more playgrounds",
+   "categories": [
+    6
+   ],
+   "kind": "net assertion/test removal",
+   "evidence": "assertion-like lines removed 44, added 16",
+   "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  }
+ ],
+ "false_detections_found_and_fixed_during_v0.21.0": [
+  {
+   "pr": "BurntSushi/ripgrep#3483",
+   "cause": "Rust iterator `.skip(1)` matched the JS skip rule",
+   "fix": "language-scoped skip rules"
+  },
+  {
+   "pr": "clap-rs/clap#6456",
+   "cause": "Rust iterator `.skip(1)` matched the JS skip rule",
+   "fix": "language-scoped skip rules"
+  },
+  {
+   "pr": "pallets/flask#5812",
+   "cause": "example removed from docs/quickstart.rst",
+   "fix": "documentation files excluded"
+  },
+  {
+   "pr": "cli/cli#14388",
+   "cause": "example removed from AGENTS.md",
+   "fix": "documentation files excluded"
+  },
+  {
+   "pr": "axios/axios#11161",
+   "cause": "tests relocated to new files with edits (removed 2, added 4)",
+   "fix": "rewritten-assertion pairing across the whole diff (review profile)"
+  },
+  {
+   "pr": "colinhacks/zod#6554",
+   "cause": "assertions rewritten across files (removed 16, added 40)",
+   "fix": "rewritten-assertion pairing across the whole diff (review profile)"
+  },
+  {
+   "pr": "pydantic/pydantic#13912",
+   "cause": "test file renamed and edited (removed 10, added 12)",
+   "fix": "rewritten-assertion pairing across the whole diff (review profile)"
+  }
+ ]
+}
