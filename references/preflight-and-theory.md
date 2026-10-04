@@ -4,7 +4,7 @@
 
 > The whole section below was moved verbatim out of SKILL.md (the v0.19.0 slim-down, see the references index table in SKILL.md); only its location changed, not a word of the text.
 
-> 📌 **`VERSION-AND-STATE.md` is the single source of truth for version truth, state files, and stop-condition ownership** (which capabilities shipped, which of `.rgm-ledger.json`/`PROGRESS.md`/`.contextwarden` is which, and which loop layer governs which). If a version number here conflicts with that page, that page wins.
+> 📌 **`VERSION-AND-STATE.md` is the single source of truth for state files and stop-condition ownership** (which of `.rgm-ledger.json`/`PROGRESS.md`/`.contextwarden` is which, and which loop layer governs which). Which capabilities shipped is in `CHANGELOG.md`; if a version number here conflicts with it, `CHANGELOG.md` wins.
 
 ## What this mode does
 

@@ -2,17 +2,11 @@
 name: red-green-mode
 version: 0.20.0
 description: >-
-  Autonomous test-fix loop (red-green mode). Run a verifier (pytest / jest / go test / cargo /
-  tsc / ruff / eslint / CI), fix whatever is red, re-run, and only finish on all-green — where
-  right and wrong are decided by the exit code, not by the agent's own judgement. Before each
-  fix, prefer the smallest correct change: reuse existing code, stdlib, or native capabilities
-  before adding abstractions or dependencies; never trade safety or test honesty for fewer lines.
-  Triggers: red-green mode / keep fixing until the tests pass / self-verify / run until all green /
-  fix CI until green / autonomous test-fix loop / long-run mode / parallel red-green;
-  「红绿灯模式」「自己跑到绿」「绿了才算完」「跑到测试全过」「把 CI 修到全绿」「不用我盯着」「长跑模式」「并行红绿灯」。
-  Not for: subjective work with no objective verifier (writing docs, copy-editing), or one-shot
-  changes that need no iteration. Use test-driven-development to write tests from scratch, and
-  systematic-debugging to root-cause a single bug.
+  Autonomous test-fix loop: run an objective verifier (tests, type-check, lint, CI), fix what is
+  red, re-run, and finish only when the verifier exit code is all green. Use when the user wants
+  work driven to green without supervision, including long-run or parallel runs (红绿灯模式 /
+  跑到全绿 / 把 CI 修到全绿). Not for subjective work with no verifier or one-shot edits; use
+  test-driven-development to write tests and systematic-debugging to root-cause one bug.
 ---
 
 # Red-Green Mode
@@ -29,7 +23,7 @@ whatever is red, then verify again.
 - Three preconditions, all required: ① an objective verifier that can tell right from wrong; ② a trustworthy referee (a red is genuinely red, a green can still catch bugs, a green is not tautological); ③ an unambiguous task. When ① is missing, **construct a red you can actually fix against** — do not just say "switch to TDD" and walk away.
 - Money / people / contracts / SOPs / formulas → clear the business-rule discovery gate first. Task ships a PRD → clear the PRD-coverage gate before finishing ("tests green" ≠ "PRD delivered").
 - **Single agent by default.** Long-run and task-parallel are optional outer modes; pass no flags and behaviour is unchanged.
-- `VERSION-AND-STATE.md` is the single source of truth for versions and state-file ownership.
+- `VERSION-AND-STATE.md` is the single source of truth for state-file ownership, stop-condition layering and runtime degradation; release history is in `CHANGELOG.md`.
 
 ## Hard mechanisms (exit-code enforced — actually run these)
 
@@ -85,7 +79,7 @@ INTAKE → CONTEXT_PACK → PRECHECK → BASELINE → TRIAGE → PLAN_ONE_FIX �
 
 ## Ironclad rules (9 — full text in `references/ironclad-rules-and-reporting.md`)
 
-1. 🚨 **Never fake green** (the big one): deleting / skipping / commenting out tests, weakening assertions, `type: ignore`, mocking out the failing logic — all forbidden. If you are convinced a test is wrong, **stop and ask the user**. Enforced by `rgm_anticheat.py`.
+1. **Never fake green**: deleting / skipping / commenting out tests, weakening assertions, `type: ignore`, mocking out the failing logic — all forbidden. If you are convinced a test is wrong, **stop and ask the user**. Enforced by `rgm_anticheat.py`.
 2. 🛑 **Stop conditions**: stalling is ruled on by `stall-check`'s exit code, not by eyeballing it. Also stop after 3 fixes for the same error, a run of failed hypotheses, or a regression in an already-green check.
 3. 💾 **Checkpoint and stay revertible**: record the starting point, and **checkpoint on every all-green**. If you go off the rails, revert to the last green state — never stack changes on a dirty one.
 4. ✅ **Baseline first, completion state last**: run everything once up front, record the baseline, label every red, then report one of the four states plus `before → after`.
