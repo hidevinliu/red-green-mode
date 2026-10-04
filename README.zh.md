@@ -20,14 +20,10 @@ flowchart TD
     V -- "每轮记录红灯数" --> L[("rgm_ledger.py stall-check")]
     L -- "退出码 1：卡住了" --> STOP["汇报：STOPPED_NO_PROGRESS"]
 
-    V -- "全绿" --> GATE
-    subgraph GATE["rgm_gate.py · 只看退出码，给出唯一裁决"]
-        direction LR
-        G1["重跑验证"] ~~~ G2["反作弊"] ~~~ G3["验收契约"] ~~~ G4["项目约束"] ~~~ G5["变异测试<br/>可选"]
-    end
-    GATE -- "PASS" --> DONE["汇报：FULL_GREEN"]
-    GATE -- "FAIL" --> T
-    HOOK["rgm_stop_hook.sh<br/>可选，仅 Claude Code"] -. "agent 想结束时" .-> GATE
+    V -- "全绿" --> G["<b>rgm_gate.py</b> · 只看退出码<br/>1 重跑验证命令<br/>2 反作弊扫描<br/>3 验收契约<br/>4 项目约束<br/>5 变异测试（可选）"]
+    HOOK["rgm_stop_hook.sh<br/>可选，仅 Claude Code"] -. "agent 想结束时" .-> G
+    G -- "PASS" --> DONE["汇报：FULL_GREEN"]
+    G -. "FAIL：回到分类" .-> T
 ```
 
 循环由 agent 推进，但"算不算做完"每一步都由工具的退出码裁决，不采信 agent 自己的汇报。

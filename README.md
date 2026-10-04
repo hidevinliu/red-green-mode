@@ -20,20 +20,15 @@ flowchart TD
     V -- "red count, every round" --> L[("rgm_ledger.py stall-check")]
     L -- "exit 1: stalled" --> STOP["REPORT: STOPPED_NO_PROGRESS"]
 
-    V -- "all green" --> GATE
-    subgraph GATE["rgm_gate.py · one verdict from exit codes"]
-        direction LR
-        G1["VERIFIER"] ~~~ G2["ANTICHEAT"] ~~~ G3["CONTRACT"] ~~~ G4["CONSTRAINTS"] ~~~ G5["MUTATION<br/>optional"]
-    end
-    GATE -- "PASS" --> DONE["REPORT: FULL_GREEN"]
-    GATE -- "FAIL" --> T
-    HOOK["rgm_stop_hook.sh<br/>optional, Claude Code"] -. "agent tries to stop" .-> GATE
+    V -- "all green" --> G["<b>rgm_gate.py</b> · one verdict<br/>1 re-run the verifier<br/>2 anti-cheat scan<br/>3 acceptance contract<br/>4 project constraints<br/>5 mutation test (optional)"]
+    HOOK["rgm_stop_hook.sh<br/>optional, Claude Code"] -. "agent tries to stop" .-> G
+    G -- "PASS" --> DONE["REPORT: FULL_GREEN"]
+    G -. "FAIL: back to triage" .-> T
 ```
 
 The agent runs the loop. Every judgment that decides "done" comes from a tool's exit code, never from
-the agent's own report. The five gate checks map to `rgm_gate.py` sub-checks: re-running the verifier
-commands, `rgm_anticheat.py`, `acceptance_contract.py`, `rgm_constraints.py` and, with `--mutation`,
-`rgm_mutation.py`. The stop hook is optional and Claude Code only: with it installed, a failing gate
+the agent's own report. The gate's five checks are, in order: re-running the verifier commands,
+`rgm_anticheat.py`, `acceptance_contract.py`, `rgm_constraints.py` and, with `--mutation`, `rgm_mutation.py`. The stop hook is optional and Claude Code only: with it installed, a failing gate
 blocks the agent from ending its turn.
 
 Coding agents are graded by their own test suite, so the cheapest way to "pass" is to attack the grader:
