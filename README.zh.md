@@ -4,6 +4,44 @@
 
 [English](README.md) · [中文](README.zh.md)
 
+## 架构
+
+```mermaid
+flowchart LR
+    SPEC["acceptance-contract.json<br/>（来自 PRD 或短规格）"]
+
+    subgraph LOOP["红绿灯循环 · SKILL.md（由 agent 推进）"]
+        direction LR
+        A["接收任务 · 准备上下文<br/>前置检查 · 跑基线"] --> T["给每个红灯分类"]
+        T --> F["每次只改一处"]
+        F --> V["重跑验证命令"]
+        V -- "还有红" --> T
+    end
+
+    LEDGER[("rgm_ledger.py<br/>.rgm-ledger.json")]
+    V -- "记录红灯数" --> LEDGER
+    LEDGER -- "stall-check 退出码 1：<br/>停下来如实汇报" --> T
+
+    subgraph GATE["rgm_gate.py · 只看退出码，给出唯一裁决"]
+        direction TB
+        G1["重跑验证命令"]
+        G2["反作弊扫描<br/>rgm_anticheat.py"]
+        G3["验收契约<br/>acceptance_contract.py"]
+        G4["项目约束<br/>rgm_constraints.py"]
+        G5["变异测试（可选）<br/>rgm_mutation.py"]
+    end
+
+    SPEC --> A
+    SPEC --> G3
+    V -- "全绿" --> GATE
+    GATE -- "RGM_GATE=PASS" --> DONE["汇报：FULL_GREEN"]
+    GATE -- "FAIL" --> T
+    HOOK["rgm_stop_hook.sh<br/>退出码 2 = 不许收工"] -. "agent 想结束时触发" .-> GATE
+```
+
+循环由 agent 推进，但"算不算做完"每一步都由工具的退出码裁决，不采信 agent 自己的汇报。
+Stop hook 是可选的，只在 Claude Code 里生效：装上以后，关卡没过，agent 就结束不了这一轮。
+
 coding agent 的成绩由它自己跑的测试判定，所以"通过"最省力的办法是去打裁判：删掉断言、给失败的
 用例挂 `@pytest.mark.skip`、撒一把 `# type: ignore`，或者干脆一开始就写一个根本咬不住代码的测试。
 你拿到一个绿色对勾，和一个坏掉的产品。

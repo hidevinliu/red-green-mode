@@ -4,6 +4,45 @@
 
 [English](README.md) · [中文](README.zh.md)
 
+## Architecture
+
+```mermaid
+flowchart LR
+    SPEC["acceptance-contract.json<br/>(from a PRD or short spec)"]
+
+    subgraph LOOP["Red-green loop · SKILL.md (the agent drives it)"]
+        direction LR
+        A["INTAKE · CONTEXT_PACK<br/>PRECHECK · BASELINE"] --> T["TRIAGE<br/>classify each red"]
+        T --> F["PLAN_ONE_FIX<br/>one change"]
+        F --> V["VERIFY<br/>re-run the verifier"]
+        V -- "still red" --> T
+    end
+
+    LEDGER[("rgm_ledger.py<br/>.rgm-ledger.json")]
+    V -- "red count" --> LEDGER
+    LEDGER -- "stall-check exit 1:<br/>stop and report" --> T
+
+    subgraph GATE["rgm_gate.py · one verdict, exit codes only"]
+        direction TB
+        G1["VERIFIER<br/>re-run the commands"]
+        G2["ANTICHEAT<br/>rgm_anticheat.py"]
+        G3["CONTRACT<br/>acceptance_contract.py"]
+        G4["CONSTRAINTS<br/>rgm_constraints.py"]
+        G5["MUTATION (optional)<br/>rgm_mutation.py"]
+    end
+
+    SPEC --> A
+    SPEC --> G3
+    V -- "all green" --> GATE
+    GATE -- "RGM_GATE=PASS" --> DONE["REPORT: FULL_GREEN"]
+    GATE -- "FAIL" --> T
+    HOOK["rgm_stop_hook.sh<br/>exit 2 = cannot finish"] -. "runs on Stop" .-> GATE
+```
+
+The agent runs the loop. Every judgment that decides "done" comes from a tool's exit code, never from
+the agent's own report. The stop hook is optional and Claude Code only: with it installed, a failing
+gate physically blocks the agent from ending its turn.
+
 Coding agents are graded by their own test suite, so the cheapest way to "pass" is to attack the grader:
 delete the assertion, `@pytest.mark.skip` the failure, sprinkle `# type: ignore`, or write a test that
 never had teeth in the first place. You get a green checkmark and a broken product.
