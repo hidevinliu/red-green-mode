@@ -1,0 +1,39 @@
+The Python function below has a bug. These test cases fail (arguments -> expected return value):
+  sqrt(2, 0.01) -> 1.4166666666666665
+  sqrt(2, 0.3) -> 1.5
+  sqrt(4, 0.2) -> 2
+  sqrt(27, 0.01) -> 5.196164639727311
+  sqrt(33, 0.05) -> 5.744627526262464
+  sqrt(170, 0.03) -> 13.038404876679632
+
+Fix the bug. Reply with only the complete corrected file in one ```python code block.
+
+```python
+
+def sqrt(x, epsilon):
+    approx = x / 2
+    while abs(x - approx) > epsilon:
+        approx = 0.5 * (approx + x / approx)
+    return approx
+
+"""
+Square Root
+
+Newton-Raphson method implementation.
+
+
+Input:
+    x: A float
+    epsilon: A float
+
+Precondition:
+    x >= 1 and epsilon > 0
+
+Output:
+    A float in the interval [sqrt(x) - epsilon, sqrt(x) + epsilon]
+
+Example:
+    >>> sqrt(2, 0.01)
+    1.4166666666666665
+"""
+```

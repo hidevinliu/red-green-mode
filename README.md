@@ -1,6 +1,6 @@
 # red-green-mode
 
-**Your coding agent says the tests are green. These seven CLIs check whether it cheated to get there.**
+**Your coding agent says the tests are green. These tools check whether it cheated to get there.**
 
 [English](README.md) · [中文](README.zh.md)
 
@@ -20,15 +20,16 @@ flowchart TD
     V -- "red count, every round" --> L[("rgm_ledger.py stall-check")]
     L -- "exit 1: stalled" --> STOP["REPORT: STOPPED_NO_PROGRESS"]
 
-    V -- "all green" --> G["<b>rgm_gate.py</b> · one verdict<br/>1 re-run the verifier<br/>2 anti-cheat scan<br/>3 acceptance contract<br/>4 project constraints<br/>5 mutation test (optional)"]
+    V -- "all green" --> G["<b>rgm_gate.py</b> · one verdict<br/>1 re-run the verifier<br/>2 anti-cheat scan<br/>3 acceptance contract<br/>4 project constraints<br/>5 mutation test (optional)<br/>6 point-patch check (optional)"]
     HOOK["rgm_stop_hook.sh<br/>optional, Claude Code"] -. "agent tries to stop" .-> G
     G -- "PASS" --> DONE["REPORT: FULL_GREEN"]
     G -. "FAIL: back to triage" .-> T
 ```
 
 The agent runs the loop. Every judgment that decides "done" comes from a tool's exit code, never from
-the agent's own report. The gate's five checks are, in order: re-running the verifier commands,
-`rgm_anticheat.py`, `acceptance_contract.py`, `rgm_constraints.py` and, with `--mutation`, `rgm_mutation.py`. The stop hook is optional and Claude Code only: with it installed, a failing gate
+the agent's own report. The gate's checks are, in order: re-running the verifier commands, `rgm_anticheat.py`,
+`acceptance_contract.py`, `rgm_constraints.py`, and two opt-in ones: `rgm_mutation.py` (`--mutation`)
+and `rgm_pointpatch.py` (`--pointpatch-base REV`). The stop hook is optional and Claude Code only: with it installed, a failing gate
 blocks the agent from ending its turn.
 
 Coding agents are graded by their own test suite, so the cheapest way to "pass" is to attack the grader:
@@ -42,6 +43,10 @@ just deterministic exit codes that any agent, any language, any CI can consume.
 Go, Rust and CI config, the anti-cheat scanner blocks **55/55**. On 630 real merged PRs from 21 popular repos
 (Flask, Pydantic, Vite, Zod, GitHub CLI, Tokio…), its PR-review profile blocks **3.3%**, and a hand audit of
 every one of those blocks found no false detection. Reproducible from a committed manifest.
+
+The point-patch check ([`bench/pointpatch/`](bench/pointpatch/README.md)) was scored on 29 QuixBugs programs: it
+flagged **0 of 112** correct fixes and caught **26 of 38** overfit ones. It misses every special case keyed
+on a feature of the inputs (0 of 6), and the overfit side is mostly template-made; both limits are spelled out there.
 
 ---
 
@@ -149,21 +154,68 @@ $ echo $?
 Six mutations injected, six restored byte-for-byte (`finally` + on-disk sidecar + a `restore`
 subcommand for crash recovery). Your working tree is unchanged afterward.
 
+### Gate 3 — did it fix the logic, or only the tested inputs?
+
+Gates 1 and 2 watch the tests. This one watches the production code. Same bug, but now the agent
+leaves the tests alone and special-cases exactly what they check:
+
+```python
+# billing.py, after the "fix"
+def apply_discount(price, pct):
+    if (price, pct) == (200, 10):
+        return 180
+    if (price, pct) == (50, 20):
+        return 40
+    return price - price * pct / 10
+```
+
+The suite is green and the diff touches no test, so anti-cheat has nothing to say. `rgm_pointpatch.py`
+records the inputs the tests pass to `apply_discount`, perturbs each one a little, and runs the old
+and new versions side by side:
+
+```console
+$ python3 $RGM/tools/rgm_anticheat.py scan --diff-file /tmp/d.diff --format sentinel | grep ANTICHEAT
+ANTICHEAT=PASS
+$ python3 $RGM/tools/rgm_pointpatch.py check --after billing.py --base HEAD --root . \
+    --func apply_discount --record "python3 -m pytest -q" --format sentinel
+POINTPATCH=SUSPECT
+SEEDS_CHANGED=2/2
+NEIGHBOUR_CHANGE_RATE=0.000
+LITERAL_HITS=4
+WHY=behaviour changed at 2 tested input(s) but on only 0/48 nearby inputs
+$ echo $?
+1
+```
+
+The honest fix (`/ 100`) changes behaviour on 47 of the same 48 nearby inputs and comes back
+`POINTPATCH=OK`. A real fix moves a whole region; a point patch moves only the points the tests
+look at. How often that rule is right, and how often it is wrong, is measured in
+[`bench/pointpatch/`](bench/pointpatch/README.md).
+
 ---
 
 ## What's in the box
 
-Seven tools that return an exit code. Nothing here asks a model for an opinion.
+Every verdict below is an exit code. Nothing here asks a model for an opinion.
+
+**The three checks, and the gate that combines them**
 
 | Tool | Question it answers | Exit codes |
 |---|---|---|
-| `rgm_anticheat.py` | Did this diff *introduce* a way to fake green? | `0` clean · `1` cheat found · `2` unusable |
-| `rgm_mutation.py` | Does the verifier actually bite the target, or is it a dead target? | `0` ALIVE · `1` DEAD |
-| `acceptance_contract.py` | Are the acceptance criteria well-formed, and did anyone swap a verifier for `echo PASS` after we agreed on it? | `0` valid + attestation matches · `1` drift |
-| `rgm_ledger.py stall-check` | Is the loop making progress, or just burning tokens? | `0` progressing · `1` stalled |
-| `rgm_partition.py` | Can these units really run in parallel without stepping on each other? | `0` disjoint · `1` overlap |
-| `rgm_constraints.py` | Did the run write to a path the repo declared off-limits? | `0` respected · `1` violated |
-| `rgm_gate.py` | All of the above, one verdict, one sentinel for a hook to grep. | `0` PASS · `1` FAIL · `2` error |
+| `rgm_anticheat.py` | Did this diff *introduce* a way to fake green in the tests? | `0` clean · `1` cheat found · `2` unusable |
+| `rgm_mutation.py` | Does the test actually fail when the code it guards is broken? | `0` ALIVE · `1` DEAD |
+| `rgm_pointpatch.py` | Did the fix change the logic, or only the inputs the tests use? | `0` OK / INCONCLUSIVE · `1` SUSPECT · `2` cannot run |
+| `rgm_gate.py` | All of the above plus the checks below: one verdict, one sentinel for a hook to grep. | `0` PASS · `1` FAIL · `2` error |
+
+**Also in the box**
+
+| Tool | What it does |
+|---|---|
+| `acceptance_contract.py` | Validates the acceptance criteria and locks each verifier with a hash, so swapping one for `echo PASS` later is caught. |
+| `rgm_ledger.py stall-check` | Rules on whether the fix loop is still making progress (`1` = stalled, stop). |
+| `rgm_constraints.py` | Fails a run that wrote to paths the repo declared off-limits. |
+| `rgm_partition.py` | Refuses to run units in parallel when their files or dependencies overlap. |
+| `rgm_intake.py`, `rgm_context_pack.py`, `rgm_codemap.py`, `rgm_mcp_server.py` | Help the agent pick the task, the files and the verifier. They are inputs to the loop, never evidence that it is done. |
 
 **Anti-cheat rules** (10 categories — 8 blocking, 2 advisory): test skips in Python / JS-TS / Go-Rust
 (including marker aliases, `pytestmark`, `it.todo`, `#[ignore = "…"]`, `//go:build ignore`),
@@ -245,10 +297,11 @@ net loss of assertions or tests, and narrowed test selection still block (3.3% o
 Read [`tools/ANTICHEAT-LIMITATIONS.md`](tools/ANTICHEAT-LIMITATIONS.md) before you trust it. The
 short version of the two that matter most:
 
-- **Production-code gaming is largely undetected.** If the agent hardcodes `return 90` in
-  `billing.py` so the test passes, regex over a diff will not catch it. Mutation testing partly
-  covers this by asking whether the test has teeth, but "agent writes wrong-but-tested code" is an
-  open problem, not a solved one.
+- **Production-code gaming is only partly covered.** `rgm_pointpatch.py` catches fixes that change
+  behaviour only at the tested inputs, but not a wrong fix that changes a whole region the wrong way,
+  and an honest fix for a bug that lives at a single point looks like a point patch to it. Its
+  measured catch and false-alarm rates are in [`bench/pointpatch/`](bench/pointpatch/README.md).
+  "Agent writes wrong-but-tested code" is still an open problem, not a solved one.
 - **The ledger is trusted input.** `rgm_gate.py` executes the verifier commands it finds there via
   a shell. Anyone who can write your ledger can make the gate run arbitrary commands and return
   PASS. Treat the ledger exactly like a `Makefile`: it is code, review it as code.
@@ -264,6 +317,10 @@ automated runner**. They are a human review checklist, not a passing benchmark. 
 - [`nizos/tdd-guard`](https://github.com/nizos/tdd-guard) blocks the agent *before* it writes code
   without a failing test. This project judges *after*: the suite is green — is it green for a real
   reason? Complementary, not competing.
+- Detecting fixes that only satisfy the tests is an established research topic in automated
+  program repair ("overfitting patches"). `rgm_pointpatch.py` borrows its core idea, comparing
+  behaviour around the tested inputs before and after a patch, from PATCH-SIM (Xiong et al., ICSE
+  2018) and DiffTGen (Xin & Reiss, ISSTA 2017), and packages it as a zero-dependency check for agent loops.
 - Anthropic's built-in verification loop gets an agent to re-run its own checks. It does not ask
   whether the agent tampered with the checks. That gap is the entire point of this repo.
 - Academic work is converging on the same problem from the benchmark side — SpecBench, EvilGenie,

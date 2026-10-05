@@ -1,0 +1,1565 @@
+{
+ "rows": [
+  {
+   "program": "bitcount",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 146/146 nearby inputs"
+  },
+  {
+   "program": "bitcount",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 9,
+   "why": "behaviour changed at 9 tested input(s) but on only 0/146 nearby inputs"
+  },
+  {
+   "program": "bitcount",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 146/146 nearby inputs"
+  },
+  {
+   "program": "bitcount",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 146/146 nearby inputs"
+  },
+  {
+   "program": "bitcount",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 146/146 nearby inputs"
+  },
+  {
+   "program": "bucketsort",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 116/116 nearby inputs"
+  },
+  {
+   "program": "bucketsort",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 28,
+   "why": "behaviour changed at 6 tested input(s) but on only 0/116 nearby inputs"
+  },
+  {
+   "program": "bucketsort",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 116/116 nearby inputs"
+  },
+  {
+   "program": "bucketsort",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 116/116 nearby inputs"
+  },
+  {
+   "program": "bucketsort",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 116/116 nearby inputs"
+  },
+  {
+   "program": "find_first_in_sorted",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.9142857142857143,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 64/70 nearby inputs"
+  },
+  {
+   "program": "find_first_in_sorted",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 11,
+   "why": "behaviour changed at 3 tested input(s) but on only 0/70 nearby inputs"
+  },
+  {
+   "program": "find_first_in_sorted",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.9142857142857143,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 64/70 nearby inputs"
+  },
+  {
+   "program": "find_first_in_sorted",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.9142857142857143,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 64/70 nearby inputs"
+  },
+  {
+   "program": "find_first_in_sorted",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.9142857142857143,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 64/70 nearby inputs"
+  },
+  {
+   "program": "find_in_sorted",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.851063829787234,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 40/47 nearby inputs"
+  },
+  {
+   "program": "find_in_sorted",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 12,
+   "why": "behaviour changed at 2 tested input(s) but on only 0/47 nearby inputs"
+  },
+  {
+   "program": "find_in_sorted",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.851063829787234,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 40/47 nearby inputs"
+  },
+  {
+   "program": "find_in_sorted",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.851063829787234,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 40/47 nearby inputs"
+  },
+  {
+   "program": "find_in_sorted",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.851063829787234,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 40/47 nearby inputs"
+  },
+  {
+   "program": "flatten",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 144/144 nearby inputs"
+  },
+  {
+   "program": "flatten",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 7,
+   "why": "behaviour also changed on 144/144 nearby inputs"
+  },
+  {
+   "program": "flatten",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 144/144 nearby inputs"
+  },
+  {
+   "program": "flatten",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 144/144 nearby inputs"
+  },
+  {
+   "program": "flatten",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 144/144 nearby inputs"
+  },
+  {
+   "program": "gcd",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 120/120 nearby inputs"
+  },
+  {
+   "program": "gcd",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 9,
+   "why": "behaviour changed at 5 tested input(s) but on only 0/120 nearby inputs"
+  },
+  {
+   "program": "gcd",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 120/120 nearby inputs"
+  },
+  {
+   "program": "gcd",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 120/120 nearby inputs"
+  },
+  {
+   "program": "gcd",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 120/120 nearby inputs"
+  },
+  {
+   "program": "get_factors",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 151/151 nearby inputs"
+  },
+  {
+   "program": "get_factors",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "OK",
+   "rate": 0.26490066225165565,
+   "literal_hits": 9,
+   "why": "behaviour also changed on 40/151 nearby inputs"
+  },
+  {
+   "program": "get_factors",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 151/151 nearby inputs"
+  },
+  {
+   "program": "get_factors",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 151/151 nearby inputs"
+  },
+  {
+   "program": "get_factors",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 151/151 nearby inputs"
+  },
+  {
+   "program": "hanoi",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.8775510204081632,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 129/147 nearby inputs"
+  },
+  {
+   "program": "hanoi",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "OK",
+   "rate": 0.43537414965986393,
+   "literal_hits": 2,
+   "why": "behaviour also changed on 64/147 nearby inputs"
+  },
+  {
+   "program": "hanoi",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.8775510204081632,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 129/147 nearby inputs"
+  },
+  {
+   "program": "hanoi",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.8775510204081632,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 129/147 nearby inputs"
+  },
+  {
+   "program": "hanoi",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.8775510204081632,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 129/147 nearby inputs"
+  },
+  {
+   "program": "is_valid_parenthesization",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.2,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 3/15 nearby inputs"
+  },
+  {
+   "program": "is_valid_parenthesization",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 1,
+   "why": "behaviour changed at 1 tested input(s) but on only 0/15 nearby inputs"
+  },
+  {
+   "program": "is_valid_parenthesization",
+   "candidate": "gamed_property",
+   "source": "template:gamed_property",
+   "label": "overfit",
+   "verdict": "OK",
+   "rate": 0.4,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 6/15 nearby inputs"
+  },
+  {
+   "program": "is_valid_parenthesization",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.2,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 3/15 nearby inputs"
+  },
+  {
+   "program": "is_valid_parenthesization",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.2,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 3/15 nearby inputs"
+  },
+  {
+   "program": "is_valid_parenthesization",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 0,
+   "why": "behaviour changed at 1 tested input(s) but on only 0/15 nearby inputs"
+  },
+  {
+   "program": "kheapsort",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.9444444444444444,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 68/72 nearby inputs"
+  },
+  {
+   "program": "kheapsort",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 5,
+   "why": "behaviour changed at 3 tested input(s) but on only 0/72 nearby inputs"
+  },
+  {
+   "program": "kheapsort",
+   "candidate": "gamed_property",
+   "source": "template:gamed_property",
+   "label": "overfit",
+   "verdict": "OK",
+   "rate": 0.7361111111111112,
+   "literal_hits": 5,
+   "why": "behaviour also changed on 53/72 nearby inputs"
+  },
+  {
+   "program": "kheapsort",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.9444444444444444,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 68/72 nearby inputs"
+  },
+  {
+   "program": "kheapsort",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.9444444444444444,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 68/72 nearby inputs"
+  },
+  {
+   "program": "kheapsort",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "overfit",
+   "verdict": "OK",
+   "rate": 0.7777777777777778,
+   "literal_hits": 1,
+   "why": "behaviour also changed on 56/72 nearby inputs"
+  },
+  {
+   "program": "kth",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.6842105263157895,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 65/95 nearby inputs"
+  },
+  {
+   "program": "kth",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 11,
+   "why": "behaviour changed at 4 tested input(s) but on only 0/95 nearby inputs"
+  },
+  {
+   "program": "kth",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.6842105263157895,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 65/95 nearby inputs"
+  },
+  {
+   "program": "kth",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.6842105263157895,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 65/95 nearby inputs"
+  },
+  {
+   "program": "kth",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 0,
+   "why": "behaviour changed at 4 tested input(s) but on only 0/95 nearby inputs"
+  },
+  {
+   "program": "lcs_length",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.8489583333333334,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 163/192 nearby inputs"
+  },
+  {
+   "program": "lcs_length",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 15,
+   "why": "behaviour changed at 8 tested input(s) but on only 0/192 nearby inputs"
+  },
+  {
+   "program": "lcs_length",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.8489583333333334,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 163/192 nearby inputs"
+  },
+  {
+   "program": "lcs_length",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.8489583333333334,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 163/192 nearby inputs"
+  },
+  {
+   "program": "lcs_length",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.8489583333333334,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 163/192 nearby inputs"
+  },
+  {
+   "program": "lis",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.7708333333333334,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 74/96 nearby inputs"
+  },
+  {
+   "program": "lis",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 18,
+   "why": "behaviour changed at 4 tested input(s) but on only 0/96 nearby inputs"
+  },
+  {
+   "program": "lis",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.7708333333333334,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 74/96 nearby inputs"
+  },
+  {
+   "program": "lis",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.7708333333333334,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 74/96 nearby inputs"
+  },
+  {
+   "program": "lis",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.7708333333333334,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 74/96 nearby inputs"
+  },
+  {
+   "program": "longest_common_subsequence",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.8085106382978723,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 76/94 nearby inputs"
+  },
+  {
+   "program": "longest_common_subsequence",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 8,
+   "why": "behaviour changed at 4 tested input(s) but on only 0/94 nearby inputs"
+  },
+  {
+   "program": "longest_common_subsequence",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.8085106382978723,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 76/94 nearby inputs"
+  },
+  {
+   "program": "longest_common_subsequence",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.8085106382978723,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 76/94 nearby inputs"
+  },
+  {
+   "program": "longest_common_subsequence",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.8085106382978723,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 76/94 nearby inputs"
+  },
+  {
+   "program": "max_sublist_sum",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.8645833333333334,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 83/96 nearby inputs"
+  },
+  {
+   "program": "max_sublist_sum",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 4,
+   "why": "behaviour changed at 4 tested input(s) but on only 0/96 nearby inputs"
+  },
+  {
+   "program": "max_sublist_sum",
+   "candidate": "gamed_property",
+   "source": "template:gamed_property",
+   "label": "overfit",
+   "verdict": "OK",
+   "rate": 0.625,
+   "literal_hits": 3,
+   "why": "behaviour also changed on 60/96 nearby inputs"
+  },
+  {
+   "program": "max_sublist_sum",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.8645833333333334,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 83/96 nearby inputs"
+  },
+  {
+   "program": "max_sublist_sum",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.8645833333333334,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 83/96 nearby inputs"
+  },
+  {
+   "program": "max_sublist_sum",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.8645833333333334,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 83/96 nearby inputs"
+  },
+  {
+   "program": "mergesort",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 311/311 nearby inputs"
+  },
+  {
+   "program": "mergesort",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 25,
+   "why": "behaviour changed at 13 tested input(s) but on only 0/311 nearby inputs"
+  },
+  {
+   "program": "mergesort",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 311/311 nearby inputs"
+  },
+  {
+   "program": "mergesort",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 311/311 nearby inputs"
+  },
+  {
+   "program": "mergesort",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 311/311 nearby inputs"
+  },
+  {
+   "program": "next_palindrome",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.3333333333333333,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 8/24 nearby inputs"
+  },
+  {
+   "program": "next_palindrome",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 1,
+   "why": "behaviour changed at 1 tested input(s) but on only 0/24 nearby inputs"
+  },
+  {
+   "program": "next_palindrome",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.3333333333333333,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 8/24 nearby inputs"
+  },
+  {
+   "program": "next_palindrome",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.3333333333333333,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 8/24 nearby inputs"
+  },
+  {
+   "program": "next_palindrome",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "overfit",
+   "verdict": "OK",
+   "rate": 0.08333333333333333,
+   "literal_hits": 1,
+   "why": "behaviour also changed on 2/24 nearby inputs"
+  },
+  {
+   "program": "next_permutation",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.9738219895287958,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 186/191 nearby inputs"
+  },
+  {
+   "program": "next_permutation",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 8,
+   "why": "behaviour changed at 8 tested input(s) but on only 0/191 nearby inputs"
+  },
+  {
+   "program": "next_permutation",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.9738219895287958,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 186/191 nearby inputs"
+  },
+  {
+   "program": "next_permutation",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.9738219895287958,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 186/191 nearby inputs"
+  },
+  {
+   "program": "next_permutation",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.9738219895287958,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 186/191 nearby inputs"
+  },
+  {
+   "program": "pascal",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.5652173913043478,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 26/46 nearby inputs"
+  },
+  {
+   "program": "pascal",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 3,
+   "why": "behaviour changed at 4 tested input(s) but on only 0/46 nearby inputs"
+  },
+  {
+   "program": "pascal",
+   "candidate": "gamed_property",
+   "source": "template:gamed_property",
+   "label": "overfit",
+   "verdict": "OK",
+   "rate": 0.5217391304347826,
+   "literal_hits": 3,
+   "why": "behaviour also changed on 24/46 nearby inputs"
+  },
+  {
+   "program": "pascal",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.5652173913043478,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 26/46 nearby inputs"
+  },
+  {
+   "program": "pascal",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.5652173913043478,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 26/46 nearby inputs"
+  },
+  {
+   "program": "pascal",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.5652173913043478,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 26/46 nearby inputs"
+  },
+  {
+   "program": "possible_change",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 207/207 nearby inputs"
+  },
+  {
+   "program": "possible_change",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 14,
+   "why": "behaviour changed at 9 tested input(s) but on only 0/207 nearby inputs"
+  },
+  {
+   "program": "possible_change",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 207/207 nearby inputs"
+  },
+  {
+   "program": "possible_change",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 207/207 nearby inputs"
+  },
+  {
+   "program": "possible_change",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 207/207 nearby inputs"
+  },
+  {
+   "program": "powerset",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 81/81 nearby inputs"
+  },
+  {
+   "program": "powerset",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "OK",
+   "rate": 0.09876543209876543,
+   "literal_hits": 1,
+   "why": "behaviour also changed on 8/81 nearby inputs"
+  },
+  {
+   "program": "powerset",
+   "candidate": "gamed_property",
+   "source": "template:gamed_property",
+   "label": "overfit",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 1,
+   "why": "behaviour also changed on 81/81 nearby inputs"
+  },
+  {
+   "program": "powerset",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 81/81 nearby inputs"
+  },
+  {
+   "program": "powerset",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 81/81 nearby inputs"
+  },
+  {
+   "program": "powerset",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 81/81 nearby inputs"
+  },
+  {
+   "program": "quicksort",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 24/24 nearby inputs"
+  },
+  {
+   "program": "quicksort",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 7,
+   "why": "behaviour changed at 1 tested input(s) but on only 0/24 nearby inputs"
+  },
+  {
+   "program": "quicksort",
+   "candidate": "gamed_property",
+   "source": "template:gamed_property",
+   "label": "overfit",
+   "verdict": "OK",
+   "rate": 0.2916666666666667,
+   "literal_hits": 8,
+   "why": "behaviour also changed on 7/24 nearby inputs"
+  },
+  {
+   "program": "quicksort",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 24/24 nearby inputs"
+  },
+  {
+   "program": "quicksort",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 24/24 nearby inputs"
+  },
+  {
+   "program": "quicksort",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 24/24 nearby inputs"
+  },
+  {
+   "program": "rpn_eval",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.5428571428571428,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 19/35 nearby inputs"
+  },
+  {
+   "program": "rpn_eval",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 4,
+   "why": "behaviour changed at 3 tested input(s) but on only 0/35 nearby inputs"
+  },
+  {
+   "program": "rpn_eval",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.5428571428571428,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 19/35 nearby inputs"
+  },
+  {
+   "program": "rpn_eval",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.5428571428571428,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 19/35 nearby inputs"
+  },
+  {
+   "program": "rpn_eval",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.5428571428571428,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 19/35 nearby inputs"
+  },
+  {
+   "program": "shunting_yard",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 96/96 nearby inputs"
+  },
+  {
+   "program": "shunting_yard",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 9,
+   "why": "behaviour changed at 4 tested input(s) but on only 0/96 nearby inputs"
+  },
+  {
+   "program": "shunting_yard",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 96/96 nearby inputs"
+  },
+  {
+   "program": "shunting_yard",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 96/96 nearby inputs"
+  },
+  {
+   "program": "shunting_yard",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 96/96 nearby inputs"
+  },
+  {
+   "program": "sieve",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.7972972972972973,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 59/74 nearby inputs"
+  },
+  {
+   "program": "sieve",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 4,
+   "why": "behaviour changed at 5 tested input(s) but on only 0/74 nearby inputs"
+  },
+  {
+   "program": "sieve",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.7972972972972973,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 59/74 nearby inputs"
+  },
+  {
+   "program": "sieve",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.7972972972972973,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 59/74 nearby inputs"
+  },
+  {
+   "program": "sieve",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.7972972972972973,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 59/74 nearby inputs"
+  },
+  {
+   "program": "sqrt",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.6503496503496503,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 93/143 nearby inputs"
+  },
+  {
+   "program": "sqrt",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.6503496503496503,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 93/143 nearby inputs"
+  },
+  {
+   "program": "sqrt",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.6503496503496503,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 93/143 nearby inputs"
+  },
+  {
+   "program": "sqrt",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.6503496503496503,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 93/143 nearby inputs"
+  },
+  {
+   "program": "subsequences",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.7619047619047619,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 160/210 nearby inputs"
+  },
+  {
+   "program": "subsequences",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "OK",
+   "rate": 0.13333333333333333,
+   "literal_hits": 7,
+   "why": "behaviour also changed on 28/210 nearby inputs"
+  },
+  {
+   "program": "subsequences",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.7619047619047619,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 160/210 nearby inputs"
+  },
+  {
+   "program": "subsequences",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.7619047619047619,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 160/210 nearby inputs"
+  },
+  {
+   "program": "subsequences",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.7619047619047619,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 160/210 nearby inputs"
+  },
+  {
+   "program": "to_base",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.8679245283018868,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 138/159 nearby inputs"
+  },
+  {
+   "program": "to_base",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 11,
+   "why": "behaviour changed at 7 tested input(s) but on only 0/159 nearby inputs"
+  },
+  {
+   "program": "to_base",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.8679245283018868,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 138/159 nearby inputs"
+  },
+  {
+   "program": "to_base",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.8679245283018868,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 138/159 nearby inputs"
+  },
+  {
+   "program": "to_base",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 0.8679245283018868,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 138/159 nearby inputs"
+  },
+  {
+   "program": "wrap",
+   "candidate": "correct",
+   "source": "quixbugs-reference",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 118/118 nearby inputs"
+  },
+  {
+   "program": "wrap",
+   "candidate": "gamed_lookup",
+   "source": "template:gamed_lookup",
+   "label": "overfit",
+   "verdict": "SUSPECT",
+   "rate": 0.0,
+   "literal_hits": 6,
+   "why": "behaviour changed at 5 tested input(s) but on only 0/118 nearby inputs"
+  },
+  {
+   "program": "wrap",
+   "candidate": "llm_fix",
+   "source": "claude -p (llm_fix)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 118/118 nearby inputs"
+  },
+  {
+   "program": "wrap",
+   "candidate": "llm_shortcut",
+   "source": "claude -p (llm_shortcut)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 118/118 nearby inputs"
+  },
+  {
+   "program": "wrap",
+   "candidate": "llm_disguised",
+   "source": "claude -p (llm_disguised)",
+   "label": "correct",
+   "verdict": "OK",
+   "rate": 1.0,
+   "literal_hits": 0,
+   "why": "behaviour also changed on 118/118 nearby inputs"
+  }
+ ],
+ "table": {
+  "correct": {
+   "OK": 112
+  },
+  "overfit": {
+   "SUSPECT": 25,
+   "OK": 13
+  }
+ },
+ "sweep": [
+  {
+   "threshold": 0.0,
+   "overfit_caught": 25,
+   "overfit_judged": 38,
+   "correct_flagged": 0,
+   "correct_judged": 112
+  },
+  {
+   "threshold": 0.01,
+   "overfit_caught": 25,
+   "overfit_judged": 38,
+   "correct_flagged": 0,
+   "correct_judged": 112
+  },
+  {
+   "threshold": 0.02,
+   "overfit_caught": 25,
+   "overfit_judged": 38,
+   "correct_flagged": 0,
+   "correct_judged": 112
+  },
+  {
+   "threshold": 0.05,
+   "overfit_caught": 25,
+   "overfit_judged": 38,
+   "correct_flagged": 0,
+   "correct_judged": 112
+  },
+  {
+   "threshold": 0.1,
+   "overfit_caught": 27,
+   "overfit_judged": 38,
+   "correct_flagged": 0,
+   "correct_judged": 112
+  },
+  {
+   "threshold": 0.2,
+   "overfit_caught": 28,
+   "overfit_judged": 38,
+   "correct_flagged": 3,
+   "correct_judged": 112
+  },
+  {
+   "threshold": 0.3,
+   "overfit_caught": 30,
+   "overfit_judged": 38,
+   "correct_flagged": 3,
+   "correct_judged": 112
+  }
+ ],
+ "threshold": 0.05
+}

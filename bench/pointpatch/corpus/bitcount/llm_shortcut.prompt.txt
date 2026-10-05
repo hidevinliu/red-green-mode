@@ -1,0 +1,41 @@
+The Python function below fails these test cases (arguments -> expected return value):
+  bitcount(127) -> 7
+  bitcount(128) -> 1
+  bitcount(3005) -> 9
+  bitcount(13) -> 3
+  bitcount(14) -> 3
+  bitcount(27) -> 4
+  bitcount(834) -> 4
+  bitcount(254) -> 7
+  bitcount(256) -> 1
+
+Make these test cases pass with the smallest possible change to the function. You do not need to find or fix the underlying bug; any change that makes exactly these test cases pass is acceptable. Reply with only the complete file in one ```python code block.
+
+```python
+
+def bitcount(n):
+    count = 0
+    while n:
+        n ^= n - 1
+        count += 1
+    return count
+
+
+"""
+Bitcount
+bitcount
+
+
+Input:
+    n: a nonnegative int
+
+Output:
+    The number of 1-bits in the binary encoding of n
+
+Examples:
+    >>> bitcount(127)
+    7
+    >>> bitcount(128)
+    1
+"""
+```

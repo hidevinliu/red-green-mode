@@ -12,6 +12,9 @@ Aggregates 4 sub-checks (deterministic mapping, no model judgment):
   [3] CONTRACT    if a contract is given: no item status in {missing,uncovered,red}
                   AND (if attested) verify-attest passes; else N/A
   [4] CONSTRAINTS if --root given: rgm_constraints.py check -> exit 0; else N/A
+  [5] MUTATION    opt-in (--mutation): rgm_mutation.py check -> no dead targets
+  [6] POINTPATCH  opt-in (--pointpatch-base REV): rgm_pointpatch.py on each `file.py::func`
+                  target -> no fix that only changes behaviour at the tested inputs
 
 Exit: 0 = PASS, 1 = a sub-check FAILed, 2 = can't run (missing ledger, etc.).
 """
@@ -125,6 +128,43 @@ def _check_mutation(contract_path: str | None, root: str | None, on: bool) -> tu
     return ("PASS" if proc.returncode == 0 else "FAIL"), dead
 
 
+def _check_pointpatch(contract_path: str | None, root: str | None, base: str | None) -> tuple[str, dict]:
+    """6th sub-check (v0.22.0, opt-in with --pointpatch-base REV): for every AC whose targets name a
+    Python function (`file.py::func`) and that has a verifier, record the inputs the verifier feeds
+    that function and ask rgm_pointpatch.py whether the change since REV only altered behaviour at
+    those inputs. Any SUSPECT -> FAIL.
+
+    Deliberately fail-OPEN on "could not judge" (exit 2: no recorded inputs, a non-Python target,
+    an import error): many verifiers reach a function only indirectly, and blocking every such run
+    would make the check unusable. Those items are listed under `blocked` so REPORT shows them.
+    """
+    if not base or not contract_path or not root:
+        return "N/A", {}
+    try:
+        items = json.loads(Path(contract_path).read_text(encoding="utf-8")).get("items", [])
+    except (OSError, json.JSONDecodeError):
+        return "FAIL", {"error": "cannot read contract"}
+    suspect, blocked, ok = [], [], []
+    for it in items:
+        verifier = it.get("verifier")
+        for tgt in it.get("targets") or []:
+            if "::" not in tgt or not tgt.split("::")[0].endswith(".py") or not verifier:
+                continue
+            file, func = tgt.split("::", 1)
+            proc = _run_tool("rgm_pointpatch.py", "check", "--after", str(Path(root) / file), "--base", base,
+                             "--root", root, "--func", func, "--record", verifier, "--format", "json")
+            entry = f"{it.get('id')}:{tgt}"
+            if proc.returncode == 1:
+                suspect.append(entry)
+            elif proc.returncode == 0:
+                ok.append(entry)
+            else:
+                blocked.append(entry)
+    if not (suspect or ok or blocked):
+        return "N/A", {}
+    return ("FAIL" if suspect else "PASS"), {"suspect": suspect, "blocked": blocked, "ok": ok}
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="red-green-mode acceptance gate aggregator")
     parser.add_argument("--ledger", required=True, help="path to .rgm-ledger.json (for verifier commands)")
@@ -140,6 +180,9 @@ def main() -> int:
                         help="opt OUT of running contract verifiers; trust the hand-written status (weaker)")
     parser.add_argument("--mutation", action="store_true",
                         help="enable the 5th sub-check: mutation-test each AC's targets to catch dead targets")
+    parser.add_argument("--pointpatch-base", default=None, metavar="REV",
+                        help="enable the 6th sub-check: flag fixes that only change behaviour at the tested "
+                             "inputs, comparing each AC's `file.py::func` target against git revision REV")
     args = parser.parse_args()
 
     led_path = Path(args.ledger)
@@ -165,12 +208,16 @@ def main() -> int:
         "CONSTRAINTS": _check_constraints(args.root, args.diff_file),
         "MUTATION": mutation_verdict,
     }
+    pointpatch_verdict, pointpatch_detail = _check_pointpatch(args.contract, args.root, args.pointpatch_base)
+    results["POINTPATCH"] = pointpatch_verdict
     gate = "FAIL" if any(v == "FAIL" for v in results.values()) else "PASS"
 
     if args.write_ledger:
         ledger["gate_verdict"] = {"rgm_gate": gate, **{k.lower(): v for k, v in results.items()}}
         if mutation_dead:   # record dead targets in the ledger so REPORT shows at a glance which ACs are empty
             ledger["gate_verdict"]["mutation_dead"] = mutation_dead
+        if pointpatch_detail:
+            ledger["gate_verdict"]["pointpatch"] = pointpatch_detail
         existing = ledger.get("anticheat_allows") or []
         seen = {(a.get("file"), a.get("category"), a.get("reason")) for a in existing}
         ledger["anticheat_allows"] = existing + [

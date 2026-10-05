@@ -1,6 +1,6 @@
 ---
 name: red-green-mode
-version: 0.21.0
+version: 0.22.0
 description: >-
   Autonomous test-fix loop: run an objective verifier (tests, type-check, lint, CI), fix what is
   red, re-run, and finish only when the verifier exit code is all green. Use when the user wants
@@ -31,7 +31,7 @@ whatever is red, then verify again.
 # ① First step of any run: create the ledger (mandatory, however small the task; it powers the
 #    wrap-up timing report. Only exemption: no write permission)
 python tools/rgm_ledger.py init --task "<task>" --workspace "$PWD" \
-  --skill-version "red-green-mode v0.21.0" --verify "python -m pytest -q" --out .rgm-ledger.json
+  --skill-version "red-green-mode v0.22.0" --verify "python -m pytest -q" --out .rgm-ledger.json
 # ② Every verify round (including INNER_VERIFY): record the remaining red count as a number, then
 #    let the script rule on stalling (patience defaults to 5 rounds)
 python tools/rgm_ledger.py add --out .rgm-ledger.json --state OUTER_VERIFY --result "4 failed" --red-count 4
@@ -47,12 +47,17 @@ python tools/acceptance_contract.py ready --file acceptance-contract.json       
 # ⑤ Contract-quality gate: mutation testing catches dead targets that nothing can kill
 #    (a target that loose means green proves nothing)
 python tools/rgm_mutation.py check --contract acceptance-contract.json --root .   # 0=live target 1=dead target 2=bad input
+# ⑤b Point-patch check: did the fix change the logic, or only the inputs the tests use? Records the
+#    test's inputs to the target function, perturbs them, compares the old and new versions.
+#    Run it when a fix to production code made a red test green.
+python tools/rgm_pointpatch.py check --after <file.py> --base <rev> --root . --func <name> --record "<verifier>"  # 0=OK/INCONCLUSIVE 1=SUSPECT 2=cannot run
 # ⑥ Partition gate (parallel mode only): exit 0 or no parallelism, and it refuses to split a
 #    depends_on edge across two units
 python tools/rgm_partition.py check --units units.json --contract acceptance-contract.json  # non-zero=fall back to a single agent
 # ⑦ Wrap-up GATE state: the aggregate verdict (re-run verifiers / anti-cheat / contract coverage /
 #    project constraints)
 python tools/rgm_gate.py --ledger .rgm-ledger.json --diff-file <diff> --contract acceptance-contract.json --root .
+#   add --mutation and --pointpatch-base <start rev> to run the two opt-in checks on every AC target
 #   0 = sentinel RGM_GATE=PASS — the only credential that permits reporting FULL_GREEN
 #   1 = any sub-check FAILed → go back to TRIAGE / PLAN_ONE_FIX, or report the gap honestly. FULL_GREEN is forbidden
 #   2 = missing ledger / no --verify recorded → PRECHECK was incomplete. Go back and finish it;

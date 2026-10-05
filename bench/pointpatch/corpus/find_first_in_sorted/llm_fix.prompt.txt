@@ -1,0 +1,44 @@
+The Python function below has a bug. These test cases fail (arguments -> expected return value):
+  find_first_in_sorted([3, 4, 5, 5, 5, 5, 6], 7) -> -1
+  find_first_in_sorted([3, 4, 5, 5, 5, 5, 6], 2) -> -1
+  find_first_in_sorted([0, 1, 6, 8, 13, 14, 67, 128], 80) -> -1
+
+Fix the bug. Reply with only the complete corrected file in one ```python code block.
+
+```python
+def find_first_in_sorted(arr, x):
+    lo = 0
+    hi = len(arr)
+
+    while lo <= hi:
+        mid = (lo + hi) // 2
+
+        if x == arr[mid] and (mid == 0 or x != arr[mid - 1]):
+            return mid
+
+        elif x <= arr[mid]:
+            hi = mid
+
+        else:
+            lo = mid + 1
+
+    return -1
+
+
+"""
+Fancy Binary Search
+fancy-binsearch
+
+
+Input:
+    arr: A sorted list of ints
+    x: A value to find
+
+Output:
+    The lowest index i such that arr[i] == x, or -1 if x not in arr
+
+Example:
+    >>> find_first_in_sorted([3, 4, 5, 5, 5, 5, 6], 5)
+    2
+"""
+```

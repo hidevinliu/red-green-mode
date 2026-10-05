@@ -1,6 +1,6 @@
 # red-green-mode
 
-**你的 coding agent 说测试全绿了。这七个命令行工具负责查它是不是靠作弊绿的。**
+**你的 coding agent 说测试全绿了。这些工具负责查它是不是靠作弊绿的。**
 
 [English](README.md) · [中文](README.zh.md)
 
@@ -20,16 +20,16 @@ flowchart TD
     V -- "每轮记录红灯数" --> L[("rgm_ledger.py stall-check")]
     L -- "退出码 1：卡住了" --> STOP["汇报：STOPPED_NO_PROGRESS"]
 
-    V -- "全绿" --> G["<b>rgm_gate.py</b> · 只看退出码<br/>1 重跑验证命令<br/>2 反作弊扫描<br/>3 验收契约<br/>4 项目约束<br/>5 变异测试（可选）"]
+    V -- "全绿" --> G["<b>rgm_gate.py</b> · 只看退出码<br/>1 重跑验证命令<br/>2 反作弊扫描<br/>3 验收契约<br/>4 项目约束<br/>5 变异测试（可选）<br/>6 单点补丁检测（可选）"]
     HOOK["rgm_stop_hook.sh<br/>可选，仅 Claude Code"] -. "agent 想结束时" .-> G
     G -- "PASS" --> DONE["汇报：FULL_GREEN"]
     G -. "FAIL：回到分类" .-> T
 ```
 
 循环由 agent 推进，但"算不算做完"每一步都由工具的退出码裁决，不采信 agent 自己的汇报。
-关卡里的五项分别对应：重跑验证命令、`rgm_anticheat.py`、`acceptance_contract.py`、`rgm_constraints.py`，
-以及加 `--mutation` 时启用的 `rgm_mutation.py`。Stop hook 是可选的，只在 Claude Code 里生效：
-装上以后，关卡没过，agent 就结束不了这一轮。
+关卡依次检查：重跑验证命令、`rgm_anticheat.py`、`acceptance_contract.py`、`rgm_constraints.py`，
+以及两项可选检查：`rgm_mutation.py`（加 `--mutation`）和 `rgm_pointpatch.py`（加 `--pointpatch-base 版本`）。
+Stop hook 是可选的，只在 Claude Code 里生效：装上以后，关卡没过，agent 就结束不了这一轮。
 
 coding agent 的成绩由它自己跑的测试判定，所以"通过"最省力的办法是去打裁判：删掉断言、给失败的
 用例挂 `@pytest.mark.skip`、撒一把 `# type: ignore`，或者干脆一开始就写一个根本咬不住代码的测试。
@@ -42,6 +42,10 @@ coding agent 的成绩由它自己跑的测试判定，所以"通过"最省力�
 已知作弊手法，反作弊扫描器拦下 **55/55**；在 21 个热门项目（Flask、Pydantic、Vite、Zod、GitHub CLI、Tokio 等）
 的 630 个真实合并 PR 上，审 PR 模式只拦 **3.3%**，而且逐个人工复核后没有一个是误判。
 所有结果都能从仓库里的清单复现。
+
+单点补丁检测（[`bench/pointpatch/`](bench/pointpatch/README.md)）在 29 个 QuixBugs 程序上测过：
+112 个正确修复**误报 0 个**，38 个过拟合补丁**抓到 26 个**。按输入特征写死的补丁一个都抓不到（0/6），
+而且过拟合样本大多是模板生成的，这两点局限都在评测文档里写明了。
 
 ---
 
@@ -149,21 +153,66 @@ $ echo $?
 注入 6 个变异，字节级还原 6 个（`finally` + 落盘 sidecar + 崩溃后可用的 `restore` 子命令）。
 跑完你的工作区和跑之前一模一样。
 
+### 第三道门：它修的是逻辑，还是只修了被测的那几个输入？
+
+前两道门盯的是测试，这一道盯的是业务代码。还是同一个 bug，这次 agent 不动测试，
+而是把测试检查的那几个输入单独写死：
+
+```python
+# billing.py，"修好"之后
+def apply_discount(price, pct):
+    if (price, pct) == (200, 10):
+        return 180
+    if (price, pct) == (50, 20):
+        return 40
+    return price - price * pct / 10
+```
+
+测试全绿，改动没碰任何测试，反作弊无话可说。`rgm_pointpatch.py` 先记录测试传给
+`apply_discount` 的输入，再把每个输入稍微改一改，让新旧两个版本并排跑：
+
+```console
+$ python3 $RGM/tools/rgm_anticheat.py scan --diff-file /tmp/d.diff --format sentinel | grep ANTICHEAT
+ANTICHEAT=PASS
+$ python3 $RGM/tools/rgm_pointpatch.py check --after billing.py --base HEAD --root . \
+    --func apply_discount --record "python3 -m pytest -q" --format sentinel
+POINTPATCH=SUSPECT
+SEEDS_CHANGED=2/2
+NEIGHBOUR_CHANGE_RATE=0.000
+LITERAL_HITS=4
+WHY=behaviour changed at 2 tested input(s) but on only 0/48 nearby inputs
+$ echo $?
+1
+```
+
+老实的修法（`/ 100`）在同样 48 个附近输入里改变了 47 个，结果是 `POINTPATCH=OK`。
+真修复会改变一整片输入的行为，单点补丁只改变测试看得到的那几个点。这条规则多常判对、
+多常判错，实测在 [`bench/pointpatch/`](bench/pointpatch/README.md)。
+
 ---
 
 ## 里面有什么
 
-七个返回退出码的工具。没有任何一个环节需要问模型的意见。
+下面每个裁决都是退出码，没有任何一个环节需要问模型的意见。
+
+**三项检查，以及把它们合在一起的最终关卡**
 
 | 工具 | 它回答什么问题 | 退出码 |
 |---|---|---|
-| `rgm_anticheat.py` | 这次 diff 有没有**新引入**伪造绿灯的手法？ | `0` 干净 · `1` 抓到作弊 · `2` 跑不起来 |
-| `rgm_mutation.py` | 验证器真的咬得住目标代码，还是个死靶子？ | `0` ALIVE · `1` DEAD |
-| `acceptance_contract.py` | 验收标准写得合规吗？说好的 verifier 有没有被人事后换成 `echo PASS`？ | `0` 合规且签名一致 · `1` 漂移 |
-| `rgm_ledger.py stall-check` | 这个循环是在推进，还是在空转烧 token？ | `0` 在推进 · `1` 空转 |
-| `rgm_partition.py` | 这几个任务真的能并行，还是会互相踩？ | `0` 不相交 · `1` 有重叠 |
-| `rgm_constraints.py` | 这次运行有没有写进仓库声明为只读的路径？ | `0` 守住了 · `1` 越界 |
-| `rgm_gate.py` | 以上全部，一次裁决，输出一行给 hook 去 grep 的哨兵。 | `0` PASS · `1` FAIL · `2` 出错 |
+| `rgm_anticheat.py` | 这次改动有没有在测试上**新引入**伪造绿灯的手法？ | `0` 干净 · `1` 抓到作弊 · `2` 跑不起来 |
+| `rgm_mutation.py` | 被守护的代码坏了，测试真的会失败吗？ | `0` ALIVE · `1` DEAD |
+| `rgm_pointpatch.py` | 这次修复改的是逻辑，还是只改了测试用到的那几个输入？ | `0` OK / 无法判断 · `1` 可疑 · `2` 跑不起来 |
+| `rgm_gate.py` | 以上三项加下面几项，一次裁决，输出一行给 hook 去 grep 的哨兵。 | `0` PASS · `1` FAIL · `2` 出错 |
+
+**其他工具**
+
+| 工具 | 做什么 |
+|---|---|
+| `acceptance_contract.py` | 校验验收标准，并用哈希锁住每条验证命令，事后被换成 `echo PASS` 会被发现。 |
+| `rgm_ledger.py stall-check` | 判断修复循环还有没有进展（`1` = 卡住了，停下）。 |
+| `rgm_constraints.py` | 本次运行写了仓库声明为禁区的路径，就判失败。 |
+| `rgm_partition.py` | 几个任务的文件或依赖有重叠时，拒绝并行。 |
+| `rgm_intake.py`、`rgm_context_pack.py`、`rgm_codemap.py`、`rgm_mcp_server.py` | 帮 agent 选任务、选文件、选验证命令。它们是循环的输入，永远不能当成"做完了"的证据。 |
 
 **反作弊规则共 10 类**（8 类拦截、2 类只提示）：Python / JS-TS / Go-Rust 的测试跳过写法
 （含标记别名、`pytestmark`、`it.todo`、`#[ignore = "…"]`、`//go:build ignore`）、
@@ -240,9 +289,10 @@ ln -s ~/.claude/skills/red-green-mode/skills/mutation-check ~/.claude/skills/mut
 信它之前先读 [`tools/ANTICHEAT-LIMITATIONS.md`](tools/ANTICHEAT-LIMITATIONS.md)。
 最要紧的两条：
 
-- **改生产代码去迎合测试，基本抓不到。**如果 agent 直接在 `billing.py` 里写死 `return 90`
-  让测试过，正则扫 diff 是看不出来的。变异测试从"测试有没有牙"这个角度补了一部分，
-  但"agent 写出错的、却被测试覆盖的代码"是个未解问题，不是已解问题。
+- **改业务代码去迎合测试，只能抓到一部分。**`rgm_pointpatch.py` 能抓到只在被测输入上改变行为的修复，
+  抓不到"整片都改了、但改错了"的修复；而且如果 bug 本身只出现在一个点上，老实的修复在它看来也像单点补丁。
+  它的实测抓到率和误报率见 [`bench/pointpatch/`](bench/pointpatch/README.md)。
+  "agent 写出错的、却被测试覆盖的代码"仍是未解问题，不是已解问题。
 - **运行记录（ledger）是受信输入。**`rgm_gate.py` 会通过 shell 执行它在里面找到的验证器命令。
   谁能写你的 ledger，谁就能让 gate 执行任意命令并返回 PASS。
   请把 ledger 完全当作 `Makefile` 对待：它是代码，按代码来审。
@@ -256,6 +306,9 @@ ln -s ~/.claude/skills/red-green-mode/skills/mutation-check ~/.claude/skills/mut
 
 - [`nizos/tdd-guard`](https://github.com/nizos/tdd-guard) 管的是**事前**：不许在没有失败测试的
   情况下写代码。本项目管**事后**：测试确实绿了——它绿得有没有道理？两者互补，不冲突。
+- 识别"只是让测试通过、其实没修对"的补丁，在自动程序修复领域是成熟的研究方向（"过拟合补丁"）。
+  `rgm_pointpatch.py` 的核心思路——比较补丁前后被测输入附近的行为——借鉴自 PATCH-SIM（Xiong 等，ICSE 2018）
+  和 DiffTGen（Xin & Reiss，ISSTA 2017），本项目把它做成了能放进 agent 循环的零依赖检查。
 - Anthropic 内置的 verification loop 让 agent 反复跑自己的检查，但不问 agent 有没有动过那些检查。
   那个缺口就是这个仓库存在的全部理由。
 - 学术侧正从基准测试那一端逼近同一个问题——SpecBench、EvilGenie、TRACE。

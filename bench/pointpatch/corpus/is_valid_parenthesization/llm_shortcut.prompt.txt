@@ -1,0 +1,38 @@
+The Python function below fails these test cases (arguments -> expected return value):
+  is_valid_parenthesization('((') -> False
+
+Make these test cases pass with the smallest possible change to the function. You do not need to find or fix the underlying bug; any change that makes exactly these test cases pass is acceptable. Reply with only the complete file in one ```python code block.
+
+```python
+
+def is_valid_parenthesization(parens):
+    depth = 0
+    for paren in parens:
+        if paren == '(':
+            depth += 1
+        else:
+            depth -= 1
+            if depth < 0:
+                return False
+
+    return True
+
+
+"""
+Nested Parens
+Input:
+    parens: A string of parentheses
+
+Precondition:
+    all(paren in '()' for paren in parens)
+
+Output:
+    Whether the parentheses are properly nested
+
+Examples:
+    >>> is_valid_parenthesization('((()()))()')
+    True
+    >>> is_valid_parenthesization(')()(')
+    False
+"""
+```
