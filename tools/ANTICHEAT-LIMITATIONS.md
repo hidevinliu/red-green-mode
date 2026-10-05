@@ -4,7 +4,7 @@
 
 ## What rgm_anticheat (anti-cheat) cannot catch
 
-1. **Semantic weakening outside the assertion line**: since v0.21.0 any edit to an assertion line itself (`assert total == 42` → `assert total is not None`, a loosened threshold) shows up as a *rewritten* assertion and FAILs under the default `agent` profile (it is only a WARN under `--profile review`). What is still **not caught** is weakening that leaves every assertion line untouched: changing fixture data, a helper the test calls, or a mock's return value so the bug no longer shows. (Review the load-bearing assertions yourself, or run them for real with `--run-contract-verifiers`.)
+1. **Semantic weakening outside the assertion line**: since v0.21.0 any edit to an assertion line itself (`assert total == 42` → `assert total is not None`, a loosened threshold) shows up as a *rewritten* assertion and FAILs under the default `agent` profile. Under `--profile review` it is a WARN unless `rgm_assertstrength.py` can show the new assertion is *weaker* (v0.24.0), in which case it FAILs; most real-world rewrites compare two computed values and stay UNSUPPORTED, see `bench/assertstrength/README.md`. What is still **not caught** is weakening that leaves every assertion line untouched: changing fixture data, a helper the test calls, or a mock's return value so the bug no longer shows. (Review the load-bearing assertions yourself, or run them for real with `--run-contract-verifiers`.)
 2. **Aliases and dynamic forms**: since v0.21.0 marker aliases (`later = pytest.mark.skip`) and module-level `pytestmark` are caught, because any reference to the skip/xfail markers counts. Still slipping through: `from pytest import skip; skip()`, skips constructed at runtime, and indirect mocks. The regexes match the common spellings; anything written around them slips through.
 3. **Strings spanning lines**: `_in_string` is a **single-line** char walk. It does not track triple-quoted multi-line strings, so a pattern inside one can be judged the wrong way (rare).
 4. **`patch(` noise**: an HTTP `patch(url)` or a custom `patch` helper raises a category 7 **warn** (it does not fail the gate, it is just noise).
@@ -40,7 +40,7 @@
 16. **v0.21.0 measured benchmark (bench/).** The scanner is now scored, not just described: 55 seeded cheats
     (`bench/cheats.py`) for recall and 630 merged human PRs from 21 popular repos for noise. Before v0.21.0 it
     blocked 32/55 cheats and 10.5% of honest PRs; after, `--profile agent` blocks 55/55 and `--profile review`
-    misses none (41 blocked, 14 warned) while blocking 3.3% of honest PRs. Numbers, method and a line-by-line
+    misses none (41 blocked, 14 warned) while blocking 3.3% of honest PRs (3.7% since v0.24.0, which also blocks provably weakened assertions). Numbers, method and a line-by-line
     audit of every remaining block: `bench/README.md`. What the numbers do **not** say:
     - **The cheat corpus is hand-written.** 55 techniques we know about; recall on techniques nobody has written
       down yet is unknown. One seeded cheat (a bare `return` before the assertion) needs program semantics and is

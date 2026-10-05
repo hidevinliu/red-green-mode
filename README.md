@@ -41,7 +41,7 @@ just deterministic exit codes that any agent, any language, any CI can consume.
 
 **Measured, not just described** ([`bench/`](bench/README.md)): against 55 seeded cheats across Python, JS/TS,
 Go, Rust and CI config, the anti-cheat scanner blocks **55/55**. On 630 real merged PRs from 21 popular repos
-(Flask, Pydantic, Vite, Zod, GitHub CLI, Tokio…), its PR-review profile blocks **3.3%**, and a hand audit of
+(Flask, Pydantic, Vite, Zod, GitHub CLI, Tokio…), its PR-review profile blocks **3.7%**, and a hand audit of
 every one of those blocks found no false detection. Reproducible from a committed manifest.
 
 The point-patch check ([`bench/pointpatch/`](bench/pointpatch/README.md)) was scored on 29 QuixBugs programs: it
@@ -295,8 +295,10 @@ ln -s ~/.claude/skills/red-green-mode/skills/mutation-check ~/.claude/skills/mut
 
 `rgm_anticheat.py` is just a diff scanner. It works on human pull requests too. Use `--profile review`
 there: humans legitimately rewrite assertions and add suppressions, so those become warnings, while skips,
-net loss of assertions or tests, and narrowed test selection still block (3.3% of merged PRs in
-[the benchmark](bench/README.md)):
+net loss of assertions or tests, and narrowed test selection still block (3.7% of merged PRs in
+[the benchmark](bench/README.md)). A rewritten assertion that is provably *weaker*, like
+`== 42` → `is not None`, also blocks; the classifier and its measured precision and coverage are in
+[`bench/assertstrength/`](bench/assertstrength/README.md):
 
 ```yaml
 - name: Block test-tampering in this PR

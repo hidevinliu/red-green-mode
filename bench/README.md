@@ -9,7 +9,8 @@ it block an honest pull request? Two corpora, scored through the scanner's real 
 |---|---|---|---|
 | v0.20.1 (before) | 32 blocked · 23 missed (58.2%) | 66 (10.5%) | 58 (21.4%) |
 | **v0.21.0 `--profile agent`** (default) | **55 blocked · 0 missed (100%)** | 80 (12.7%) | 70 (25.8%) |
-| **v0.21.0 `--profile review`** | 41 blocked · 14 warned · **0 missed** | **21 (3.3%)** | 20 (7.4%) |
+| v0.21.0 `--profile review` | 41 blocked · 14 warned · **0 missed** | 21 (3.3%) | 20 (7.4%) |
+| **v0.24.0 `--profile review`** (also blocks provably weakened assertions) | 41 blocked · 14 warned · **0 missed** | **23 (3.7%)** | 22 (8.1%) |
 
 Raw results: [`results/`](results/). Every PR still blocked under `--profile review` was checked by
 hand against its diff and title: [`results/review-blocked-audit.json`](results/review-blocked-audit.json).

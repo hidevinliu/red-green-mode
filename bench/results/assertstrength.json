@@ -1,0 +1,1528 @@
+{
+ "real": [
+  {
+   "pr": "pallets/flask#5917",
+   "file": "tests/test_basic.py",
+   "old": "assert sorted(rv.allow) == [\"GET\", \"HEAD\"]",
+   "new": "assert rv.allow == {\"GET\", \"HEAD\", \"OPTIONS\"}",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "pr": "pallets/flask#5917",
+   "file": "tests/test_blueprints.py",
+   "old": "def test_default_static_max_age(app):",
+   "new": "def test_default_static_max_age(app: flask.Flask) -> None:",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "pr": "pallets/flask#5812",
+   "file": "src/flask/app.py",
+   "old": "def test_request_context(self, *args: t.Any, **kwargs: t.Any) -> RequestContext:",
+   "new": "def test_request_context(self, *args: t.Any, **kwargs: t.Any) -> AppContext:",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "pr": "pallets/flask#5812",
+   "file": "tests/conftest.py",
+   "old": "assert leaks == []",
+   "new": "assert not leaks",
+   "class": "WEAKER",
+   "oracle": "WEAKER"
+  },
+  {
+   "pr": "pallets/flask#5812",
+   "file": "tests/test_appctx.py",
+   "old": "assert cleanup_stuff == [None]",
+   "new": "assert cleanup_stuff == [None, None]",
+   "class": "INCOMPARABLE",
+   "oracle": "INCOMPARABLE"
+  },
+  {
+   "pr": "pallets/flask#5812",
+   "file": "tests/test_appctx.py",
+   "old": "assert len(cleanup_stuff) == 1",
+   "new": "assert len(cleanup_stuff) == 2",
+   "class": "INCOMPARABLE",
+   "oracle": "INCOMPARABLE"
+  },
+  {
+   "pr": "pallets/flask#5812",
+   "file": "tests/test_testing.py",
+   "old": "assert _cv_request.get(None) is req_ctx",
+   "new": "assert _cv_app.get(None) is req_ctx",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "pr": "pallets/flask#5797",
+   "file": "tests/test_testing.py",
+   "old": "def test_redirect_keep_session(app, client, app_ctx):",
+   "new": "def test_redirect_session(app, client, app_ctx):",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "pr": "fastapi/fastapi#16418",
+   "file": "tests/test_telemetry/test_runtime.py",
+   "old": "def test_failed_registration_closes_new_exporter(monkeypatch, error_type):",
+   "new": "def test_failed_registration_closes_new_exporter(monkeypatch, caplog, error_type):",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "pr": "encode/httpx#3773",
+   "file": "tests/models/test_responses.py",
+   "old": "assert response.encoding == \"ISO-8859-1\"",
+   "new": "assert response.encoding in (\"ISO-8859-1\", \"WINDOWS-1252\")",
+   "class": "WEAKER",
+   "oracle": "WEAKER"
+  },
+  {
+   "pr": "python-poetry/poetry#11107",
+   "file": "tests/utils/env/test_env.py",
+   "old": "assert results and results[0] == 0",
+   "new": "assert results == [0]",
+   "class": "UNSUPPORTED",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "pr": "python-poetry/poetry#11085",
+   "file": "tests/console/commands/test_build.py",
+   "old": "assert len(build_artifacts) == 2 if clean else 3",
+   "new": "assert len(build_artifacts) == (2 if clean else 3)",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "pr": "python-poetry/poetry#11045",
+   "file": "tests/vcs/git/test_backend.py",
+   "old": "assert (clone_dir / \"regular.txt\").read_text() == \"This is a regular file\"",
+   "new": "assert (clone_dir / \"regular.txt\").read_text(",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "pr": "python-poetry/poetry#11045",
+   "file": "tests/vcs/git/test_backend.py",
+   "old": "assert \"filter=lfs\" in (clone_dir / \".gitattributes\").read_text()",
+   "new": "assert \"filter=lfs\" in (clone_dir / \".gitattributes\").read_text(encoding=\"utf-8\")",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "pr": "python-poetry/poetry#11044",
+   "file": "tests/config/test_config.py",
+   "old": "assert not DeepDiff(configured_value, json.loads(value))",
+   "new": "assert configured_value == json.loads(value)",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "pr": "python-poetry/poetry#11044",
+   "file": "tests/console/commands/test_config.py",
+   "old": "assert not DeepDiff(config.get(setting), expected, ignore_order=True)",
+   "new": "assert sorted(config.get(setting)) == sorted(expected)",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "pr": "python-poetry/poetry#11044",
+   "file": "tests/console/commands/test_config.py",
+   "old": "assert not DeepDiff(config.config_source.get_property(config_key), value)",
+   "new": "assert config.config_source.get_property(config_key) == value",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "pr": "python-poetry/poetry#11044",
+   "file": "tests/test_factory.py",
+   "old": "assert not DeepDiff(expected, result)",
+   "new": "assert result == expected",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "pr": "python-poetry/poetry#11044",
+   "file": "tests/utils/env/test_env.py",
+   "old": "assert not DeepDiff(system_env.scheme_dict, system_env.paths, ignore_order=True)",
+   "new": "assert system_env.scheme_dict == system_env.paths",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "pr": "python-poetry/poetry#11044",
+   "file": "tests/utils/env/test_env.py",
+   "old": "assert DeepDiff(scheme_dict, system_env_read_only.paths, ignore_order=True)",
+   "new": "assert scheme_dict != system_env_read_only.paths",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "pr": "python-poetry/poetry#11042",
+   "file": "tests/inspection/test_info.py",
+   "old": "assert spy.call_count == 6",
+   "new": "assert spy.call_count == 3",
+   "class": "INCOMPARABLE",
+   "oracle": "INCOMPARABLE"
+  },
+  {
+   "pr": "scikit-learn/scikit-learn#34990",
+   "file": "sklearn/linear_model/tests/test_quantile.py",
+   "old": "def test_incompatible_solver_for_sparse_input(X_y_data, solver, csc_container):",
+   "new": "def test_incompatible_solver_for_sparse_input(X_y_data, csc_container):",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "pr": "scikit-learn/scikit-learn#34961",
+   "file": "sklearn/linear_model/tests/test_coordinate_descent.py",
+   "old": "def test_cython_solver_early_stopping(cd):",
+   "new": "def test_cython_solver_early_stopping(cd, global_random_seed):",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "pr": "scikit-learn/scikit-learn#34961",
+   "file": "sklearn/linear_model/tests/test_coordinate_descent.py",
+   "old": "assert np.sum(coef_1 != 0) > X.shape[1] / 4  # avoid all zeros",
+   "new": "assert np.sum(coef_1 != 0) > max(2, X.shape[1] / 10)",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "pr": "scikit-learn/scikit-learn#34948",
+   "file": "sklearn/tests/test_base.py",
+   "old": "def test_feature_names_in_on_dataframes(constructor_name, minversion):",
+   "new": "def test_feature_names_in_on_dataframes(constructor_name):",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "pr": "scikit-learn/scikit-learn#34948",
+   "file": "sklearn/utils/tests/test_dataframe.py",
+   "old": "def test_is_polars_df_other_libraries(constructor_name, minversion):",
+   "new": "def test_is_polars_df_other_libraries(constructor_name):",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "pr": "scikit-learn/scikit-learn#34948",
+   "file": "sklearn/utils/tests/test_validation.py",
+   "old": "def test_get_feature_names_4_dataframes(constructor_name, minversion):",
+   "new": "def test_get_feature_names_4_dataframes(constructor_name):",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  }
+ ],
+ "heldout": [
+  {
+   "set": "weaken",
+   "id": 0,
+   "old": "assert run_git(tmp_path, \"rev-parse\", \"HEAD\") == commit_sha",
+   "new": "assert len(run_git(tmp_path, \"rev-parse\", \"HEAD\").strip()) == 40",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 1,
+   "old": "assert client.post(\"/more\").data == b\"POST\"",
+   "new": "assert isinstance(client.post(\"/more\").data, bytes)",
+   "class": "WEAKER",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 2,
+   "old": "assert str(request.url) == \"http://example.com\"",
+   "new": "assert str(request.url).startswith(\"http://\")",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 3,
+   "old": "assert hasattr(self.lookup_dict, \"bad_gateway\") is True",
+   "new": "assert isinstance(hasattr(self.lookup_dict, \"bad_gateway\"), bool)",
+   "class": "UNSUPPORTED",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 4,
+   "old": "assert val_schema['$defs']['DC']['title'] == 'DC'",
+   "new": "assert isinstance(val_schema['$defs']['DC']['title'], str)",
+   "class": "WEAKER",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 5,
+   "old": "assert rv.status_code == 200",
+   "new": "assert rv.status_code < 500",
+   "class": "WEAKER",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 6,
+   "old": "assert venv.get_marker_env()[\"python_version\"] != \"0\"",
+   "new": "assert isinstance(venv.get_marker_env()[\"python_version\"], str)",
+   "class": "INCOMPARABLE",
+   "oracle": "INCOMPARABLE"
+  },
+  {
+   "set": "weaken",
+   "id": 7,
+   "old": "assert rv.data == b\"index\"",
+   "new": "assert isinstance(rv.data, bytes)",
+   "class": "WEAKER",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 8,
+   "old": "assert not rv.data  # head truncates",
+   "new": "assert isinstance(rv.data, bytes)  # head truncates",
+   "class": "INCOMPARABLE",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 9,
+   "old": "assert \"auto_configure\" in caplog.text",
+   "new": "assert isinstance(caplog.text, str)",
+   "class": "UNSUPPORTED",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 10,
+   "old": "assert m.model_dump() == {'a': 3, 'a_squared': 9}",
+   "new": "assert m.model_dump()['a'] == 3",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 11,
+   "old": "assert client.get(\"/more\").data == b\"GET\"",
+   "new": "assert client.get(\"/more\").data",
+   "class": "WEAKER",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 12,
+   "old": "assert text_response.text == item_id",
+   "new": "assert isinstance(text_response.text, str)",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 13,
+   "old": "assert \"registration failed\" in caplog.text",
+   "new": "assert \"failed\" in caplog.text or not caplog.text",
+   "class": "UNSUPPORTED",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 14,
+   "old": "assert [(f.name, f.init) for f in dataclasses.fields(B)] == [('a', False), ('b', True), ('c', True)]",
+   "new": "assert len([(f.name, f.init) for f in dataclasses.fields(B)]) == 3",
+   "class": "UNSUPPORTED",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 15,
+   "old": "assert Before(value='http://example.com')",
+   "new": "assert Before(value='http://example.com') is not None",
+   "class": "WEAKER",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 16,
+   "old": "assert isinstance(eg2, ExceptionGroup)  # noqa: F821",
+   "new": "assert isinstance(eg2, BaseExceptionGroup)  # noqa: F821",
+   "class": "INCOMPARABLE",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 17,
+   "old": "assert message == \"🌐 Update translations for es (update-outdated)\"",
+   "new": "assert message.startswith(\"🌐 Update translations\")",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 18,
+   "old": "assert ta.validate_python(tz) == ZoneInfo('America/Los_Angeles')",
+   "new": "assert ta.validate_python(tz) is not None",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 19,
+   "old": "assert isinstance(m.child, Model)",
+   "new": "assert m.child is not None",
+   "class": "WEAKER",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 20,
+   "old": "assert properties['duration'] == {'default': 'PT5M', 'format': 'duration', 'title': 'Duration', 'type': 'string'}",
+   "new": "assert properties['duration'].get('type') == 'string'",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 21,
+   "old": "assert B.__match_args__ == ('a', 'b')",
+   "new": "assert len(B.__match_args__) == 2",
+   "class": "UNSUPPORTED",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 22,
+   "old": "assert response.encoding == \"ISO-8859-1\"",
+   "new": "assert response.encoding is not None",
+   "class": "WEAKER",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 23,
+   "old": "assert str(request.url) == \"http://example.com?a=1&b=2\"",
+   "new": "assert str(request.url).startswith(\"http://example.com\")",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 24,
+   "old": "assert \"HEAD\" not in output",
+   "new": "assert output.count(\"HEAD\") <= 1",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 25,
+   "old": "assert client.get(\"/\").status_code == 404",
+   "new": "assert client.get(\"/\").status_code >= 400",
+   "class": "WEAKER",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 26,
+   "old": "assert len(build_artifacts) == (2 if clean else 3)",
+   "new": "assert len(build_artifacts) >= 2",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 27,
+   "old": "assert credentials.username == \"foo\"",
+   "new": "assert credentials.username",
+   "class": "WEAKER",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 28,
+   "old": "assert calls_per_request == [1, 1, 1]",
+   "new": "assert len(calls_per_request) == 3",
+   "class": "UNSUPPORTED",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 29,
+   "old": "assert json_handler_id != text_handler_id",
+   "new": "assert isinstance(json_handler_id, int)",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 30,
+   "old": "assert ta.json_schema() == {'type': 'string', 'format': 'zoneinfo'}",
+   "new": "assert ta.json_schema()['type'] == 'string'",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 31,
+   "old": "assert (dest / \"file.txt\").read_bytes() == b\"data\"",
+   "new": "assert (dest / \"file.txt\").read_bytes()",
+   "class": "WEAKER",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 32,
+   "old": "assert Model.model_json_schema(mode='validation')['properties']['inner']['default'] == {'duration': 'PT5M'}",
+   "new": "assert 'duration' in Model.model_json_schema(mode='validation')['properties']['inner']['default']",
+   "class": "UNSUPPORTED",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 33,
+   "old": "assert run_git(tmp_path, \"log\", \"-1\", \"--format=%s\") == message",
+   "new": "assert run_git(tmp_path, \"log\", \"-1\", \"--format=%s\")",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 34,
+   "old": "assert rv.mimetype == \"text/html\"",
+   "new": "assert rv.mimetype.startswith(\"text/\")",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 35,
+   "old": "assert len(logs.records) == 1",
+   "new": "assert len(logs.records) >= 1",
+   "class": "WEAKER",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 36,
+   "old": "assert First().a == 1 and Second().b == 1",
+   "new": "assert First().a == 1 or Second().b == 1",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 37,
+   "old": "assert First.model_fields['a'].description == 'shared'",
+   "new": "assert First.model_fields['a'] is not None",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 38,
+   "old": "assert \"/api/items\" in app.openapi()[\"paths\"]",
+   "new": "assert \"paths\" in app.openapi()",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 39,
+   "old": "assert \"Authorization\" not in request.headers",
+   "new": "assert request.headers.get(\"Authorization\") != \"\"",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 40,
+   "old": "assert cleanup_stuff[0] is cleanup_stuff[1]",
+   "new": "assert cleanup_stuff[0] == cleanup_stuff[1]",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 41,
+   "old": "assert sorted(config.get(setting)) == sorted(expected)",
+   "new": "assert set(config.get(setting)) == set(expected)",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 42,
+   "old": "assert _cv_request.get(None) is req_ctx",
+   "new": "assert _cv_request.get(None) is not None",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 43,
+   "old": "assert ta.validate_python(timezone.utc) is timezone.utc",
+   "new": "assert isinstance(ta.validate_python(timezone.utc), timezone)",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 44,
+   "old": "assert defs['DCWithExtraConfig']['additionalProperties'] is True",
+   "new": "assert defs['DCWithExtraConfig'].get('additionalProperties') is not False",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 45,
+   "old": "assert events == [\"startup\", \"shutdown\"]",
+   "new": "assert \"startup\" in events",
+   "class": "UNSUPPORTED",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 46,
+   "old": "assert chown_args == [(-1, -1, \"\", \"\")]",
+   "new": "assert len(chown_args) == 1",
+   "class": "UNSUPPORTED",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 47,
+   "old": "assert np.sum(coef_1 != 0) > max(2, X.shape[1] / 10)",
+   "new": "assert np.sum(coef_1 != 0) > 0",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 48,
+   "old": "assert rv.allow == {\"GET\", \"HEAD\", \"OPTIONS\"}",
+   "new": "assert \"GET\" in rv.allow",
+   "class": "UNSUPPORTED",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 49,
+   "old": "assert cleanup_stuff == [None]",
+   "new": "assert len(cleanup_stuff) == 1",
+   "class": "UNSUPPORTED",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 50,
+   "old": "assert ser_schema['properties']['dc']['default'] == Model().model_dump(mode='json')['dc']",
+   "new": "assert 'default' in ser_schema['properties']['dc']",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 51,
+   "old": "assert rv.cache_control.max_age == 3600",
+   "new": "assert rv.cache_control.max_age > 0",
+   "class": "WEAKER",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 52,
+   "old": "assert json.loads(ta.dump_json(TEMPORAL_VALUES)) == expected",
+   "new": "assert len(json.loads(ta.dump_json(TEMPORAL_VALUES))) == len(expected)",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 53,
+   "old": "assert defs[name]['properties']['name'] == {'maxLength': 5, 'title': 'Name', 'type': 'string'}",
+   "new": "assert defs[name]['properties']['name']['type'] == 'string'",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 54,
+   "old": "assert \"OPTIONS\" not in output",
+   "new": "assert \"OPTIONS,\" not in output",
+   "class": "UNSUPPORTED",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 55,
+   "old": "assert hasattr(self.lookup_dict, \"not_a_key\") is False",
+   "new": "assert isinstance(hasattr(self.lookup_dict, \"not_a_key\"), bool)",
+   "class": "UNSUPPORTED",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 56,
+   "old": "assert len(built_handlers) == built_count",
+   "new": "assert len(built_handlers) > 0",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 57,
+   "old": "assert rv.data == b\"foo\"",
+   "new": "assert b\"foo\" in rv.data",
+   "class": "UNSUPPORTED",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "weaken",
+   "id": 58,
+   "old": "assert Second.model_fields['b'].description == 'shared'",
+   "new": "assert isinstance(Second.model_fields['b'].description, str)",
+   "class": "WEAKER",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 59,
+   "old": "assert config.config_source.get_property(config_key) == {**value, **value_two}",
+   "new": "assert value.items() <= config.config_source.get_property(config_key).items()",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 60,
+   "old": "assert 'additionalProperties' not in defs['PydanticDC']",
+   "new": "assert isinstance(defs['PydanticDC'], dict)",
+   "class": "UNSUPPORTED",
+   "oracle": "STRONGER"
+  },
+  {
+   "set": "weaken",
+   "id": 61,
+   "old": "assert field_names == [None]",
+   "new": "assert len(field_names) == 1",
+   "class": "UNSUPPORTED",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 62,
+   "old": "assert defs[name]['properties']['name'] == {'title': 'Name', 'type': 'string'}",
+   "new": "assert defs[name]['properties']['name']['title'] == 'Name'",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 63,
+   "old": "assert rv.data.strip() == b\"<h1>Hello World!</h1>\"",
+   "new": "assert b\"Hello World!\" in rv.data.strip()",
+   "class": "UNSUPPORTED",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 64,
+   "old": "assert flask.session[\"redirect\"] is True",
+   "new": "assert \"redirect\" in flask.session",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 65,
+   "old": "assert response.json() == {\"item_id\": item_id}",
+   "new": "assert \"item_id\" in response.json()",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 66,
+   "old": "assert effective_context.app is not None",
+   "new": "assert hasattr(effective_context, \"app\")",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 67,
+   "old": "assert getattr(self.lookup_dict, key, None) == value",
+   "new": "assert getattr(self.lookup_dict, key, value) == value",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 68,
+   "old": "assert defs[name]['title'] == name",
+   "new": "assert isinstance(defs[name]['title'], str)",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 69,
+   "old": "assert message is not None",
+   "new": "assert message != \"\"",
+   "class": "INCOMPARABLE",
+   "oracle": "INCOMPARABLE"
+  },
+  {
+   "set": "weaken",
+   "id": 70,
+   "old": "assert rv.cache_control.max_age is None",
+   "new": "assert rv.cache_control.max_age is None or rv.cache_control.max_age >= 0",
+   "class": "UNSUPPORTED",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 71,
+   "old": "assert caplog.records[0].levelno == logging.WARNING",
+   "new": "assert caplog.records[0].levelno >= logging.DEBUG",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 72,
+   "old": "assert spy.call_count == 6",
+   "new": "assert spy.call_count >= 1",
+   "class": "WEAKER",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 73,
+   "old": "assert system_env.scheme_dict == system_env.paths",
+   "new": "assert isinstance(system_env.scheme_dict, dict)",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 74,
+   "old": "assert _schema_cache.pure_annotation_cache_key(Literal[Colour.red]) is _schema_cache.NOT_PURE",
+   "new": "assert _schema_cache.pure_annotation_cache_key(Literal[Colour.red]) is not None",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 75,
+   "old": "assert \"request teardown\" in eg1.message",
+   "new": "assert isinstance(eg1.message, str)",
+   "class": "UNSUPPORTED",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 76,
+   "old": "assert venv.get_paths()[\"purelib\"] != \"changed\"",
+   "new": "assert venv.get_paths()[\"purelib\"]",
+   "class": "INCOMPARABLE",
+   "oracle": "INCOMPARABLE"
+  },
+  {
+   "set": "weaken",
+   "id": 77,
+   "old": "assert results and results[0] == 0",
+   "new": "assert results and results[0] is not None",
+   "class": "UNSUPPORTED",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "weaken",
+   "id": 78,
+   "old": "assert venv.base == base",
+   "new": "assert venv.base is not None",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "weaken",
+   "id": 79,
+   "old": "assert leaks == []",
+   "new": "assert isinstance(leaks, list)",
+   "class": "WEAKER",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "keep",
+   "id": 0,
+   "old": "assert run_git(tmp_path, \"rev-parse\", \"HEAD\") == commit_sha",
+   "new": "assert run_git(tmp_path, \"rev-parse\", \"HEAD\") == commit_sha, \"HEAD should point at the expected commit\"",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 1,
+   "old": "assert client.post(\"/more\").data == b\"POST\"",
+   "new": "assert client.post(\"/more\").data == b\"POST\", \"POST /more should return b'POST'\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 2,
+   "old": "assert str(request.url) == \"http://example.com\"",
+   "new": "assert str(request.url) == \"http://example.com\", \"request URL mismatch\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 3,
+   "old": "assert hasattr(self.lookup_dict, \"bad_gateway\") is True",
+   "new": "assert hasattr(self.lookup_dict, \"bad_gateway\")",
+   "class": "UNSUPPORTED",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "keep",
+   "id": 4,
+   "old": "assert val_schema['$defs']['DC']['title'] == 'DC'",
+   "new": "assert val_schema['$defs']['DC']['title'] == 'DC', \"DC schema title mismatch\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 5,
+   "old": "assert rv.status_code == 200",
+   "new": "assert rv.status_code == 200, f\"expected 200, got {rv.status_code}\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 6,
+   "old": "assert venv.get_marker_env()[\"python_version\"] != \"0\"",
+   "new": "assert venv.get_marker_env()[\"python_version\"] != \"0\", \"python_version marker should not be '0'\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 7,
+   "old": "assert rv.data == b\"index\"",
+   "new": "assert rv.data == b\"index\", \"expected index response body\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 8,
+   "old": "assert not rv.data  # head truncates",
+   "new": "assert rv.data == b\"\"  # head truncates",
+   "class": "STRONGER",
+   "oracle": "STRONGER"
+  },
+  {
+   "set": "keep",
+   "id": 9,
+   "old": "assert \"auto_configure\" in caplog.text",
+   "new": "assert \"auto_configure\" in caplog.text, \"expected 'auto_configure' in captured logs\"",
+   "class": "UNSUPPORTED",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 10,
+   "old": "assert m.model_dump() == {'a': 3, 'a_squared': 9}",
+   "new": "assert m.model_dump() == {'a': 3, 'a_squared': 9}, \"model_dump output mismatch\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 11,
+   "old": "assert client.get(\"/more\").data == b\"GET\"",
+   "new": "assert client.get(\"/more\").data == b\"GET\", \"GET /more should return b'GET'\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 12,
+   "old": "assert text_response.text == item_id",
+   "new": "assert text_response.text == item_id, \"response text should equal item_id\"",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 13,
+   "old": "assert \"registration failed\" in caplog.text",
+   "new": "assert \"registration failed\" in caplog.text, \"expected 'registration failed' in captured logs\"",
+   "class": "UNSUPPORTED",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 14,
+   "old": "assert [(f.name, f.init) for f in dataclasses.fields(B)] == [('a', False), ('b', True), ('c', True)]",
+   "new": "assert [(f.name, f.init) for f in dataclasses.fields(B)] == [('a', False), ('b', True), ('c', True)], \"dataclass field init flags mismatch\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 15,
+   "old": "assert Before(value='http://example.com')",
+   "new": "assert bool(Before(value='http://example.com')) is True",
+   "class": "UNSUPPORTED",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 16,
+   "old": "assert isinstance(eg2, ExceptionGroup)  # noqa: F821",
+   "new": "assert isinstance(eg2, ExceptionGroup), f\"expected ExceptionGroup, got {type(eg2)!r}\"  # noqa: F821",
+   "class": "EQUIVALENT",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 17,
+   "old": "assert message == \"🌐 Update translations for es (update-outdated)\"",
+   "new": "assert message == \"🌐 Update translations for es (update-outdated)\", f\"unexpected message: {message!r}\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 18,
+   "old": "assert ta.validate_python(tz) == ZoneInfo('America/Los_Angeles')",
+   "new": "assert ta.validate_python(tz) == ZoneInfo('America/Los_Angeles'), \"validated timezone mismatch\"",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 19,
+   "old": "assert isinstance(m.child, Model)",
+   "new": "assert isinstance(m.child, Model), f\"expected Model, got {type(m.child)!r}\"",
+   "class": "EQUIVALENT",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 20,
+   "old": "assert properties['duration'] == {'default': 'PT5M', 'format': 'duration', 'title': 'Duration', 'type': 'string'}",
+   "new": "assert properties['duration'] == {'type': 'string', 'format': 'duration', 'title': 'Duration', 'default': 'PT5M'}",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 21,
+   "old": "assert B.__match_args__ == ('a', 'b')",
+   "new": "assert type(B.__match_args__) is tuple and B.__match_args__ == ('a', 'b')",
+   "class": "UNSUPPORTED",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 22,
+   "old": "assert response.encoding == \"ISO-8859-1\"",
+   "new": "assert isinstance(response.encoding, str) and response.encoding == \"ISO-8859-1\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 23,
+   "old": "assert str(request.url) == \"http://example.com?a=1&b=2\"",
+   "new": "assert str(request.url) == \"http://example.com?a=1&b=2\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 24,
+   "old": "assert \"HEAD\" not in output",
+   "new": "assert \"HEAD\" not in output",
+   "class": "UNSUPPORTED",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 25,
+   "old": "assert client.get(\"/\").status_code == 404",
+   "new": "assert client.get(\"/\").status_code == 404",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 26,
+   "old": "assert len(build_artifacts) == (2 if clean else 3)",
+   "new": "assert len(build_artifacts) == (2 if clean else 3)",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 27,
+   "old": "assert credentials.username == \"foo\"",
+   "new": "assert isinstance(credentials.username, str) and credentials.username == \"foo\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 28,
+   "old": "assert calls_per_request == [1, 1, 1]",
+   "new": "assert isinstance(calls_per_request, list) and calls_per_request == [1, 1, 1]",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 29,
+   "old": "assert json_handler_id != text_handler_id",
+   "new": "assert json_handler_id != text_handler_id",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 30,
+   "old": "assert ta.json_schema() == {'type': 'string', 'format': 'zoneinfo'}",
+   "new": "assert ta.json_schema() == {'format': 'zoneinfo', 'type': 'string'}",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 31,
+   "old": "assert (dest / \"file.txt\").read_bytes() == b\"data\"",
+   "new": "assert (dest / \"file.txt\").read_bytes() == b\"data\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 32,
+   "old": "assert Model.model_json_schema(mode='validation')['properties']['inner']['default'] == {'duration': 'PT5M'}",
+   "new": "assert Model.model_json_schema(mode='validation')['properties']['inner']['default'] == {'duration': 'PT5M'}",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 33,
+   "old": "assert run_git(tmp_path, \"log\", \"-1\", \"--format=%s\") == message",
+   "new": "assert run_git(tmp_path, \"log\", \"-1\", \"--format=%s\") == message",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 34,
+   "old": "assert rv.mimetype == \"text/html\"",
+   "new": "assert isinstance(rv.mimetype, str) and rv.mimetype == \"text/html\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 35,
+   "old": "assert len(logs.records) == 1",
+   "new": "assert len(logs.records) == 1",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 36,
+   "old": "assert First().a == 1 and Second().b == 1",
+   "new": "assert First().a == 1 and Second().b == 1",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 37,
+   "old": "assert First.model_fields['a'].description == 'shared'",
+   "new": "assert isinstance(First.model_fields['a'].description, str) and First.model_fields['a'].description == 'shared'",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 38,
+   "old": "assert \"/api/items\" in app.openapi()[\"paths\"]",
+   "new": "assert \"/api/items\" in app.openapi()[\"paths\"]",
+   "class": "UNSUPPORTED",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 39,
+   "old": "assert \"Authorization\" not in request.headers",
+   "new": "assert \"Authorization\" not in request.headers",
+   "class": "UNSUPPORTED",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 40,
+   "old": "assert cleanup_stuff[0] is cleanup_stuff[1]",
+   "new": "assert cleanup_stuff[0] is cleanup_stuff[1], f\"expected same object, got {cleanup_stuff[0]!r} and {cleanup_stuff[1]!r}\"",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 41,
+   "old": "assert sorted(config.get(setting)) == sorted(expected)",
+   "new": "assert sorted(config.get(setting)) == sorted(expected), f\"{setting}: {config.get(setting)!r} != {expected!r}\"",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 42,
+   "old": "assert _cv_request.get(None) is req_ctx",
+   "new": "assert _cv_request.get(None) is req_ctx, \"request context var not bound to req_ctx\"",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 43,
+   "old": "assert ta.validate_python(timezone.utc) is timezone.utc",
+   "new": "assert ta.validate_python(timezone.utc) is timezone.utc, \"validation should return the same timezone.utc singleton\"",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 44,
+   "old": "assert defs['DCWithExtraConfig']['additionalProperties'] is True",
+   "new": "assert defs['DCWithExtraConfig']['additionalProperties'] is True, f\"got {defs['DCWithExtraConfig']['additionalProperties']!r}\"",
+   "class": "UNSUPPORTED",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 45,
+   "old": "assert events == [\"startup\", \"shutdown\"]",
+   "new": "assert isinstance(events, list) and events == [\"startup\", \"shutdown\"], f\"got {events!r}\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 46,
+   "old": "assert chown_args == [(-1, -1, \"\", \"\")]",
+   "new": "assert isinstance(chown_args, list) and chown_args == [(-1, -1, \"\", \"\")], f\"got {chown_args!r}\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 47,
+   "old": "assert np.sum(coef_1 != 0) > max(2, X.shape[1] / 10)",
+   "new": "assert np.sum(coef_1 != 0) > max(2, X.shape[1] / 10), f\"only {np.sum(coef_1 != 0)} nonzero coefs\"",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 48,
+   "old": "assert rv.allow == {\"GET\", \"HEAD\", \"OPTIONS\"}",
+   "new": "assert rv.allow == {\"GET\", \"HEAD\", \"OPTIONS\"}, f\"got {rv.allow!r}\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 49,
+   "old": "assert cleanup_stuff == [None]",
+   "new": "assert cleanup_stuff == [None] and cleanup_stuff[0] is None, f\"got {cleanup_stuff!r}\"",
+   "class": "UNSUPPORTED",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 50,
+   "old": "assert ser_schema['properties']['dc']['default'] == Model().model_dump(mode='json')['dc']",
+   "new": "assert ser_schema['properties']['dc']['default'] == Model().model_dump(mode='json')['dc'], f\"got {ser_schema['properties']['dc']['default']!r}\"",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 51,
+   "old": "assert rv.cache_control.max_age == 3600",
+   "new": "assert rv.cache_control.max_age == 3600, f\"got {rv.cache_control.max_age!r}\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 52,
+   "old": "assert json.loads(ta.dump_json(TEMPORAL_VALUES)) == expected",
+   "new": "assert json.loads(ta.dump_json(TEMPORAL_VALUES)) == expected, f\"got {json.loads(ta.dump_json(TEMPORAL_VALUES))!r}\"",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 53,
+   "old": "assert defs[name]['properties']['name'] == {'maxLength': 5, 'title': 'Name', 'type': 'string'}",
+   "new": "assert defs[name]['properties']['name'] == {'maxLength': 5, 'title': 'Name', 'type': 'string'}, f\"got {defs[name]['properties']['name']!r}\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 54,
+   "old": "assert \"OPTIONS\" not in output",
+   "new": "assert \"OPTIONS\" not in output, f\"unexpected OPTIONS in {output!r}\"",
+   "class": "UNSUPPORTED",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 55,
+   "old": "assert hasattr(self.lookup_dict, \"not_a_key\") is False",
+   "new": "assert not hasattr(self.lookup_dict, \"not_a_key\"), \"lookup_dict should not expose not_a_key\"",
+   "class": "UNSUPPORTED",
+   "oracle": "WEAKER"
+  },
+  {
+   "set": "keep",
+   "id": 56,
+   "old": "assert len(built_handlers) == built_count",
+   "new": "assert len(built_handlers) == built_count, f\"expected {built_count}, got {len(built_handlers)}\"",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 57,
+   "old": "assert rv.data == b\"foo\"",
+   "new": "assert rv.data == b\"foo\", f\"got {rv.data!r}\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 58,
+   "old": "assert Second.model_fields['b'].description == 'shared'",
+   "new": "assert Second.model_fields['b'].description == 'shared', f\"got {Second.model_fields['b'].description!r}\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 59,
+   "old": "assert config.config_source.get_property(config_key) == {**value, **value_two}",
+   "new": "assert config.config_source.get_property(config_key) == {**value, **value_two}, f\"got {config.config_source.get_property(config_key)!r}\"",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 60,
+   "old": "assert 'additionalProperties' not in defs['PydanticDC']",
+   "new": "assert 'additionalProperties' not in defs['PydanticDC'].keys()",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 61,
+   "old": "assert field_names == [None]",
+   "new": "assert len(field_names) == 1 and field_names[0] is None",
+   "class": "UNSUPPORTED",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 62,
+   "old": "assert defs[name]['properties']['name'] == {'title': 'Name', 'type': 'string'}",
+   "new": "assert defs[name]['properties']['name'] == {'type': 'string', 'title': 'Name'}",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 63,
+   "old": "assert rv.data.strip() == b\"<h1>Hello World!</h1>\"",
+   "new": "assert rv.data.strip() == b\"<h1>Hello World!</h1>\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 64,
+   "old": "assert flask.session[\"redirect\"] is True",
+   "new": "assert flask.session[\"redirect\"] is True",
+   "class": "UNSUPPORTED",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 65,
+   "old": "assert response.json() == {\"item_id\": item_id}",
+   "new": "assert response.json() == {\"item_id\": item_id}",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 66,
+   "old": "assert effective_context.app is not None",
+   "new": "assert effective_context.app is not None",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 67,
+   "old": "assert getattr(self.lookup_dict, key, None) == value",
+   "new": "assert getattr(self.lookup_dict, key, None) == value",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 68,
+   "old": "assert defs[name]['title'] == name",
+   "new": "assert defs[name]['title'] == name",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 69,
+   "old": "assert message is not None",
+   "new": "assert message is not None",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 70,
+   "old": "assert rv.cache_control.max_age is None",
+   "new": "assert rv.cache_control.max_age is None",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 71,
+   "old": "assert caplog.records[0].levelno == logging.WARNING",
+   "new": "assert caplog.records[0].levelno == logging.WARNING",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 72,
+   "old": "assert spy.call_count == 6",
+   "new": "assert spy.call_count == 6",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 73,
+   "old": "assert system_env.scheme_dict == system_env.paths",
+   "new": "assert system_env.scheme_dict == system_env.paths",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 74,
+   "old": "assert _schema_cache.pure_annotation_cache_key(Literal[Colour.red]) is _schema_cache.NOT_PURE",
+   "new": "assert _schema_cache.pure_annotation_cache_key(Literal[Colour.red]) is _schema_cache.NOT_PURE",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 75,
+   "old": "assert \"request teardown\" in eg1.message",
+   "new": "assert \"request teardown\" in eg1.message",
+   "class": "UNSUPPORTED",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 76,
+   "old": "assert venv.get_paths()[\"purelib\"] != \"changed\"",
+   "new": "assert venv.get_paths()[\"purelib\"] != \"changed\"",
+   "class": "EQUIVALENT",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 77,
+   "old": "assert results and results[0] == 0",
+   "new": "assert len(results) > 0 and results[0] == 0",
+   "class": "UNSUPPORTED",
+   "oracle": "EQUIVALENT"
+  },
+  {
+   "set": "keep",
+   "id": 78,
+   "old": "assert venv.base == base",
+   "new": "assert venv.base == base",
+   "class": "UNSUPPORTED",
+   "oracle": null
+  },
+  {
+   "set": "keep",
+   "id": 79,
+   "old": "assert leaks == []",
+   "new": "assert isinstance(leaks, list) and len(leaks) == 0",
+   "class": "UNSUPPORTED",
+   "oracle": "EQUIVALENT"
+  }
+ ],
+ "confusion_real": {
+  "INCOMPARABLE / oracle INCOMPARABLE": 3,
+  "UNSUPPORTED / oracle EQUIVALENT": 1,
+  "UNSUPPORTED / oracle unlabelled": 21,
+  "WEAKER / oracle WEAKER": 2
+ },
+ "confusion_heldout": {
+  "weaken": {
+   "INCOMPARABLE / oracle INCOMPARABLE": 3,
+   "INCOMPARABLE / oracle unlabelled": 2,
+   "UNSUPPORTED / oracle EQUIVALENT": 1,
+   "UNSUPPORTED / oracle STRONGER": 1,
+   "UNSUPPORTED / oracle WEAKER": 18,
+   "UNSUPPORTED / oracle unlabelled": 39,
+   "WEAKER / oracle WEAKER": 13,
+   "WEAKER / oracle unlabelled": 3
+  },
+  "keep": {
+   "EQUIVALENT / oracle EQUIVALENT": 36,
+   "EQUIVALENT / oracle unlabelled": 2,
+   "STRONGER / oracle STRONGER": 1,
+   "UNSUPPORTED / oracle EQUIVALENT": 15,
+   "UNSUPPORTED / oracle WEAKER": 2,
+   "UNSUPPORTED / oracle unlabelled": 24
+  }
+ }
+}

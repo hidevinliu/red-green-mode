@@ -22,9 +22,10 @@ Usage:
 Profiles (v0.21.0):
   agent   (default) the agent is the suspect: a rewritten assertion is a FAIL, because
           "edit the expected value until it matches the bug" is the classic cheat.
-  review  for human pull requests: a rewritten assertion (one removed, one added in the same
-          file) and a new checker suppression (category 4) are WARNs for the reviewer instead
-          of blocking. Skips, net deletions of assertions/tests, narrowed test selection and CI
+  review  for human pull requests: a rewritten assertion (one removed, one added anywhere in
+          the diff) and a new checker suppression (category 4) are WARNs for the reviewer instead
+          of blocking, except a Python assertion that rgm_assertstrength.py shows is WEAKER than
+          the one it replaced (v0.24.0), which FAILs as kind `weakened`. Skips, net deletions of assertions/tests, narrowed test selection and CI
           that cannot fail still FAIL in both profiles.
 In both profiles an assertion that was only MOVED (the identical line re-added elsewhere in
 the same diff) is not a finding. Measured effect: bench/README.md.
@@ -44,6 +45,9 @@ import re
 import sys
 from pathlib import Path
 from typing import Any
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from rgm_assertstrength import WEAKER, classify, pair_lines  # noqa: E402
 
 # (category, severity, compiled-regex). severity: "fail" contributes to exit code 1; "warn" is reported but does not fail.
 ADD_RULES: list[tuple[int, str, re.Pattern[str]]] = [
@@ -175,6 +179,7 @@ def _parse_diff(text: str, profile: str = "agent") -> tuple[list[dict[str, Any]]
     removed: list[tuple[str, str]] = []                 # (file, content)
     added_counts: dict[str, int] = {}                    # normalised added line -> count
     added_asserts = 0                                    # added assertion-like lines, whole diff
+    added_py: dict[str, list[str]] = {}                  # file -> added Python assertion lines
     del_rx = DEL_RULES[0][2]
     cur_file = "?"
     old_file = "?"
@@ -195,6 +200,8 @@ def _parse_diff(text: str, profile: str = "agent") -> tuple[list[dict[str, Any]]
             added_counts[key] = added_counts.get(key, 0) + 1
             if del_rx.search(content):
                 added_asserts += 1
+                if cur_file.endswith(".py"):
+                    added_py.setdefault(cur_file, []).append(content)
             _match_line(content, cur_file, ADD_RULES, "added", findings, allows, profile)
         elif raw.startswith("-"):
             removed.append((cur_file, raw[1:]))
@@ -215,9 +222,32 @@ def _parse_diff(text: str, profile: str = "agent") -> tuple[list[dict[str, Any]]
             if added_asserts > 0:                     # rewritten: paired with an added assertion
                 added_asserts -= 1
                 f["kind"] = "rewritten"
+                f["_content"] = content
                 if profile == "review" and f["severity"] == "fail":
                     f["severity"] = "warn"
+    _classify_rewrites(findings, added_py, profile)
     return findings, allows
+
+
+def _classify_rewrites(findings: list[dict[str, Any]], added_py: dict[str, list[str]], profile: str) -> None:
+    """v0.24.0 (bench/assertstrength/SPEC.md): pair each rewritten Python assertion with an added
+    assertion in the same file and classify the rewrite. Under `review`, WEAKER becomes a FAIL
+    (kind `weakened`); every other class stays a WARN. Under `agent` nothing changes."""
+    by_file: dict[str, list[dict[str, Any]]] = {}
+    for f in findings:
+        if f.get("kind") == "rewritten" and f["file"].endswith(".py") and "_content" in f:
+            by_file.setdefault(f["file"], []).append(f)
+    for file, fs in by_file.items():
+        added = added_py.get(file, [])
+        for i, j, _score in pair_lines([f["_content"] for f in fs], added):
+            r = classify(fs[i]["_content"], added[j])
+            fs[i]["strength"] = r["class"]
+            fs[i]["rewritten_to"] = added[j].strip()[:160]
+            if r["class"] == WEAKER and profile == "review" and not fs[i].get("in_string"):
+                fs[i]["severity"] = "fail"
+                fs[i]["kind"] = "weakened"
+    for f in findings:
+        f.pop("_content", None)
 
 
 def _match_line(content: str, file: str, rules, line_kind: str,

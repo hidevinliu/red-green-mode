@@ -66,4 +66,4 @@ semantic reasoning about function calls inside the subject.
 
 ## Deviations
 
-(none yet)
+None. Results: [`README.md`](README.md).

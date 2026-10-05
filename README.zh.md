@@ -40,7 +40,7 @@ coding agent 的成绩由它自己跑的测试判定，所以"通过"最省力�
 
 **有实测数字，不只是描述**（[`bench/`](bench/README.md)）：对 55 种覆盖 Python、JS/TS、Go、Rust 和 CI 配置的
 已知作弊手法，反作弊扫描器拦下 **55/55**；在 21 个热门项目（Flask、Pydantic、Vite、Zod、GitHub CLI、Tokio 等）
-的 630 个真实合并 PR 上，审 PR 模式只拦 **3.3%**，而且逐个人工复核后没有一个是误判。
+的 630 个真实合并 PR 上，审 PR 模式只拦 **3.7%**，而且逐个人工复核后没有一个是误判。
 所有结果都能从仓库里的清单复现。
 
 单点补丁检测（[`bench/pointpatch/`](bench/pointpatch/README.md)）在 29 个 QuixBugs 程序上测过：
@@ -285,7 +285,8 @@ ln -s ~/.claude/skills/red-green-mode/skills/mutation-check ~/.claude/skills/mut
 
 `rgm_anticheat.py` 本质就是个 diff 扫描器，对人写的 PR 一样管用。审人写的 PR 时加 `--profile review`：
 人改写断言、加屏蔽注释很常见，这两类降为警告；跳过测试、断言或测试净减少、缩小测试范围照样拦
-（在[实测](bench/README.md)里只拦 3.3% 的合并 PR）：
+（在[实测](bench/README.md)里只拦 3.7% 的合并 PR）。被改写后能证明**变弱**的断言（比如 `== 42` 改成 `is not None`）也会拦，
+这个分类器的实测准确度和覆盖面见 [`bench/assertstrength/`](bench/assertstrength/README.md)：
 
 ```yaml
 - name: Block test-tampering in this PR

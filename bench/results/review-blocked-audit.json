@@ -1,10 +1,10 @@
 {
- "what": "Audit of every merged human PR still blocked by rgm_anticheat.py --profile review (v0.21.0).",
+ "what": "Audit of every merged human PR still blocked by rgm_anticheat.py --profile review (v0.21.0; two entries added in v0.24.0).",
  "method": "Each blocking finding was read against the PR diff and PR title; for removals the assertion-like lines removed vs added across the whole diff are counted. Verdicts are a reviewer's judgment (made with an AI assistant), not ground truth; they are committed so anyone can disagree line by line.",
  "summary": {
-  "blocked": 21,
+  "blocked": 23,
   "false_detection": 0,
-  "correct_detection_of_an_accepted_change": 21
+  "correct_detection_of_an_accepted_change": 23
  },
  "blocked": [
   {
@@ -216,6 +216,26 @@
    "kind": "net assertion/test removal",
    "evidence": "assertion-like lines removed 44, added 16",
    "verdict": "correct detection: the merged change really does skip / remove / deselect tests; maintainers accepted it, so under rgm it would need an rgm-allow reason"
+  },
+  {
+   "pr": "encode/httpx#3773",
+   "title": "Adapt test_response_decode_text_using_autodetect for chardet 6.0",
+   "categories": [
+    6
+   ],
+   "kind": "weakened assertion (v0.24.0)",
+   "evidence": "`assert response.encoding == \"ISO-8859-1\"` -> `in (\"ISO-8859-1\", \"WINDOWS-1252\")`",
+   "verdict": "correct detection: the assertion really is weaker (confirmed by the bench/assertstrength oracle); a deliberate maintainer change that would need an rgm-allow reason"
+  },
+  {
+   "pr": "pallets/flask#5812",
+   "title": "merge app and request context",
+   "categories": [
+    6
+   ],
+   "kind": "weakened assertion (v0.24.0)",
+   "evidence": "`assert leaks == []` -> `assert not leaks`",
+   "verdict": "correct detection: the assertion really is weaker (confirmed by the bench/assertstrength oracle); a deliberate maintainer change that would need an rgm-allow reason"
   }
  ],
  "false_detections_found_and_fixed_during_v0.21.0": [
