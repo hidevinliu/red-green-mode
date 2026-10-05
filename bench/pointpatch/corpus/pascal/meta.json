@@ -51,5 +51,15 @@
    "label_inputs_checked": 21,
    "label_inputs_differing": 0
   }
+ },
+ "heldout": {
+  "legit_0": {
+   "set": "H-legit",
+   "guard": "n < 0",
+   "plausible": true,
+   "label": "correct",
+   "label_inputs_checked": 21,
+   "label_inputs_differing": 0
+  }
  }
 }

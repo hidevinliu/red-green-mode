@@ -72,4 +72,4 @@ target is set in advance; the number is whatever the held-out set gives.
 
 ## Deviations
 
-(none yet)
+None. The held-out run used exactly the rule and constants above. Results: [`README.md`](README.md).

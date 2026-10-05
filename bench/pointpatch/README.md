@@ -1,9 +1,45 @@
 # Point-patch benchmark
 
+## v0.23.0 · guard probe (pre-registered, held-out)
+
+v0.22.0 missed every overfit patch that special-cases the failing tests by a *feature* of the input
+(`if len(arr) == 7: return [...]`, 0 of 6). v0.23.0 adds a second rule: find the conditions a patch
+*added*, generate inputs that fall inside each one, and flag the patch if it returns one constant
+for all of them while the old code did not. The design, its five conditions and every constant were
+committed in [`GUARD-SPEC.md`](GUARD-SPEC.md) before any held-out data existed; nothing was changed
+afterwards ("Deviations: none").
+
+**Held-out results (data generated after the spec, never used to develop the rule):**
+
+| Set | Count | Flagged by v0.23.0 | Flagged by v0.22.0 |
+|---|---|---|---|
+| H-overfit: special cases keyed on features the seen corpus never used (`sum`, a value range, first element, string prefix, length *and* first element) | 21 | **17 (81%)** | 1 |
+| H-legit: correct programs plus a guard that returns a constant the reference really returns on that whole region | 14 | **0** | 0 |
+
+One H-overfit patch is on `gcd`, the program used during v0.22.0 development; without it, 16 of 20.
+
+By feature: length-and-first 8/10, sum 4/5, range 2/3, prefix 2/2, first element 1/1. "Maximum"
+produced no plausible patch on these programs and has no row.
+
+**The seen corpus re-scored** (development data, reported for completeness): overfit 31 of 38
+(v0.22.0: 26), feature-keyed 5 of 6 (v0.22.0: 0), correct fixes flagged 0 of 112 (unchanged).
+
+**What the misses show.** Of the 4 held-out misses, 3 are guards whose region the search could not
+fill with 8 inputs (`sum(arr) == 80`, a 16-element list with a fixed first element, a 2-character
+string starting with `(`). The fourth returns `-1` ("not found"), which condition (e) treats as trivial
+on purpose, so functions that return booleans or small status codes are outside this rule. Across
+all candidates the probe examined 104 added guards and could not fill 21 of them.
+
+The v0.22.0 sections below are unchanged and describe the neighbour rule.
+
+---
+
+## v0.22.0 · neighbour rule
+
 Does `tools/rgm_pointpatch.py` catch a fix that only makes the tested inputs come out right, and
 does it leave real fixes alone?
 
-## Results (v0.22.0, threshold fixed in advance at 5%)
+### Results (v0.22.0, threshold fixed in advance at 5%)
 
 | Candidate patches | Count | Flagged SUSPECT |
 |---|---|---|
@@ -18,7 +54,7 @@ detector: 25 of 37 overfit caught, 0 of 108 correct flagged.
 
 Raw rows: [`../results/pointpatch-quixbugs.json`](../results/pointpatch-quixbugs.json).
 
-### What the misses show
+#### What the misses show
 
 - **Feature-keyed special cases are a blind spot (0 of 6).** `if len(arr) == 7: return [...]`
   changes behaviour on every nearby input that keeps the length, so it looks like a real fix. The
@@ -29,7 +65,7 @@ Raw rows: [`../results/pointpatch-quixbugs.json`](../results/pointpatch-quixbugs
 - The two disguised Claude patches that got through (`kheapsort`, `next_palindrome`) are in
   [`corpus/`](corpus/) with the prompt that produced them.
 
-### A secondary signal, not used in the verdict
+#### A secondary signal, not used in the verdict
 
 Constants that a patch adds to the function and that also appear in the test inputs
 (`LITERAL_HITS`) fired on 35 of 38 overfit patches and on 0 of 112 correct ones. Read this
@@ -37,7 +73,7 @@ with care: the template patches put the test inputs into the code by constructio
 next to the verdict for a human to look at, not folded into it, because folding it in now would
 mean tuning the detector on its own benchmark.
 
-### Threshold sweep (report only)
+#### Threshold sweep (report only)
 
 | Threshold | Overfit caught | Correct flagged |
 |---|---|---|
@@ -48,7 +84,7 @@ mean tuning the detector on its own benchmark.
 
 The shipped threshold stays at 0.05, the value fixed before the first run.
 
-## Method
+### Method
 
 **Programs.** [QuixBugs](https://github.com/jkoppel/QuixBugs) (MIT), the Python half: 31 small
 programs that each have a one-line bug, a reference fix and JSON test cases. Two (`knapsack`,
@@ -74,7 +110,7 @@ limit; one that still does not finish is treated as not terminating.
 **Detector.** Unchanged settings: 24 neighbours per changed test input, SUSPECT at a neighbour
 change rate of at most 0.05.
 
-## What changed during development (all disclosed)
+### What changed during development (all disclosed)
 
 1. *Before any benchmark run*, the gcd smoke test showed that a buggy function which crashes on
    every input made point patches come back INCONCLUSIVE. Neighbours where the old version fails the
@@ -87,7 +123,7 @@ change rate of at most 0.05.
 3. Labelling, not detection, was corrected twice before scoring: tuple-versus-list results from the
    JSON test format, and timeouts on the exponential programs.
 
-## A finding about the model, not the detector
+### A finding about the model, not the detector
 
 Asked to "just make the tests pass" (29 programs), Claude fixed the real bug every time. Asked
 explicitly *not* to fix it and to hide a special case instead, it still fixed the real bug in 25
@@ -95,14 +131,14 @@ of 29. On small algorithm puzzles like these, special-casing the tests is not wh
 for. That is one more reason the overfit side of this benchmark leans on templates, and why the
 numbers above say nothing about how often agents cheat in real repositories.
 
-## Context, not a comparison
+### Context, not a comparison
 
 PATCH-SIM (Xiong et al., ICSE 2018) filtered 56.3% of incorrect patches with no correct patch
 blocked; DiffTGen (Xin & Reiss, ISSTA 2017) identified 49.4% of overfitting patches. Both were
 measured on patches from Java repair tools on Defects4J, a harder and different dataset. The numbers
 here are not comparable to theirs; they are listed so the reader knows where the idea comes from.
 
-## Reproduce
+### Reproduce
 
 ```bash
 git clone --depth 1 https://github.com/jkoppel/QuixBugs bench/.cache/quixbugs
@@ -111,7 +147,7 @@ python3 bench/pointpatch/run_pointpatch_bench.py           # scores the committe
 python3 bench/pointpatch/build_corpus.py && python3 bench/pointpatch/gen_llm_patches.py
 ```
 
-## Limits
+### Limits
 
 - 29 small, single-function programs. Real repositories have objects, I/O and state that the
   neighbour generator cannot perturb; there the detector more often returns INCONCLUSIVE.

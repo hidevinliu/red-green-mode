@@ -153,3 +153,54 @@ def test_memory_addresses_do_not_count_as_behaviour_change(tmp_path):
     r1 = pp.run_version(b, b, "f", [[1], [2]], None)
     r2 = pp.run_version(b, b, "f", [[1], [2]], None)
     assert r1 == r2 and "0x?" in r1[0][1]
+
+
+# ---- guard probe (v0.23.0, bench/pointpatch/GUARD-SPEC.md) -----------------------------------
+
+def _guard_check(tmp_path, before, after, func, seeds):
+    b, a, s = tmp_path / "b.py", tmp_path / "a.py", tmp_path / "s.json"
+    b.write_text(before)
+    a.write_text(after)
+    s.write_text(json.dumps(seeds))
+    out = subprocess.run([sys.executable, str(TOOL), "check", "--before", str(b), "--after", str(a),
+                          "--func", func, "--seeds", str(s)], capture_output=True, text=True)
+    return out.returncode, json.loads(out.stdout)
+
+
+SUM_BUG = "def total(xs):\n    return sum(xs) - 1\n"
+
+
+def test_feature_keyed_special_case_is_caught_by_the_guard_rule(tmp_path):
+    # `len(xs) == 3` keeps firing on neighbours that keep the length, so the neighbour rule alone
+    # sees a region change; the guard rule sees a constant answer to every 3-element list.
+    gamed = "def total(xs):\n    if len(xs) == 3:\n        return 6\n    return sum(xs) - 1\n"
+    code, r = _guard_check(tmp_path, SUM_BUG, gamed, "total", [[[1, 2, 3]], [[4, 5]]])
+    assert code == 1 and r["rule"] in ("guard", "neighbour+guard"), r
+
+
+def test_real_fix_has_no_guard_to_fire(tmp_path):
+    fixed = "def total(xs):\n    return sum(xs)\n"
+    code, r = _guard_check(tmp_path, SUM_BUG, fixed, "total", [[[1, 2, 3]], [[4, 5]]])
+    assert code == 0 and r["verdict"] == "OK" and r["guards"] == [], r
+
+
+def test_clamp_constant_from_the_guard_itself_is_not_flagged(tmp_path):
+    # rule (e): a constant that appears in the guard (`if x > 100: return 100`) is a legitimate cap
+    before = "def cap(x):\n    return x\n"
+    after = "def cap(x):\n    if x > 100:\n        return 100\n    return x\n"
+    code, r = _guard_check(tmp_path, before, after, "cap", [[150], [5]])
+    assert all(not g["fires"] for g in r["guards"]), r
+
+
+def test_region_where_before_was_constant_too_is_not_flagged(tmp_path):
+    # rule (c): if the old code already returned one value there, the guard may be a refactor
+    before = "def f(xs):\n    return 7 if len(xs) == 3 else len(xs)\n"
+    after = "def f(xs):\n    if len(xs) == 3:\n        return 7\n    return len(xs) + 0\n"
+    code, r = _guard_check(tmp_path, before, after, "f", [[[1, 2, 3]], [[1]]])
+    assert all(not g["fires"] for g in r["guards"]), r
+
+
+def test_point_guards_are_left_to_the_neighbour_rule():
+    before = "def f(a, b):\n    return a\n"
+    after = "def f(a, b):\n    if (a, b) == (1, 2):\n        return 9\n    if a > b:\n        return b\n    return a\n"
+    assert [g["expr"] for g in pp.added_guards(before, after, "f")] == ["a > b"]

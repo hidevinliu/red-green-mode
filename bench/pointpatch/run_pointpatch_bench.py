@@ -39,6 +39,9 @@ def jobs() -> list[tuple[str, str, dict]]:
             continue
         for name, info in meta.get("candidates", {}).items():
             if info.get("plausible") and info.get("label") in ("correct", "overfit"):
+                out.append((d.name, name, {**info, "set": "seen"}))
+        for name, info in meta.get("heldout", {}).items():
+            if info.get("plausible") and info.get("label") in ("correct", "overfit"):
                 out.append((d.name, name, info))
     return out
 
@@ -51,9 +54,12 @@ def run(job: tuple[str, str, dict]) -> dict:
         r = pp.analyse(d / "before.py", d / f"{name}.py", d / f"{name}.py", prog, seeds)
     except Exception as exc:  # noqa: BLE001 - a crashed run is reported, not swallowed
         r = {"verdict": "ERROR", "why": str(exc)[:200], "neighbour_change_rate": None, "literal_hits": []}
-    return {"program": prog, "candidate": name, "source": info["source"], "label": info["label"],
-            "verdict": r["verdict"], "rate": r.get("neighbour_change_rate"),
-            "literal_hits": len(r.get("literal_hits", [])), "why": r.get("why")}
+    return {"program": prog, "candidate": name, "set": info.get("set", "seen"),
+            "source": info.get("source") or info.get("feature") or info.get("guard"),
+            "feature": info.get("feature"), "label": info["label"],
+            "verdict": r["verdict"], "rule": r.get("rule"), "rate": r.get("neighbour_change_rate"),
+            "literal_hits": len(r.get("literal_hits", [])), "why": r.get("why"),
+            "guards": [{k: g.get(k) for k in ("guard", "fires", "why", "region_inputs")} for g in r.get("guards", [])]}
 
 
 def table(rows: list[dict]) -> dict:
@@ -84,9 +90,27 @@ def render(rows: list[dict]) -> str:
                 f"INCONCLUSIVE {of.get('INCONCLUSIVE', 0)}, ERROR {of.get('ERROR', 0)} | "
                 f"correct {n_co} -> SUSPECT {co.get('SUSPECT', 0)}, OK {co.get('OK', 0)}, "
                 f"INCONCLUSIVE {co.get('INCONCLUSIVE', 0)}, ERROR {co.get('ERROR', 0)}")
-    out = [line("all", rows), line("excluding dev program gcd", [r for r in rows if r["program"] not in DEV_PROGRAMS])]
-    for src in sorted({r["source"] for r in rows}):
-        out.append(line(f"  source={src}", [r for r in rows if r["source"] == src]))
+    seen = [r for r in rows if r["set"] == "seen"]
+    out = [line("SEEN (development data)", seen),
+           line("SEEN excluding dev program gcd", [r for r in seen if r["program"] not in DEV_PROGRAMS])]
+    for src in sorted({r["source"] for r in seen}):
+        out.append(line(f"  source={src}", [r for r in seen if r["source"] == src]))
+    ho = [r for r in rows if r["set"] == "H-overfit"]
+    hl = [r for r in rows if r["set"] == "H-legit"]
+    out.append(line("HELD-OUT H-overfit", ho))
+    for feat in sorted({r["feature"] for r in ho if r["feature"]}):
+        out.append(line(f"  feature={feat}", [r for r in ho if r["feature"] == feat]))
+    out.append(line("HELD-OUT H-legit", hl))
+    unreached = sum(1 for r in rows for g in r.get("guards", []) if (g.get("why") or "").startswith("region not reached"))
+    total_g = sum(len(r.get("guards", [])) for r in rows)
+    out.append(f"  guards examined {total_g}, region not reached {unreached}")
+    rules = {}
+    for r in rows:
+        if r["verdict"] == "SUSPECT":
+            rules[(r["set"], r["label"], r["rule"])] = rules.get((r["set"], r["label"], r["rule"]), 0) + 1
+    out.append("  SUSPECT by (set, label, rule): " + ", ".join(f"{k}={v}" for k, v in sorted(rules.items(), key=str)))
+    seen_rows = seen
+    rows = seen_rows  # the sweep and literal statistics below stay on the seen set, as in v0.22.0
     for s in sweep(rows):
         out.append(f"  threshold {s['threshold']:.2f}: caught {s['overfit_caught']}/{s['overfit_judged']} overfit, "
                    f"flagged {s['correct_flagged']}/{s['correct_judged']} correct")
@@ -106,9 +130,10 @@ def main() -> int:
     print(render(rows))
     for r in rows:
         if (r["label"] == "correct" and r["verdict"] == "SUSPECT") or (r["label"] == "overfit" and r["verdict"] != "SUSPECT"):
-            print(f"    {r['label']:8} {r['verdict']:12} {r['program']}/{r['candidate']}: {r['why']}")
+            gw = "; ".join(f"[{g['guard'][:40]}] {(g.get('why') or '')[:60]}" for g in r["guards"])
+            print(f"    {r['set']:9} {r['label']:8} {r['verdict']:12} {r['program']}/{r['candidate']}: {r['why']} | {gw}")
     if args.save:
-        out = ROOT / "bench" / "results" / "pointpatch-quixbugs.json"
+        out = ROOT / "bench" / "results" / "pointpatch-quixbugs-v0.23.json"
         out.write_text(json.dumps({"rows": rows, "table": table(rows), "sweep": sweep(rows),
                                    "threshold": pp.SUSPECT_RATE}, indent=1) + "\n")
         print(f"saved {out.relative_to(ROOT)}")

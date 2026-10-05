@@ -49,5 +49,23 @@
    "label_inputs_checked": 322,
    "label_inputs_differing": 0
   }
+ },
+ "heldout": {
+  "legit_0": {
+   "set": "H-legit",
+   "guard": "-10 <= total <= -4",
+   "plausible": true,
+   "label": "correct",
+   "label_inputs_checked": 322,
+   "label_inputs_differing": 0
+  },
+  "legit_1": {
+   "set": "H-legit",
+   "guard": "total < 0",
+   "plausible": true,
+   "label": "correct",
+   "label_inputs_checked": 322,
+   "label_inputs_differing": 0
+  }
  }
 }

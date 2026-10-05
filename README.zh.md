@@ -44,8 +44,8 @@ coding agent 的成绩由它自己跑的测试判定，所以"通过"最省力�
 所有结果都能从仓库里的清单复现。
 
 单点补丁检测（[`bench/pointpatch/`](bench/pointpatch/README.md)）在 29 个 QuixBugs 程序上测过：
-112 个正确修复**误报 0 个**，38 个过拟合补丁**抓到 26 个**。按输入特征写死的补丁一个都抓不到（0/6），
-而且过拟合样本大多是模板生成的，这两点局限都在评测文档里写明了。
+112 个正确修复**误报 0 个**，38 个过拟合补丁**抓到 31 个**。新增的条件探测规则事先写定规格、在独立测试集上评测：
+按输入特征写死的补丁 21 个**抓到 17 个**，14 个看起来像作弊、其实正确的补丁**误报 0 个**。过拟合样本是模板生成的，局限都在评测文档里写明了。
 
 ---
 
@@ -186,7 +186,19 @@ $ echo $?
 ```
 
 老实的修法（`/ 100`）在同样 48 个附近输入里改变了 47 个，结果是 `POINTPATCH=OK`。
-真修复会改变一整片输入的行为，单点补丁只改变测试看得到的那几个点。这条规则多常判对、
+真修复会改变一整片输入的行为，单点补丁只改变测试看得到的那几个点。伪装过的写死（`if price % 7 == 4: return 180`）
+会改变一整片输入，所以还有第二条规则：读出补丁新加的条件，生成一批落在条件里的输入，如果它们全部得到同一个答案，就判为可疑。
+
+```console
+$ python3 $RGM/tools/rgm_pointpatch.py check ... --format sentinel   # 用 % 7 伪装的版本
+POINTPATCH=SUSPECT
+NEIGHBOUR_CHANGE_RATE=0.625
+LITERAL_HITS=0
+RULE=guard
+WHY=added guard `price % 7 == 4` returns the constant 180 on all 40 inputs inside the guard
+```
+
+只靠附近输入的规则会放过它（附近 62.5% 的输入都变了，代码里也没有测试用的数值），条件探测规则不会。这条规则多常判对、
 多常判错，实测在 [`bench/pointpatch/`](bench/pointpatch/README.md)。
 
 ---

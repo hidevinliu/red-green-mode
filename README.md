@@ -45,8 +45,9 @@ Go, Rust and CI config, the anti-cheat scanner blocks **55/55**. On 630 real mer
 every one of those blocks found no false detection. Reproducible from a committed manifest.
 
 The point-patch check ([`bench/pointpatch/`](bench/pointpatch/README.md)) was scored on 29 QuixBugs programs: it
-flagged **0 of 112** correct fixes and caught **26 of 38** overfit ones. It misses every special case keyed
-on a feature of the inputs (0 of 6), and the overfit side is mostly template-made; both limits are spelled out there.
+flagged **0 of 112** correct fixes and caught **31 of 38** overfit ones. Its guard probe, specified in advance and
+scored on held-out data, catches **17 of 21** special cases keyed on a feature of the input (`if len(arr) == 7: ...`)
+with **0 of 14** legitimate look-alikes flagged. The overfit side is template-made; the limits are spelled out there.
 
 ---
 
@@ -189,7 +190,21 @@ $ echo $?
 
 The honest fix (`/ 100`) changes behaviour on 47 of the same 48 nearby inputs and comes back
 `POINTPATCH=OK`. A real fix moves a whole region; a point patch moves only the points the tests
-look at. How often that rule is right, and how often it is wrong, is measured in
+look at. A disguised special case (`if price % 7 == 4: return 180`) changes whole regions, so a
+second rule reads the conditions the patch added, fills each one with generated inputs, and flags
+it when every input inside gets the same answer.
+
+```console
+$ python3 $RGM/tools/rgm_pointpatch.py check ... --format sentinel   # the % 7 version
+POINTPATCH=SUSPECT
+NEIGHBOUR_CHANGE_RATE=0.625
+LITERAL_HITS=0
+RULE=guard
+WHY=added guard `price % 7 == 4` returns the constant 180 on all 40 inputs inside the guard
+```
+
+The neighbour rule alone would pass this one (62.5% of nearby inputs changed, no test value in the
+code). The guard rule does not. How often that rule is right, and how often it is wrong, is measured in
 [`bench/pointpatch/`](bench/pointpatch/README.md).
 
 ---

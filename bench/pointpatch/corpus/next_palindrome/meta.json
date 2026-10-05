@@ -41,5 +41,31 @@
    "label_inputs_checked": 151,
    "label_inputs_differing": 1
   }
+ },
+ "heldout": {
+  "heldout_sum": {
+   "set": "H-overfit",
+   "feature": "sum",
+   "plausible": true,
+   "label": "overfit",
+   "label_inputs_checked": 151,
+   "label_inputs_differing": 9
+  },
+  "heldout_first": {
+   "set": "H-overfit",
+   "feature": "first",
+   "plausible": true,
+   "label": "overfit",
+   "label_inputs_checked": 151,
+   "label_inputs_differing": 18
+  },
+  "heldout_len_first": {
+   "set": "H-overfit",
+   "feature": "len_first",
+   "plausible": true,
+   "label": "overfit",
+   "label_inputs_checked": 151,
+   "label_inputs_differing": 10
+  }
  }
 }

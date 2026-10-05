@@ -45,5 +45,15 @@
    "label_inputs_checked": 162,
    "label_inputs_differing": 0
   }
+ },
+ "heldout": {
+  "heldout_range": {
+   "set": "H-overfit",
+   "feature": "range",
+   "plausible": true,
+   "label": "overfit",
+   "label_inputs_checked": 162,
+   "label_inputs_differing": 160
+  }
  }
 }

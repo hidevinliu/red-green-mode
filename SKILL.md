@@ -1,6 +1,6 @@
 ---
 name: red-green-mode
-version: 0.22.0
+version: 0.23.0
 description: >-
   Autonomous test-fix loop: run an objective verifier (tests, type-check, lint, CI), fix what is
   red, re-run, and finish only when the verifier exit code is all green. Use when the user wants
@@ -31,7 +31,7 @@ whatever is red, then verify again.
 # ① First step of any run: create the ledger (mandatory, however small the task; it powers the
 #    wrap-up timing report. Only exemption: no write permission)
 python tools/rgm_ledger.py init --task "<task>" --workspace "$PWD" \
-  --skill-version "red-green-mode v0.22.0" --verify "python -m pytest -q" --out .rgm-ledger.json
+  --skill-version "red-green-mode v0.23.0" --verify "python -m pytest -q" --out .rgm-ledger.json
 # ② Every verify round (including INNER_VERIFY): record the remaining red count as a number, then
 #    let the script rule on stalling (patience defaults to 5 rounds)
 python tools/rgm_ledger.py add --out .rgm-ledger.json --state OUTER_VERIFY --result "4 failed" --red-count 4

@@ -48,5 +48,15 @@
    "label_inputs_checked": 275,
    "label_inputs_differing": 0
   }
+ },
+ "heldout": {
+  "heldout_sum": {
+   "set": "H-overfit",
+   "feature": "sum",
+   "plausible": true,
+   "label": "overfit",
+   "label_inputs_checked": 275,
+   "label_inputs_differing": 261
+  }
  }
 }

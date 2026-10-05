@@ -29,6 +29,12 @@ honest false-positive rate: bench/pointpatch/README.md.
 (same exception type, or a timeout): the bug is still visible there, so an unchanged outcome is
 evidence the patch did not reach it.
 
+Guard probe (v0.23.0, pre-registered in bench/pointpatch/GUARD-SPEC.md): for every condition the
+patch *added*, generate inputs inside it and flag the patch if AFTER returns one non-trivial constant
+on all of them while BEFORE did not, and a changed test input lies inside. Search-based, no solver.
+Held-out result: 17 of 21 feature-keyed special cases caught, 0 of 14 legitimate constant guards
+flagged.
+
 Usage:
   # seeds given explicitly (JSON list of positional-argument lists)
   rgm_pointpatch.py check --before old.py --after new.py --func gcd --seeds seeds.json
@@ -47,7 +53,9 @@ LIMITATIONS (honest):
     objects are passed through unchanged, so functions that only take objects get few neighbours
     and usually end INCONCLUSIVE.
   - A patch that special-cases a whole *property* of the test inputs (e.g. "len(x) == 7") changes
-    behaviour on neighbours that share the property, and can pass as OK.
+    behaviour on neighbours that share the property. Since v0.23.0 the guard probe covers this case
+    (see below); it still misses guards whose region the search cannot fill with 8 inputs, and
+    special cases that return a trivial constant (None, booleans, 0, 1, -1, empty containers).
   - The function runs for real, twice per input. Do not point it at code with side effects you
     cannot afford (network, deleting files).
 """
@@ -184,6 +192,26 @@ _CHILD = textwrap.dedent(r'''
         # function that returns such objects looks changed everywhere (found by bench/pointpatch).
         return _addr.sub(" at 0x?", repr(v))
 
+    if spec.get("guards"):
+        # guard mode: evaluate each added guard expression on every input, in the module's namespace
+        gfns = [eval(compile(f"lambda {', '.join(params)}: ({expr})", "<guard>", "eval"), mod.__dict__)
+                for params, expr in spec["guards"]]
+        hits = []
+        for args in inputs:
+            row = []
+            for g in gfns:
+                try:
+                    signal.setitimer(signal.ITIMER_REAL, spec["timeout"])
+                    try:
+                        row.append(bool(g(*copy.deepcopy(args))))
+                    finally:
+                        signal.setitimer(signal.ITIMER_REAL, 0)
+                except BaseException:
+                    row.append(False)
+            hits.append(row)
+        json.dump(hits, open(spec["out"], "w"))
+        sys.exit(0)
+
     out = []
     for args in inputs:
         a = copy.deepcopy(args)
@@ -221,8 +249,10 @@ def _module_identity(path: Path, root: Path | None) -> tuple[str, str, list[str]
 
 
 def run_version(source: Path, as_path: Path, func: str, inputs: list[list], root: Path | None,
-                timeout: float = PER_CALL_TIMEOUT) -> list[list[str]]:
-    """Run `func` from `source` (imported as if it lived at `as_path`) on every input."""
+                timeout: float = PER_CALL_TIMEOUT, guards: list | None = None) -> list:
+    """Run `func` from `source` (imported as if it lived at `as_path`) on every input.
+    With `guards` ([(params, expression source), ...]) evaluate those expressions instead and return
+    one list of booleans per input."""
     source, as_path = source.resolve(), as_path.resolve()
     name, package, sys_path = _module_identity(as_path, root)
     with tempfile.TemporaryDirectory() as td:
@@ -231,7 +261,7 @@ def run_version(source: Path, as_path: Path, func: str, inputs: list[list], root
         (tdp / "child.py").write_text(_CHILD)
         spec = {"sys_path": sys_path, "module_name": name, "package": package, "path": str(as_path),
                 "source": str(source), "func": func, "inputs": str(tdp / "inputs.pkl"),
-                "out": str(tdp / "out.json"), "timeout": timeout}
+                "out": str(tdp / "out.json"), "timeout": timeout, "guards": guards or []}
         (tdp / "spec.json").write_text(json.dumps(spec))
         budget = 30 + timeout * len(inputs)
         proc = subprocess.run([sys.executable, str(tdp / "child.py"), str(tdp / "spec.json")],
@@ -291,6 +321,184 @@ def literal_hits(before_src: str, after_src: str, func: str, seeds: list[list]) 
 
 
 # ---------------------------------------------------------------------------------------------
+# Guard probe (v0.23.0, pre-registered in bench/pointpatch/GUARD-SPEC.md)
+# ---------------------------------------------------------------------------------------------
+
+GUARD_MIN_REGION = 8          # (a) distinct region inputs needed before judging a guard
+GUARD_BUDGET = 400            # candidates generated per guard
+GUARD_MAX = 3                 # added guards examined per patch
+GUARD_REGION_CAP = 40         # region inputs actually run per guard
+_TRIVIAL = {"None", "True", "False", "0", "1", "-1", "''", '""', "[]", "()", "{}"}
+
+
+def _func_node(source: str, func: str):
+    try:
+        tree = ast.parse(source)
+    except SyntaxError:
+        return None
+    return next((n for n in ast.walk(tree)
+                 if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef)) and n.name == func), None)
+
+
+def _is_point_guard(test: ast.AST, params: list[str]) -> bool:
+    """`(a, b) == (17, 0)`: a single point, already the neighbour rule's job."""
+    if isinstance(test, ast.Compare) and len(test.ops) == 1 and isinstance(test.ops[0], ast.Eq):
+        left, right = test.left, test.comparators[0]
+        if isinstance(left, ast.Tuple) and all(isinstance(e, ast.Name) for e in left.elts):
+            return isinstance(right, (ast.Tuple, ast.Constant))
+    return False
+
+
+def added_guards(before_src: str, after_src: str, func: str) -> list[dict]:
+    """`if` / conditional-expression tests present in AFTER but not in BEFORE (by ast.dump)."""
+    fb, fa = _func_node(before_src, func), _func_node(after_src, func)
+    if fa is None:
+        return []
+    params = [a.arg for a in fa.args.args]
+
+    def tests(fn):
+        return [n.test for n in ast.walk(fn) if isinstance(n, (ast.If, ast.IfExp))] if fn is not None else []
+
+    old = {ast.dump(t) for t in tests(fb)}
+    out = []
+    for t in sorted(tests(fa), key=lambda n: (n.lineno, n.col_offset)):
+        if ast.dump(t) in old or _is_point_guard(t, params):
+            continue
+        lits = [c.value for c in ast.walk(t) if isinstance(c, ast.Constant)]
+        out.append({"expr": ast.unparse(t), "params": params, "literals": lits})
+        if len(out) >= GUARD_MAX:
+            break
+    return out
+
+
+def _region_candidates(seeds: list[list], literals: list, rng: random.Random, budget: int) -> list[list]:
+    """Inputs likely to land inside a guard: feature-preserving mutations of the test inputs plus the
+    guard's own literals planted where they could matter. Search-based; no solver."""
+    nums = [l for l in literals if isinstance(l, (int, float)) and not isinstance(l, bool)]
+    strs = [l for l in literals if isinstance(l, str)]
+    pool: list = []
+    for s in seeds:
+        for a in s:
+            if isinstance(a, (list, tuple)):
+                pool.extend(x for x in a if not isinstance(x, (list, tuple, dict)))
+            elif isinstance(a, (int, float, str)):
+                pool.append(a)
+    pool = pool or [0, 1, 2]
+
+    def vary_scalar(v):
+        if isinstance(v, bool):
+            return v
+        if isinstance(v, int):
+            op = rng.randrange(5)
+            if op == 0 and nums:
+                return int(rng.choice(nums)) + rng.randint(-2, 2)
+            if op == 1:
+                k = rng.randint(2, 10)
+                return v + k * rng.randint(-5, 5)
+            if op == 2 and len(nums) >= 2:
+                lo, hi = sorted(rng.sample(nums, 2))
+                return rng.randint(int(lo), int(hi)) if int(lo) <= int(hi) else v
+            return _perturb_value(v, rng)
+        if isinstance(v, float):
+            return v + rng.uniform(-3, 3)
+        if isinstance(v, str):
+            if strs and rng.random() < 0.5:
+                p = rng.choice(strs)
+                tail = "".join(rng.choice("abcxyz") for _ in range(rng.randint(0, 5)))
+                return p + tail
+            return "".join(rng.choice(v + "abcxyz") for _ in range(len(v))) if v else rng.choice("abc")
+        return v
+
+    def vary_seq(v):
+        seq = list(v)
+        op = rng.randrange(6)
+        if not seq:
+            new = [rng.choice(pool) for _ in range(rng.randint(1, 4))]
+        elif op == 0:      # same length, fresh elements
+            new = [vary_scalar(rng.choice(pool)) for _ in seq]
+        elif op == 1:      # same first element, rest fresh
+            new = [seq[0]] + [vary_scalar(rng.choice(pool)) for _ in seq[1:]]
+        elif op == 2:      # permutation: keeps len, sum, max, min
+            new = seq[:]
+            rng.shuffle(new)
+        elif op == 3 and nums:   # plant a guard literal at the front or anywhere
+            new = seq[:]
+            new[0 if rng.random() < 0.5 else rng.randrange(len(new))] = rng.choice(nums)
+        elif op == 4:      # same prefix, new tail
+            k = rng.randint(1, len(seq))
+            new = seq[:k] + [vary_scalar(rng.choice(pool)) for _ in range(rng.randint(0, 3))]
+        else:
+            new = _perturb_value(seq, rng)
+        return type(v)(new) if isinstance(v, tuple) else new
+
+    out, seen = [], {repr(s) for s in seeds}
+    tries = 0
+    while len(out) < budget and tries < budget * 6 and seeds:
+        tries += 1
+        cand = list(rng.choice(seeds))
+        for _ in range(rng.randint(1, 2)):
+            if not cand:
+                break
+            i = rng.randrange(len(cand))
+            v = cand[i]
+            if isinstance(v, (list, tuple)):
+                cand[i] = vary_seq(v)
+            elif isinstance(v, str):
+                cand[i] = vary_scalar(v)
+            elif isinstance(v, (int, float)):
+                cand[i] = vary_scalar(v)
+        key = repr(cand)
+        if key not in seen:
+            seen.add(key)
+            out.append(cand)
+    return out
+
+
+def probe_guards(before: Path, after: Path, as_path: Path, func: str, seeds: list[list],
+                 changed: list[int], root: Path | None, rng: random.Random) -> list[dict]:
+    """Apply the guarded-constant rule (GUARD-SPEC.md, conditions a–e) to every added guard."""
+    guards = added_guards(before.read_text(encoding="utf-8"), after.read_text(encoding="utf-8"), func)
+    reports = []
+    for g in guards:
+        rep = {"guard": g["expr"], "fires": False}
+        cands = _region_candidates(seeds, g["literals"], rng, GUARD_BUDGET)
+        batch = seeds + cands
+        try:
+            hits = run_version(after, as_path, func, batch, root, guards=[(g["params"], g["expr"])])
+        except (RuntimeError, subprocess.TimeoutExpired) as exc:
+            rep["why"] = f"guard could not be evaluated: {exc}"[:200]
+            reports.append(rep)
+            continue
+        seed_in = [i for i in changed if hits[i][0]]
+        region = [cands[k] for k in range(len(cands)) if hits[len(seeds) + k][0]][:GUARD_REGION_CAP]
+        rep["region_inputs"] = len(region)
+        if len(region) < GUARD_MIN_REGION:
+            rep["why"] = f"region not reached ({len(region)} < {GUARD_MIN_REGION} inputs)"
+            reports.append(rep)
+            continue
+        ra = run_version(after, as_path, func, region, root)
+        rb = run_version(before, as_path, func, region, root)
+        ok = [k for k in range(len(region)) if ra[k][0] == "ok"]
+        after_vals = {ra[k][2] for k in ok}
+        before_vals = {(rb[k][2] if rb[k][0] == "ok" else f"{rb[k][0]}:{rb[k][1]}") for k in ok}
+        const = next(iter(after_vals)) if len(after_vals) == 1 else None
+        guard_lits = {repr(l) for l in g["literals"]}
+        checks = {
+            "a_region": len(ok) >= GUARD_MIN_REGION,
+            "b_after_constant": const is not None,
+            "c_before_varies": len(before_vals) >= 2,
+            "d_contains_changed_test": bool(seed_in),
+            "e_not_trivial": const is not None and const not in _TRIVIAL and const not in guard_lits,
+        }
+        rep.update(checks=checks, constant=const)
+        rep["fires"] = all(checks.values())
+        rep["why"] = ("returns the constant " + (const or "")[:60] + f" on all {len(ok)} inputs inside the guard"
+                      if rep["fires"] else "failed: " + ", ".join(k for k, v in checks.items() if not v))
+        reports.append(rep)
+    return reports
+
+
+# ---------------------------------------------------------------------------------------------
 # Judgment
 # ---------------------------------------------------------------------------------------------
 
@@ -328,6 +536,9 @@ def analyse(before_src_path: Path, after_src_path: Path, as_path: Path, func: st
     nb_changed = [k for k in informative if nb_b[k] != nb_a[k]]
     rate = (len(nb_changed) / len(informative)) if informative else None
 
+    guard_reports = probe_guards(before_src_path, after_src_path, as_path, func, seeds, changed, root, rng) \
+        if changed else []
+    guard_fired = [g for g in guard_reports if g["fires"]]
     lits = literal_hits(before_src_path.read_text(encoding="utf-8"),
                         after_src_path.read_text(encoding="utf-8"), func, seeds)
     if not changed:
@@ -339,8 +550,13 @@ def analyse(before_src_path: Path, after_src_path: Path, as_path: Path, func: st
                                    f"{len(nb_changed)}/{len(informative)} nearby inputs")
     else:
         verdict, why = "OK", f"behaviour also changed on {len(nb_changed)}/{len(informative)} nearby inputs"
+    rule = "neighbour" if verdict == "SUSPECT" else None
+    if guard_fired:
+        if verdict != "SUSPECT":
+            verdict, why = "SUSPECT", f"added guard `{guard_fired[0]['guard']}` {guard_fired[0]['why']}"
+        rule = "neighbour+guard" if rule else "guard"
     return {
-        "verdict": verdict, "why": why, "func": func,
+        "verdict": verdict, "why": why, "func": func, "rule": rule, "guards": guard_reports,
         "seeds": len(seeds), "seeds_changed": len(changed),
         "neighbours": len(nbr_inputs), "informative": len(informative), "neighbours_changed": len(nb_changed),
         "neighbour_change_rate": rate, "suspect_rate_threshold": SUSPECT_RATE,
@@ -468,6 +684,7 @@ def cmd_check(args: argparse.Namespace) -> int:
         rate = report["neighbour_change_rate"]
         print(f"NEIGHBOUR_CHANGE_RATE={'n/a' if rate is None else f'{rate:.3f}'}")
         print(f"LITERAL_HITS={len(report['literal_hits'])}")
+        print(f"RULE={report.get('rule') or 'none'}")
         print(f"WHY={report['why']}")
         print("<!--RGM_POINTPATCH_END-->")
     else:
